@@ -333,12 +333,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/example_repo.html">An Example Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes.html">Recording Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/history_and_changes.html">Viewing History and Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/recording_changes_revisited.html">Recording Changes – Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/pushing_and_pulling.html">Pushing to and Pulling From the Remote Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/undoing_changes.html">Undoing Changes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/ignoring_files.html">Ignoring Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/local_branches.html">Working with Local Branches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/remote_branches_with_github.html">Remote Branches with GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/collaborating_with_branches.html">Collaborating with Branches</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_version_control/merge_conflicts.html">Merge Conflicts</a></li>
 </ul>
 </li>
@@ -397,6 +399,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/regression_models_with_interaction_terms.html">Regression models with interaction terms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/summary.html">Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_regression_analysis_with_R/extras.html">Extras</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="working_with_data_in_R.html">Working With Data in R</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/introducing_tidyverse.html">Tidyverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/loading_data.html">Loading Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/manipulating_a_dataframe.html">Manipulating A Dataframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/piping.html">Piping and Functional Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/combining_datasets.html">Combining Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/reshaping_datasets.html">Reshaping Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/strings_and_dates.html">Strings and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_data_in_R/summary.html">Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -602,8 +615,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">Feedback</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#join-us">Join us</a></li>
 </ul>
             </nav>
         </div>
@@ -637,14 +648,6 @@ document.write(`
 <section id="pre-requisite-knowledge">
 <h2>Pre-requisite Knowledge<a class="headerlink" href="#pre-requisite-knowledge" title="Link to this heading">#</a></h2>
 <p>No pre-requisite knowledge needed. However, course attendees will need to follow our setup guide to install Python and JupyterLab, which we will use for the course.</p>
-</section>
-<section id="feedback">
-<h2>Feedback<a class="headerlink" href="#feedback" title="Link to this heading">#</a></h2>
-<p>Please remember to complete a feedback survey. Our workshops are under continual review and your experiences, suggestions and criticism are invaluable for shaping the direction of this initiative. This is especially important if you complete the materials in your own time as it enables us to measure impact. If you have ideas on other courses you would like to see then please contact Eilis Hannon: <a class="reference internal" href="#E.J.hannon&#64;exeter.ac.uk"><span class="xref myst">E.J.hannon&#64;exeter.ac.uk</span></a></p>
-</section>
-<section id="join-us">
-<h2>Join us<a class="headerlink" href="#join-us" title="Link to this heading">#</a></h2>
-<p>If you are interested in becoming part of our community of workshop helpers, leaders and developers please contact Eilis Hannon: <a class="reference internal" href="#E.J.hannon&#64;exeter.ac.uk"><span class="xref myst">E.J.hannon&#64;exeter.ac.uk</span></a></p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -717,8 +720,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-objectives">Course Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisite-knowledge">Pre-requisite Knowledge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">Feedback</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#join-us">Join us</a></li>
 </ul>
   </nav></div>
 
