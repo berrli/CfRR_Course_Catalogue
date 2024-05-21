@@ -256,6 +256,10 @@
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Help us improve!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../course_review.html">Course Review</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../individual_modules/section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -288,8 +292,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../individual_modules/section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -437,14 +441,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/arrays_and_matrices.html">Arrays and Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/io.html">Input Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/package_management.html">Package Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/visualisation.html">Plotting and Visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../individual_modules/introduction_to_julia/performant_code.html">Performant Code</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Join Us!</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to CfRR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developing_a_course.html">Developing a Course Guidance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../suggestions_form.html">Suggestions for Improvements, Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../suggestions_form.html">Suggestions for Courses, Improvements and Additions</a></li>
 </ul>
 
     </div>
@@ -713,13 +724,13 @@ document.write(`
 <h1>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="zXKoNMOvuoxv" data-shufflequestions="False"
+<div class="output text_html"><div id="DUOdfvnFLHqW" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#zXKoNMOvuoxv {
+#DUOdfvnFLHqW {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -889,7 +900,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionszXKoNMOvuoxv=[
+</style></div><script type="application/javascript">var questionsDUOdfvnFLHqW=[
     {
         "question": "Which function is used to create an array in NumPy?",
         "type": "many_choice",
@@ -1899,8 +1910,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("zXKoNMOvuoxv")) {
-            show_questions(questionszXKoNMOvuoxv,  zXKoNMOvuoxv); 
+          if(document.getElementById("DUOdfvnFLHqW")) {
+            show_questions(questionsDUOdfvnFLHqW,  DUOdfvnFLHqW); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1909,8 +1920,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("zXKoNMOvuoxv");
-        // console.log(document.getElementById("zXKoNMOvuoxv"));
+        //console.log("DUOdfvnFLHqW");
+        // console.log(document.getElementById("DUOdfvnFLHqW"));
 
         try_show();
         }
@@ -1921,13 +1932,13 @@ if (typeof version == 'undefined') {
 <h1>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="IMFymdgrkSVm" data-shufflequestions="False"
+<div class="output text_html"><div id="UnzmNeaqvVUI" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#IMFymdgrkSVm {
+#UnzmNeaqvVUI {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2097,7 +2108,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsIMFymdgrkSVm=[
+</style></div><script type="application/javascript">var questionsUnzmNeaqvVUI=[
     {
         "question": "Which function is used to read a .csv file in Pandas?",
         "type": "many_choice",
@@ -3107,8 +3118,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("IMFymdgrkSVm")) {
-            show_questions(questionsIMFymdgrkSVm,  IMFymdgrkSVm); 
+          if(document.getElementById("UnzmNeaqvVUI")) {
+            show_questions(questionsUnzmNeaqvVUI,  UnzmNeaqvVUI); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3117,8 +3128,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("IMFymdgrkSVm");
-        // console.log(document.getElementById("IMFymdgrkSVm"));
+        //console.log("UnzmNeaqvVUI");
+        // console.log(document.getElementById("UnzmNeaqvVUI"));
 
         try_show();
         }
@@ -3126,13 +3137,13 @@ if (typeof version == 'undefined') {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="GlAVDfaBqcEe" data-shufflequestions="False"
+<div class="output text_html"><div id="SICsHuCxYpGF" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#GlAVDfaBqcEe {
+#SICsHuCxYpGF {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -3302,7 +3313,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsGlAVDfaBqcEe=[
+</style></div><script type="application/javascript">var questionsSICsHuCxYpGF=[
     {
         "question": "What is Matplotlib used for in Python?",
         "type": "many_choice",
@@ -4312,8 +4323,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("GlAVDfaBqcEe")) {
-            show_questions(questionsGlAVDfaBqcEe,  GlAVDfaBqcEe); 
+          if(document.getElementById("SICsHuCxYpGF")) {
+            show_questions(questionsSICsHuCxYpGF,  SICsHuCxYpGF); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -4322,8 +4333,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("GlAVDfaBqcEe");
-        // console.log(document.getElementById("GlAVDfaBqcEe"));
+        //console.log("SICsHuCxYpGF");
+        // console.log(document.getElementById("SICsHuCxYpGF"));
 
         try_show();
         }
@@ -4334,13 +4345,13 @@ if (typeof version == 'undefined') {
 <h1>Scikit Learn<a class="headerlink" href="#scikit-learn" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="IyDTqNBEJwzV" data-shufflequestions="False"
+<div class="output text_html"><div id="RvxWjOMeXhjQ" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#IyDTqNBEJwzV {
+#RvxWjOMeXhjQ {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -4510,7 +4521,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsIyDTqNBEJwzV=[
+</style></div><script type="application/javascript">var questionsRvxWjOMeXhjQ=[
     {
         "question": "What function from scikit-learn is typically used to fit a linear regression model?",
         "type": "many_choice",
@@ -5390,8 +5401,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("IyDTqNBEJwzV")) {
-            show_questions(questionsIyDTqNBEJwzV,  IyDTqNBEJwzV); 
+          if(document.getElementById("RvxWjOMeXhjQ")) {
+            show_questions(questionsRvxWjOMeXhjQ,  RvxWjOMeXhjQ); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -5400,8 +5411,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("IyDTqNBEJwzV");
-        // console.log(document.getElementById("IyDTqNBEJwzV"));
+        //console.log("RvxWjOMeXhjQ");
+        // console.log(document.getElementById("RvxWjOMeXhjQ"));
 
         try_show();
         }

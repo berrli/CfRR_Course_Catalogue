@@ -256,6 +256,10 @@
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Help us improve!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_review.html">Course Review</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Self Study Notes</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -288,8 +292,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -437,14 +441,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/arrays_and_matrices.html">Arrays and Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/io.html">Input Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/package_management.html">Package Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/visualisation.html">Plotting and Visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/performant_code.html">Performant Code</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Join Us!</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to CfRR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developing_a_course.html">Developing a Course Guidance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../suggestions_form.html">Suggestions for Improvements, Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../suggestions_form.html">Suggestions for Courses, Improvements and Additions</a></li>
 </ul>
 
     </div>
@@ -700,7 +711,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acnowledgements">Acnowledgements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
 </ul>
             </nav>
         </div>
@@ -726,7 +736,7 @@ document.write(`
 which we mean to change the structure of the columns and/or rows. The <code class="docutils literal notranslate"><span class="pre">tidyr</span></code>
 package contains functions to support this.</p>
 <p>As an example dataset for reshaping, we’ll use data on territorial fossil CO2
-emissions by country (Friedlingstein et al. 2023)<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+emissions by country (Friedlingstein et al. 2023)<span id="id1">[<a class="reference internal" href="../../bibliography.html#id5" title="Friedlingstein et al. Global carbon budget 2023. Excel workbook obtained from https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx, 2023. Accessed: 2024-02-28.">eal23</a>]</span>.</p>
 <p><strong>Note:</strong> To read the data, we’ll use a call to the <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> function from
 the <code class="docutils literal notranslate"><span class="pre">readxl</span></code> package. We only touched on this in notebook 2, so don’t worry
 about understanding exactly how the data is read in. Treat this as a glimpse of
@@ -1001,18 +1011,6 @@ emissions_tidy |&gt;
 Carbon Budget and we thank the fossil carbon emissions modelling groups for
 producing and making available their model output.</p>
 </section>
-<section id="footnotes">
-<h2>Footnotes<a class="headerlink" href="#footnotes" title="Link to this heading">#</a></h2>
-<hr class="footnotes docutils" />
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Taken from Global Carbon Budget 2023 (Friedlingstein et al., 2023, ESSD).
-Excel workbook obtained from <a class="reference external" href="https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx">https://globalcarbonbudgetdata.org/downloads/latest-data/National_Fossil_Carbon_Emissions_2023v1.0.xlsx</a>
-(accessed 2024-02-28).</p>
-</aside>
-</aside>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1090,7 +1088,6 @@ Excel workbook obtained from <a class="reference external" href="https://globalc
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acnowledgements">Acnowledgements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
 </ul>
   </nav></div>
 
