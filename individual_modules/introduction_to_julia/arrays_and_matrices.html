@@ -198,6 +198,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_unix.html">Introduction to UNIX Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/computational_thinking.html">Computational Thinking Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/software_development_best_practice.html">Software Development Best Practice Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/introduction_to_julia.html">Introduction to Julia</a></li>
 </ul>
 </li>
 </ul>
@@ -441,7 +442,7 @@
 <li class="toctree-l2"><a class="reference internal" href="io.html">Input Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="package_management.html">Package Management</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Introduction to Plotting in Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performant_code.html">Performant Code</a></li>
 </ul>
 </li>
@@ -759,7 +760,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 0, 131586]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4490749152, 4481182832, 4871240816]
 </pre></div>
 </div>
 </div>
@@ -813,12 +814,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of zeroes: [0.0, 0.0, 0.0]
-Array of ones: [1.0, 1.0, 1.0]
-Array of random values between 0 and 1: [0.48961754670020063, 0.32030887572312594, 0.38461825322931087]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of zeroes: 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of random values normally distributed: :[0.7914842865124806, -0.8351156978030071, 1.0540754104354606]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 0.0, 0.0]
+Array of ones: [1.0, 1.0, 1.0]
+Array of random values between 0 and 1: [0.993797824214933, 0.6893211689386742, 0.4396316370418212]
+Array of random values normally distributed: :[0.1338446325306564, 0.9405991539074096, 0.16309977245849666]
 </pre></div>
 </div>
 </div>
@@ -850,7 +852,7 @@ Array of random values between 0 and 1: [0.48961754670020063, 0.3203088757231259
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3472328296230838384 8102081765410107488 6917634582367989856; 5796238756463800368 3472328503195619424 4931453024; 27022080418525280 8083961332479586400 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 4525886928 4525886992; 7 8 4525887184; 4525886864 9 4800328704]
 </pre></div>
 </div>
 </div>
@@ -874,8 +876,8 @@ Array of random values between 0 and 1: [0.48961754670020063, 0.3203088757231259
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of zeroes: [0.0 0.0 0.0; 0.0 0.0 0.0; 0.0 0.0 0.0]
 Array of ones: [1.0 1.0 1.0; 1.0 1.0 1.0; 1.0 1.0 1.0]
-Array of random values between 0 and 1: [0.04439979924963211 0.945317667847343 0.47780115635117815; 0.057631529570052575 0.4034254294023335 0.9071948812364553; 0.47685383005585935 0.029880271937043124 0.6529896138492013]
-Array of random values normally distributed: :[-0.45413084808113036 0.03601512182206325 -1.9077177881786098; 1.0504821005105414 -0.3051567292273225 1.3769436351171198; -0.47243768133382524 -0.8448209881298262 0.8062901252481287]
+Array of random values between 0 and 1: [0.15468067812434072 0.46052295324927406 0.26165631168094705; 0.9920701126353676 0.11562591477784945 0.5571089101371032; 0.08529805004333368 0.8502403852876393 0.12034258264086484]
+Array of random values normally distributed: :[0.40914266614476863 0.9313607153041709 1.342210239116543; -0.23956224001889317 1.186215821343845 2.39812620802506; 0.22274772035156806 0.8711175669374827 -0.15851640051600185]
 </pre></div>
 </div>
 </div>

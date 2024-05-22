@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bibliography" href="../../bibliography.html" />
-    <link rel="prev" title="Introduction to Plotting in Julia" href="visualisation.html" />
+    <link rel="prev" title="Plotting" href="visualisation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -198,6 +198,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/intro_to_unix.html">Introduction to UNIX Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/computational_thinking.html">Computational Thinking Quiz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/software_development_best_practice.html">Software Development Best Practice Quiz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../where_is_my_understanding/introduction_to_julia.html">Introduction to Julia</a></li>
 </ul>
 </li>
 </ul>
@@ -441,7 +442,7 @@
 <li class="toctree-l2"><a class="reference internal" href="io.html">Input Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="package_management.html">Package Management</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Introduction to Plotting in Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Plotting</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Performant Code</a></li>
 </ul>
 </li>
@@ -819,7 +820,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>497.0839342023451
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>487.68298655123897
 </pre></div>
 </div>
 </div>
@@ -846,7 +847,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>501.3671290780087
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>505.8075652803102
 </pre></div>
 </div>
 </div>
@@ -947,7 +948,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.000003 seconds (1 allocation: 8.000 KiB)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>501.1301754389991
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>499.4008287795829
 </pre></div>
 </div>
 </div>
@@ -960,10 +961,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.596457 seconds (2 allocations: 7.451 GiB, 0.06% gc time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.459135 seconds (2 allocations: 7.451 GiB, 0.07% gc time)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.000182988838997e8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.999954291651228e8
 </pre></div>
 </div>
 </div>
@@ -995,12 +996,26 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overhead ╎ [+additional indent] Count File:Line; Function
 =========================================================
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Yellow">┌ Warning: </span>There were no samples collected.
-<span class=" -Color -Color-Bold -Color-Bold-Yellow">│ </span>Run your program longer (perhaps by running it multiple times),
-<span class=" -Color -Color-Bold -Color-Bold-Yellow">│ </span>or adjust the delay between samples with `Profile.init()`.
-<span class=" -Color -Color-Bold -Color-Bold-Yellow">└ </span>@ Profile ~/.julia/juliaup/julia-1.10.3+0.aarch64.apple.darwin14/share/julia/stdlib/v1.10/Profile/src/Profile.jl:1214
+  ╎1  @IJulia/src/eventloop.jl:38; (::IJulia.var&quot;#15#18&quot;)()
+  ╎ 1  @IJulia/src/eventloop.jl:8; eventloop(socket::ZMQ.Socket)
+  ╎  1  @Base/essentials.jl:889; invokelatest
+  ╎   1  @Base/essentials.jl:892; #invokelatest#2
+  ╎    1  …src/execute_request.jl:67; execute_request(socket::ZMQ.Socket, msg::…
+  ╎     1  …rc/SoftGlobalScope.jl:65; softscope_include_string(m::Module, code:…
+  ╎    ╎ 1  @Base/loading.jl:2076; include_string(mapexpr::typeof(REPL.softscop…
+  ╎    ╎  1  @Base/boot.jl:385; eval
+  ╎    ╎   1  …mpiler/typeinfer.jl:1078; typeinf_ext_toplevel(mi::Core.MethodIn…
+  ╎    ╎    1  …mpiler/typeinfer.jl:1082; typeinf_ext_toplevel(interp::Core.Com…
+  ╎    ╎     1  …mpiler/typeinfer.jl:1051; typeinf_ext(interp::Core.Compiler.Na…
+  ╎    ╎    ╎ 1  …mpiler/typeinfer.jl:216; typeinf(interp::Core.Compiler.Native…
+  ╎    ╎    ╎  1  …piler/typeinfer.jl:272; _typeinf(interp::Core.Compiler.Nativ…
+  ╎    ╎    ╎   1  …mpiler/optimize.jl:453; optimize
+  ╎    ╎    ╎    1  …piler/optimize.jl:504; run_passes
+  ╎    ╎    ╎     1  …piler/optimize.jl:489; run_passes(ci::Core.CodeInfo, sv::…
+  ╎    ╎    ╎    ╎ 1  …/ssair/passes.jl:1035; sroa_pass!(ir::Core.Compiler.IRCo…
+  ╎    ╎    ╎    ╎  1  …/ssair/passes.jl:542; lift_comparison!
+ 1╎    ╎    ╎    ╎   1  …/ssair/passes.jl:250; walk_to_defs(compact::Core.Compi…
+Total snapshots: 28. Utilization: 100% across all threads and tasks. Use the `groupby` kwarg to break down by thread and/or task.
 </pre></div>
 </div>
 </div>
@@ -1040,11 +1055,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.006745 seconds (3.24 k allocations: 217.344 KiB, 90.66% compilation time)
-  0.010176 seconds (2.65 k allocations: 167.969 KiB, 89.53% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.006898 seconds (3.24 k allocations: 217.344 KiB, 91.30% compilation time)
+  0.004374 seconds (2.65 k allocations: 167.969 KiB, 88.15% compilation time)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49864.182510278806
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50072.4926119987
 </pre></div>
 </div>
 </div>
@@ -1091,7 +1106,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to Plotting in Julia</p>
+        <p class="prev-next-title">Plotting</p>
       </div>
     </a>
     <a class="right-next"
