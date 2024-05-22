@@ -819,7 +819,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>499.78194034964844
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>497.0839342023451
 </pre></div>
 </div>
 </div>
@@ -846,7 +846,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>489.0290911768941
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>501.3671290780087
 </pre></div>
 </div>
 </div>
@@ -947,7 +947,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.000003 seconds (1 allocation: 8.000 KiB)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>485.96593716168036
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>501.1301754389991
 </pre></div>
 </div>
 </div>
@@ -960,10 +960,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.209664 seconds (2 allocations: 7.451 GiB, 0.07% gc time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.596457 seconds (2 allocations: 7.451 GiB, 0.06% gc time)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.9999118962991977e8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.000182988838997e8
 </pre></div>
 </div>
 </div>
@@ -995,25 +995,12 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overhead ╎ [+additional indent] Count File:Line; Function
 =========================================================
-  ╎2  @IJulia/src/eventloop.jl:38; (::IJulia.var&quot;#15#18&quot;)()
-  ╎ 2  @IJulia/src/eventloop.jl:8; eventloop(socket::ZMQ.Socket)
-  ╎  2  @Base/essentials.jl:889; invokelatest
-  ╎   2  @Base/essentials.jl:892; #invokelatest#2
-  ╎    2  …src/execute_request.jl:67; execute_request(socket::ZMQ.Socket, msg::…
-  ╎     2  …rc/SoftGlobalScope.jl:65; softscope_include_string(m::Module, code:…
-  ╎    ╎ 2  @Base/loading.jl:2076; include_string(mapexpr::typeof(REPL.softscop…
- 1╎    ╎  2  @Base/boot.jl:385; eval
-  ╎    ╎   1  In[9]:6; example_function()
-  ╎    ╎    1  …andom/src/Random.jl:279; rand
-  ╎    ╎     1  …andom/src/Random.jl:291; rand
-  ╎    ╎    ╎ 1  …andom/src/Random.jl:290; rand
-  ╎    ╎    ╎  1  …ndom/src/Random.jl:269; rand!
-  ╎    ╎    ╎   1  …src/XoshiroSimd.jl:293; rand!
-  ╎    ╎    ╎    1  …rc/XoshiroSimd.jl:142; xoshiro_bulk
-  ╎    ╎    ╎     1  …rc/XoshiroSimd.jl:257; xoshiro_bulk_simd(rng::Random.Task…
-  ╎    ╎    ╎    ╎ 1  @Base/pointer.jl:146; unsafe_store!
- 1╎    ╎    ╎    ╎  1  @Base/pointer.jl:146; unsafe_store!
-Total snapshots: 16. Utilization: 100% across all threads and tasks. Use the `groupby` kwarg to break down by thread and/or task.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Yellow">┌ Warning: </span>There were no samples collected.
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">│ </span>Run your program longer (perhaps by running it multiple times),
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">│ </span>or adjust the delay between samples with `Profile.init()`.
+<span class=" -Color -Color-Bold -Color-Bold-Yellow">└ </span>@ Profile ~/.julia/juliaup/julia-1.10.3+0.aarch64.apple.darwin14/share/julia/stdlib/v1.10/Profile/src/Profile.jl:1214
 </pre></div>
 </div>
 </div>
@@ -1053,11 +1040,11 @@ Total snapshots: 16. Utilization: 100% across all threads and tasks. Use the `gr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.004204 seconds (3.24 k allocations: 217.344 KiB, 87.64% compilation time)
-  0.003313 seconds (2.65 k allocations: 167.969 KiB, 85.17% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.006745 seconds (3.24 k allocations: 217.344 KiB, 90.66% compilation time)
+  0.010176 seconds (2.65 k allocations: 167.969 KiB, 89.53% compilation time)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50042.905544702815
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49864.182510278806
 </pre></div>
 </div>
 </div>
