@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bibliography" href="../../bibliography.html" />
-    <link rel="prev" title="Plotting and Visualisation" href="visualisation.html" />
+    <link rel="prev" title="Introduction to Plotting in Julia" href="visualisation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -440,7 +440,8 @@
 <li class="toctree-l2"><a class="reference internal" href="arrays_and_matrices.html">Arrays and Matrices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="io.html">Input Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="package_management.html">Package Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Plotting and Visualisation</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Introduction to Plotting in Julia</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Performant Code</a></li>
 </ul>
 </li>
@@ -672,7 +673,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -688,6 +691,34 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-performance-tuning-strategies">Overview of Performance Tuning Strategies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-julia-code">Efficient Julia Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-stability">Type Stability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-global-variables">Avoiding Global Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizing-built-in-functions">Utilizing Built-in Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-appropriate-data-structures">Using Appropriate Data Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-management">Memory Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-optimization">Profiling and Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-profiling">Introduction to Profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-time">Running Time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#profiler-module">Profiler Module</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-techniques-based-on-profiling">Optimization Techniques Based on Profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-bottlenecks">Identifying Bottlenecks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -699,8 +730,342 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="performant-code">
 <h1>Performant Code<a class="headerlink" href="#performant-code" title="Link to this heading">#</a></h1>
-<p>Section Outline:
-Performance Tuning: Tips on writing efficient Julia code, including the use of profiling tools to analyze and optimize performance.</p>
+<p>Julia was designed for high-performance numerical and scientific computing. In order to fully utilise Julia capabilities writing performant code is cruical, particularly for the computationaly intensive tasks it has been desinged for.</p>
+<section id="overview-of-performance-tuning-strategies">
+<h2>Overview of Performance Tuning Strategies<a class="headerlink" href="#overview-of-performance-tuning-strategies" title="Link to this heading">#</a></h2>
+<p>Performance tuning involves writing efficient code and using profiling tools to identify and address the performance bottlenecks that are found. Some strategies that we will cover include ensuring type stability, minimizing memory allocations, and optimizing computational efficiency.</p>
+</section>
+<section id="efficient-julia-code">
+<h2>Efficient Julia Code<a class="headerlink" href="#efficient-julia-code" title="Link to this heading">#</a></h2>
+<section id="type-stability">
+<h3>Type Stability<a class="headerlink" href="#type-stability" title="Link to this heading">#</a></h3>
+<p><strong>Definition</strong>: Type stability means that the type of a variable’s value is predictable and consistent within a function. Julia’s Just-In-Time (JIT) compiler can optimize type stable code more efficiently.</p>
+<p>In the example below, type stability is achieved through the use of the type hinting done with the use of <code class="docutils literal notranslate"><span class="pre">::Vector{Int}</span></code> in the function arguement declaration. The <code class="docutils literal notranslate"><span class="pre">::Vector{Int}</span></code> in Julia specifies that the variable should be a vector (array) of integers, ensuring type stability and enabling the compiler to optimize the code more effectively. Type hinting is achieved with the use of the <code class="docutils literal notranslate"><span class="pre">::</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Type-unstable function</span>
+<span class="k">function</span><span class="w"> </span><span class="n">sum_elements</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">arr</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span>
+<span class="k">end</span>
+
+<span class="c"># Type-stable function</span>
+<span class="k">function</span><span class="w"> </span><span class="n">sum_elements_stable</span><span class="p">(</span><span class="n">arr</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Int</span><span class="p">})</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">arr</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sum_elements_stable (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above example is used within the context of a function, but type hinting to achieve type stability can be done in at the variable level, with some example below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">::</span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w">         </span><span class="c"># x must be an integer</span>
+<span class="n">y</span><span class="o">::</span><span class="kt">Float64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="w">   </span><span class="c"># y must be a 64-bit floating point number</span>
+<span class="n">numbers</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Int</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w">         </span><span class="c"># Vector (array) of integers</span>
+<span class="n">matrix</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">4.0</span><span class="p">]</span><span class="w"> </span><span class="c"># Matrix of 64-bit floating point numbers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2×2 Matrix{Float64}:
+ 1.0  2.0
+ 3.0  4.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="avoiding-global-variables">
+<h3>Avoiding Global Variables<a class="headerlink" href="#avoiding-global-variables" title="Link to this heading">#</a></h3>
+<p>Global variables can lead to type instability and hinder the compiler’s optimization efforts. In order to tackle the issues of global vairbales, local variables should be used within functions and pass necessary global data as arguments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Inefficient use of global variable</span>
+<span class="n">global_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">compute_sum</span><span class="p">()</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">global_data</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span>
+<span class="k">end</span>
+
+<span class="c"># Efficient approach</span>
+<span class="k">function</span><span class="w"> </span><span class="n">compute_sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">data</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span>
+<span class="k">end</span>
+
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">compute_sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>499.78194034964844
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="utilizing-built-in-functions">
+<h3>Utilizing Built-in Functions<a class="headerlink" href="#utilizing-built-in-functions" title="Link to this heading">#</a></h3>
+<p>Julia’s built-in functions are highly optimized and should be used when possible to achieve the best performance possible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Custom sum function</span>
+<span class="k">function</span><span class="w"> </span><span class="n">custom_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">arr</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span>
+<span class="k">end</span>
+
+<span class="c"># Using built-in sum function</span>
+<span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>489.0290911768941
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-appropriate-data-structures">
+<h3>Using Appropriate Data Structures<a class="headerlink" href="#using-appropriate-data-structures" title="Link to this heading">#</a></h3>
+<p>Choosing the right data structure can significantly impact performance. For example the use of arrays for numerical computations, dictionaries for key-value pairs, and tuples for fixed collections of elements will help you to achieve the most performant Julia code possible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Inefficient data structure for numerical computation</span>
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">1000</span><span class="p">]</span>
+
+<span class="c"># Efficient data structure</span>
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collect</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000-element Vector{Int64}:
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+   10
+   11
+   12
+   13
+    ⋮
+  989
+  990
+  991
+  992
+  993
+  994
+  995
+  996
+  997
+  998
+  999
+ 1000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="memory-management">
+<h3>Memory Management<a class="headerlink" href="#memory-management" title="Link to this heading">#</a></h3>
+<p>Minimizing memory allocations and avoiding unnecessary copying of data can improve performance. For example the use of <code class="docutils literal notranslate"><span class="pre">view</span></code> can be used to create a lightweight reference to a subset of an array without copying it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Inefficient copying of array subset</span>
+<span class="n">subset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="c"># Efficient use of view</span>
+<span class="n">subset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">view</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10-element view(::Vector{Int64}, 1:10) with eltype Int64:
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="profiling-and-optimization">
+<h2>Profiling and Optimization<a class="headerlink" href="#profiling-and-optimization" title="Link to this heading">#</a></h2>
+<section id="introduction-to-profiling">
+<h3>Introduction to Profiling<a class="headerlink" href="#introduction-to-profiling" title="Link to this heading">#</a></h3>
+<p>Profiling is the process of measuring the performance of your code to identify slow parts and optimization opportunities. As Julia is designed to make performant code, Julia has a range of built-in profiling tools to help developers to understand the performance of their code.</p>
+<section id="running-time">
+<h4>Running Time<a class="headerlink" href="#running-time" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;time</span></code> is used within Julia to quickly measure the execution time and memory allocations of a piece of code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@time</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.000003 seconds (1 allocation: 8.000 KiB)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>485.96593716168036
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that running code to run the sum of 1000 rand numbers took a defined amount of time to run. If we increase the size of the numbers that we want to sum over then it will take longer to run. Understanding how the time taken to run the code will change when the size of the input data changes is key to being able to understadn the complexity of the code. It is common place to have a large computational task that is run for a smaller subset of data that will then be able to be used to extrapolate to an estimate of the time it will take the full computational run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@time</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.209664 seconds (2 allocations: 7.451 GiB, 0.07% gc time)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.9999118962991977e8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="profiler-module">
+<h4>Profiler Module<a class="headerlink" href="#profiler-module" title="Link to this heading">#</a></h4>
+<p>It is also possible to gather more detailed performance data around some code using the <code class="docutils literal notranslate"><span class="pre">Profile</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Profile</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">example_function</span><span class="p">()</span>
+<span class="w">    </span><span class="c"># Some computation</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">1000</span>
+<span class="w">        </span><span class="n">sum</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c"># Profile the function</span>
+<span class="n">Profile</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nd">@profile</span><span class="w"> </span><span class="n">example_function</span><span class="p">()</span>
+
+<span class="c"># View profiling results</span>
+<span class="n">Profile</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overhead ╎ [+additional indent] Count File:Line; Function
+=========================================================
+  ╎2  @IJulia/src/eventloop.jl:38; (::IJulia.var&quot;#15#18&quot;)()
+  ╎ 2  @IJulia/src/eventloop.jl:8; eventloop(socket::ZMQ.Socket)
+  ╎  2  @Base/essentials.jl:889; invokelatest
+  ╎   2  @Base/essentials.jl:892; #invokelatest#2
+  ╎    2  …src/execute_request.jl:67; execute_request(socket::ZMQ.Socket, msg::…
+  ╎     2  …rc/SoftGlobalScope.jl:65; softscope_include_string(m::Module, code:…
+  ╎    ╎ 2  @Base/loading.jl:2076; include_string(mapexpr::typeof(REPL.softscop…
+ 1╎    ╎  2  @Base/boot.jl:385; eval
+  ╎    ╎   1  In[9]:6; example_function()
+  ╎    ╎    1  …andom/src/Random.jl:279; rand
+  ╎    ╎     1  …andom/src/Random.jl:291; rand
+  ╎    ╎    ╎ 1  …andom/src/Random.jl:290; rand
+  ╎    ╎    ╎  1  …ndom/src/Random.jl:269; rand!
+  ╎    ╎    ╎   1  …src/XoshiroSimd.jl:293; rand!
+  ╎    ╎    ╎    1  …rc/XoshiroSimd.jl:142; xoshiro_bulk
+  ╎    ╎    ╎     1  …rc/XoshiroSimd.jl:257; xoshiro_bulk_simd(rng::Random.Task…
+  ╎    ╎    ╎    ╎ 1  @Base/pointer.jl:146; unsafe_store!
+ 1╎    ╎    ╎    ╎  1  @Base/pointer.jl:146; unsafe_store!
+Total snapshots: 16. Utilization: 100% across all threads and tasks. Use the `groupby` kwarg to break down by thread and/or task.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above output can be used to understand what code is being ran when running a particular chunk of code. However at first you will want to primarily focus on simple timing the code that is being ran and then trying to make optimisations to the code based on the running time of code, as will be done in the next section.</p>
+</section>
+</section>
+<section id="optimization-techniques-based-on-profiling">
+<h3>Optimization Techniques Based on Profiling<a class="headerlink" href="#optimization-techniques-based-on-profiling" title="Link to this heading">#</a></h3>
+<section id="identifying-bottlenecks">
+<h4>Identifying Bottlenecks<a class="headerlink" href="#identifying-bottlenecks" title="Link to this heading">#</a></h4>
+<p>The primary purpose of using profiling tools is to identify what the bottlenecks within your code are. The bottlenecks are the portions of the code that are taking a considerable amount of time to run are, which can then be improved to improve the overall runtime of the code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Inefficient code</span>
+<span class="k">function</span><span class="w"> </span><span class="n">inefficient_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span>
+<span class="k">end</span>
+
+<span class="c"># Optimized code</span>
+<span class="k">function</span><span class="w"> </span><span class="n">optimized_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">arr</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span>
+<span class="k">end</span>
+
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+<span class="nd">@time</span><span class="w"> </span><span class="n">inefficient_sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nd">@time</span><span class="w"> </span><span class="n">optimized_sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.004204 seconds (3.24 k allocations: 217.344 KiB, 87.64% compilation time)
+  0.003313 seconds (2.65 k allocations: 167.969 KiB, 85.17% compilation time)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50042.905544702815
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example you the <code class="docutils literal notranslate"><span class="pre">inefficient_sum</span></code> function is slower because it repeatedly calls <code class="docutils literal notranslate"><span class="pre">length(arr)</span></code> and uses array indexing <code class="docutils literal notranslate"><span class="pre">arr[i]</span></code>, which incurs additional overhead. In contrast, the <code class="docutils literal notranslate"><span class="pre">optimized_sum</span></code> function iterates directly over the elements of the array using <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">arr</span></code>, which is more efficient and avoids the extra overhead associated with indexing. This is just a very simple example of some of the profiling techniques that can be used, and the particulars of how to optimise a given piece of code will depend on the code that is being looked at.</p>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -739,7 +1104,7 @@ Performance Tuning: Tips on writing efficient Julia code, including the use of p
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Plotting and Visualisation</p>
+        <p class="prev-next-title">Introduction to Plotting in Julia</p>
       </div>
     </a>
     <a class="right-next"
@@ -758,7 +1123,40 @@ Performance Tuning: Tips on writing efficient Julia code, including the use of p
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-performance-tuning-strategies">Overview of Performance Tuning Strategies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-julia-code">Efficient Julia Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-stability">Type Stability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-global-variables">Avoiding Global Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizing-built-in-functions">Utilizing Built-in Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-appropriate-data-structures">Using Appropriate Data Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-management">Memory Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-optimization">Profiling and Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-profiling">Introduction to Profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-time">Running Time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#profiler-module">Profiler Module</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-techniques-based-on-profiling">Optimization Techniques Based on Profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-bottlenecks">Identifying Bottlenecks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
