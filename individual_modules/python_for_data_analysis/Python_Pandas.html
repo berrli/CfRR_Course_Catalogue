@@ -697,6 +697,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-setup">Problem Setup</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leeds-air-pollution-monitoring-station">Leeds Air Pollution Monitoring Station</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station">Google Maps Locations of Leeds Air Pollution Monitoring Station</a><ul class="nav section-nav flex-column">
@@ -742,6 +743,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas">
 <h1>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>At the end of this lesson you will be able to:</p>
+<ul class="simple">
+<li><p>Load and save tabular data using Pandas</p></li>
+<li><p>Explore and process large datasets</p></li>
+<li><p>Know when to use Pandas dataframes rather than built-in Python data-types</p></li>
+</ul>
+</section>
 <section id="problem-setup">
 <h2>Problem Setup<a class="headerlink" href="#problem-setup" title="Link to this heading">#</a></h2>
 <p>Within Leeds centre there is an air pollution monitoring station. We are going to use the real data from the station to guide you through building and analysing a simple machine learning algorithm, using three popular python packages.</p>
@@ -808,13 +818,13 @@ As you saw in the previous workshop Python has a range of data structures but if
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="IlxAigAdGpbX" data-shufflequestions="False"
+<div class="output text_html"><div id="rYnjZLCftugC" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#IlxAigAdGpbX {
+#rYnjZLCftugC {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -984,7 +994,7 @@ As you saw in the previous workshop Python has a range of data structures but if
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsIlxAigAdGpbX=[
+</style></div><script type="application/javascript">var questionsrYnjZLCftugC=[
     {
         "question": "Which function is used to read a .csv file in Pandas",
         "type": "many_choice",
@@ -1760,8 +1770,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("IlxAigAdGpbX")) {
-            show_questions(questionsIlxAigAdGpbX,  IlxAigAdGpbX); 
+          if(document.getElementById("rYnjZLCftugC")) {
+            show_questions(questionsrYnjZLCftugC,  rYnjZLCftugC); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1770,8 +1780,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("IlxAigAdGpbX");
-        // console.log(document.getElementById("IlxAigAdGpbX"));
+        //console.log("rYnjZLCftugC");
+        // console.log(document.getElementById("rYnjZLCftugC"));
 
         try_show();
         }
@@ -1981,7 +1991,7 @@ If using jupyter lab you can pass the dataframe that has been read in to display
 <h3>What is a dataframe?<a class="headerlink" href="#what-is-a-dataframe" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>A dataframe is the key data structure within Pandas. Dataframes are two-dimensional, size-mutable and potentially hererogeneous tabular data structure with labeled axes (rows and columns).</p></li>
-<li><p>A dataframe is built ontop of another data structure called a pandas Series. These are one dimensional labelled array capable of holding any data type. Each column in a dataframe is a pandas series.</p></li>
+<li><p>A dataframe is built on top of another data structure called a pandas Series. These are one dimensional labelled array capable of holding any data type. Each column in a dataframe is a pandas series.</p></li>
 </ul>
 <p>For now we will leave these data structures and focus on the analysis and usage of data frames</p>
 </section>
@@ -2043,13 +2053,13 @@ memory usage: 2.0+ MB
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="vTEbtTXyEHQj" data-shufflequestions="False"
+<div class="output text_html"><div id="MieXMvElNKut" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#vTEbtTXyEHQj {
+#MieXMvElNKut {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2219,7 +2229,7 @@ memory usage: 2.0+ MB
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsvTEbtTXyEHQj=[
+</style></div><script type="application/javascript">var questionsMieXMvElNKut=[
     {
         "question": "Enter the number of rows that are within the dataframe",
         "type": "numeric",
@@ -2992,8 +3002,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("vTEbtTXyEHQj")) {
-            show_questions(questionsvTEbtTXyEHQj,  vTEbtTXyEHQj); 
+          if(document.getElementById("MieXMvElNKut")) {
+            show_questions(questionsMieXMvElNKut,  MieXMvElNKut); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3002,8 +3012,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("vTEbtTXyEHQj");
-        // console.log(document.getElementById("vTEbtTXyEHQj"));
+        //console.log("MieXMvElNKut");
+        // console.log(document.getElementById("MieXMvElNKut"));
 
         try_show();
         }
@@ -3961,7 +3971,7 @@ Name: Year, Length: 32832, dtype: bool
 </div>
 </div>
 </div>
-<p>If the column is not currently in a datetime format, then you can convert it using the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function. The main arguement to the method is the format arguement that lets the method know the ordering of the data. In our case the data should be of the format <code class="docutils literal notranslate"><span class="pre">%d/%m/%Y</span> <span class="pre">%H:%M</span></code>, which denotes, Day/Month/Year Hour:Minutes. Once we have converted the data format we can check its new data type in the same manner, and should this time get</p>
+<p>If the column is not currently in a datetime format, then you can convert it using the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function. The main argument to the method is the format argument that lets the method know the ordering of the data. In our case the data should be of the format <code class="docutils literal notranslate"><span class="pre">%d/%m/%Y</span> <span class="pre">%H:%M</span></code>, which denotes, Day/Month/Year Hour:Minutes. Once we have converted the data format we can check its new data type in the same manner, and should this time get</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">air_pollution_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M&quot;</span><span class="p">)</span>
@@ -4414,6 +4424,7 @@ Name: Year, Length: 32832, dtype: bool
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-setup">Problem Setup</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leeds-air-pollution-monitoring-station">Leeds Air Pollution Monitoring Station</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-maps-locations-of-leeds-air-pollution-monitoring-station">Google Maps Locations of Leeds Air Pollution Monitoring Station</a><ul class="nav section-nav flex-column">

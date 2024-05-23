@@ -820,7 +820,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>487.68298655123897
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>497.4143209258099
 </pre></div>
 </div>
 </div>
@@ -847,7 +847,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>505.8075652803102
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>510.07720720087497
 </pre></div>
 </div>
 </div>
@@ -945,10 +945,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.000003 seconds (1 allocation: 8.000 KiB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.000002 seconds (1 allocation: 8.000 KiB)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>499.4008287795829
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>495.3769428358386
 </pre></div>
 </div>
 </div>
@@ -961,10 +961,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.459135 seconds (2 allocations: 7.451 GiB, 0.07% gc time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.483260 seconds (2 allocations: 7.451 GiB, 0.07% gc time)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.999954291651228e8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.000141735364828e8
 </pre></div>
 </div>
 </div>
@@ -996,26 +996,15 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overhead ╎ [+additional indent] Count File:Line; Function
 =========================================================
-  ╎1  @IJulia/src/eventloop.jl:38; (::IJulia.var&quot;#15#18&quot;)()
-  ╎ 1  @IJulia/src/eventloop.jl:8; eventloop(socket::ZMQ.Socket)
-  ╎  1  @Base/essentials.jl:889; invokelatest
-  ╎   1  @Base/essentials.jl:892; #invokelatest#2
-  ╎    1  …src/execute_request.jl:67; execute_request(socket::ZMQ.Socket, msg::…
-  ╎     1  …rc/SoftGlobalScope.jl:65; softscope_include_string(m::Module, code:…
-  ╎    ╎ 1  @Base/loading.jl:2076; include_string(mapexpr::typeof(REPL.softscop…
-  ╎    ╎  1  @Base/boot.jl:385; eval
-  ╎    ╎   1  …mpiler/typeinfer.jl:1078; typeinf_ext_toplevel(mi::Core.MethodIn…
-  ╎    ╎    1  …mpiler/typeinfer.jl:1082; typeinf_ext_toplevel(interp::Core.Com…
-  ╎    ╎     1  …mpiler/typeinfer.jl:1051; typeinf_ext(interp::Core.Compiler.Na…
-  ╎    ╎    ╎ 1  …mpiler/typeinfer.jl:216; typeinf(interp::Core.Compiler.Native…
-  ╎    ╎    ╎  1  …piler/typeinfer.jl:272; _typeinf(interp::Core.Compiler.Nativ…
-  ╎    ╎    ╎   1  …mpiler/optimize.jl:453; optimize
-  ╎    ╎    ╎    1  …piler/optimize.jl:504; run_passes
-  ╎    ╎    ╎     1  …piler/optimize.jl:489; run_passes(ci::Core.CodeInfo, sv::…
-  ╎    ╎    ╎    ╎ 1  …/ssair/passes.jl:1035; sroa_pass!(ir::Core.Compiler.IRCo…
-  ╎    ╎    ╎    ╎  1  …/ssair/passes.jl:542; lift_comparison!
- 1╎    ╎    ╎    ╎   1  …/ssair/passes.jl:250; walk_to_defs(compact::Core.Compi…
-Total snapshots: 28. Utilization: 100% across all threads and tasks. Use the `groupby` kwarg to break down by thread and/or task.
+ ╎1 …andom/src/XoshiroSimd.jl:245; xoshiro_bulk_simd(rng::Random.TaskLocalRNG, …
+ ╎ 1 …ndom/src/XoshiroSimd.jl:131; forkRand(rng::Random.TaskLocalRNG, ::Val{8})
+ ╎  1 @Base/ntuple.jl:69; ntuple
+ ╎   1 @Base/ntuple.jl:72; macro expansion
+ ╎    1 …dom/src/XoshiroSimd.jl:131; #5
+ ╎     1 …0/Random/src/Random.jl:258; rand
+ ╎    ╎ 1 …Random/src/Xoshiro.jl:150; rand
+1╎    ╎  1 @Base/int.jl:373; xor
+Total snapshots: 8. Utilization: 100% across all threads and tasks. Use the `groupby` kwarg to break down by thread and/or task.
 </pre></div>
 </div>
 </div>
@@ -1055,11 +1044,11 @@ Total snapshots: 28. Utilization: 100% across all threads and tasks. Use the `gr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.006898 seconds (3.24 k allocations: 217.344 KiB, 91.30% compilation time)
-  0.004374 seconds (2.65 k allocations: 167.969 KiB, 88.15% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.003349 seconds (3.24 k allocations: 217.344 KiB, 84.83% compilation time)
+  0.003110 seconds (2.65 k allocations: 167.969 KiB, 83.98% compilation time)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50072.4926119987
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49885.74176461604
 </pre></div>
 </div>
 </div>
