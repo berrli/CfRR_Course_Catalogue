@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_julia/package_management';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Plotting" href="visualisation.html" />
+    <link rel="next" title="Performant Code" href="performant_code.html" />
     <link rel="prev" title="Input Output" href="io.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -442,7 +442,6 @@
 <li class="toctree-l2"><a class="reference internal" href="io.html">Input Output</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Package Management</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performant_code.html">Performant Code</a></li>
 </ul>
 </li>
@@ -746,22 +745,9 @@ document.write(`
 <section id="adding-packages">
 <h3>Adding Packages<a class="headerlink" href="#adding-packages" title="Link to this heading">#</a></h3>
 <p>To add a package, use the <code class="docutils literal notranslate"><span class="pre">Pkg.add</span></code> function. For example, to add the Plots.jl package:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pkg</span>
+<div class="highlight-Julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pkg</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;Plots&quot;</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">   Resolving</span> package versions...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses_Build_Version/CfRR_Courses/Project.toml`
-<span class=" -Color -Color-Bold -Color-Bold-Green">  No Changes</span> to `~/Documents/CfRR/CfRR_Courses_Build_Version/CfRR_Courses/Manifest.toml`
-</pre></div>
-</div>
-</div>
 </div>
 <p>of note is that before you are able to use a package you first need to import it, which in Julia can be achieved with the use of ‘using <package-name>`. Infact within Julia Pkg is also a package and so needs to be imported before you are then able to import other packages.</p>
 </section>
@@ -778,18 +764,29 @@ document.write(`
 <p>To view a list of all the installed packages, the command <code class="docutils literal notranslate"><span class="pre">Pkg.status()</span></code> can be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="sb">``` Julia</span>
+<span class="sb">Pkg.status()</span>
+
+<span class="sb">```</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Status</span> `~/Documents/CfRR/CfRR_Courses_Build_Version/CfRR_Courses/Project.toml`
-  [336ed68f] CSV v0.10.14
-  [a93c6f00] DataFrames v1.6.1
-  [c91e804a] Gadfly v1.4.0
-  [7073ff75] IJulia v1.24.2
-  [91a5bcdd] Plots v1.40.4
-  [c46f51b8] ProfileView v1.7.2
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">LoadError</span>: parsing command ` Julia
+<span class="n">Pkg</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+
+<span class="err">`</span><span class="p">:</span> <span class="n">special</span> <span class="n">characters</span> <span class="s2">&quot;#</span><span class="si">{}</span><span class="s2">()[]&lt;&gt;|&amp;*?~;&quot;</span> <span class="n">must</span> <span class="n">be</span> <span class="n">quoted</span> <span class="ow">in</span> <span class="n">commands</span>
+<span class="ow">in</span> <span class="n">expression</span> <span class="n">starting</span> <span class="n">at</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="mi">1</span>
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">error</span><span class="p">(</span><span class="n">s</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">error</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">35</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">shell_parse</span><span class="p">(</span><span class="nb">str</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">::</span><span class="n">Bool</span><span class="p">;</span> <span class="n">special</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">shell</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">122</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">shell_parse</span>
+   <span class="o">@</span> <span class="o">./</span><span class="n">shell</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">19</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">var</span><span class="s2">&quot;@cmd&quot;</span><span class="p">(</span><span class="n">__source__</span><span class="p">::</span><span class="n">LineNumberNode</span><span class="p">,</span> <span class="vm">__module__</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="nb">str</span><span class="p">::</span><span class="n">Any</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">cmd</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">501</span>
 </pre></div>
 </div>
 </div>
@@ -893,11 +890,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="visualisation.html"
+       href="performant_code.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Plotting</p>
+        <p class="prev-next-title">Performant Code</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

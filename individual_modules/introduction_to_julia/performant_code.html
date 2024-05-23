@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bibliography" href="../../bibliography.html" />
-    <link rel="prev" title="Plotting" href="visualisation.html" />
+    <link rel="prev" title="Package Management" href="package_management.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -442,7 +442,6 @@
 <li class="toctree-l2"><a class="reference internal" href="io.html">Input Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="package_management.html">Package Management</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="visualisation.html">Plotting</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Performant Code</a></li>
 </ul>
 </li>
@@ -709,7 +708,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-optimization">Profiling and Optimization</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-profiling">Introduction to Profiling</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-time">Running Time</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#profiler-module">Profiler Module</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-techniques-based-on-profiling">Optimization Techniques Based on Profiling</a><ul class="nav section-nav flex-column">
@@ -820,7 +818,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>497.4143209258099
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>514.5231002359865
 </pre></div>
 </div>
 </div>
@@ -847,7 +845,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>510.07720720087497
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>495.31892816587947
 </pre></div>
 </div>
 </div>
@@ -945,10 +943,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.000002 seconds (1 allocation: 8.000 KiB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.000003 seconds (1 allocation: 8.000 KiB)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>495.3769428358386
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>507.14236209795627
 </pre></div>
 </div>
 </div>
@@ -961,55 +959,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.483260 seconds (2 allocations: 7.451 GiB, 0.07% gc time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.379640 seconds (2 allocations: 7.451 GiB, 0.07% gc time)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.000141735364828e8
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="profiler-module">
-<h4>Profiler Module<a class="headerlink" href="#profiler-module" title="Link to this heading">#</a></h4>
-<p>It is also possible to gather more detailed performance data around some code using the <code class="docutils literal notranslate"><span class="pre">Profile</span></code> module.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Profile</span>
-
-<span class="k">function</span><span class="w"> </span><span class="n">example_function</span><span class="p">()</span>
-<span class="w">    </span><span class="c"># Some computation</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">1000</span>
-<span class="w">        </span><span class="n">sum</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="k">end</span>
-
-<span class="c"># Profile the function</span>
-<span class="n">Profile</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="nd">@profile</span><span class="w"> </span><span class="n">example_function</span><span class="p">()</span>
-
-<span class="c"># View profiling results</span>
-<span class="n">Profile</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overhead ╎ [+additional indent] Count File:Line; Function
-=========================================================
- ╎1 …andom/src/XoshiroSimd.jl:245; xoshiro_bulk_simd(rng::Random.TaskLocalRNG, …
- ╎ 1 …ndom/src/XoshiroSimd.jl:131; forkRand(rng::Random.TaskLocalRNG, ::Val{8})
- ╎  1 @Base/ntuple.jl:69; ntuple
- ╎   1 @Base/ntuple.jl:72; macro expansion
- ╎    1 …dom/src/XoshiroSimd.jl:131; #5
- ╎     1 …0/Random/src/Random.jl:258; rand
- ╎    ╎ 1 …Random/src/Xoshiro.jl:150; rand
-1╎    ╎  1 @Base/int.jl:373; xor
-Total snapshots: 8. Utilization: 100% across all threads and tasks. Use the `groupby` kwarg to break down by thread and/or task.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.99982278036723e8
 </pre></div>
 </div>
 </div>
 </div>
-<p>The above output can be used to understand what code is being ran when running a particular chunk of code. However at first you will want to primarily focus on simple timing the code that is being ran and then trying to make optimisations to the code based on the running time of code, as will be done in the next section.</p>
 </section>
 </section>
 <section id="optimization-techniques-based-on-profiling">
@@ -1044,11 +1001,11 @@ Total snapshots: 8. Utilization: 100% across all threads and tasks. Use the `gro
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.003349 seconds (3.24 k allocations: 217.344 KiB, 84.83% compilation time)
-  0.003110 seconds (2.65 k allocations: 167.969 KiB, 83.98% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.008398 seconds (3.24 k allocations: 217.344 KiB, 93.52% compilation time)
+  0.003479 seconds (2.65 k allocations: 167.969 KiB, 85.55% compilation time)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49885.74176461604
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50068.57667390028
 </pre></div>
 </div>
 </div>
@@ -1090,12 +1047,12 @@ Total snapshots: 8. Utilization: 100% across all threads and tasks. Use the `gro
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="visualisation.html"
+       href="package_management.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Plotting</p>
+        <p class="prev-next-title">Package Management</p>
       </div>
     </a>
     <a class="right-next"
@@ -1135,7 +1092,6 @@ Total snapshots: 8. Utilization: 100% across all threads and tasks. Use the `gro
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-optimization">Profiling and Optimization</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-profiling">Introduction to Profiling</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-time">Running Time</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#profiler-module">Profiler Module</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-techniques-based-on-profiling">Optimization Techniques Based on Profiling</a><ul class="nav section-nav flex-column">
