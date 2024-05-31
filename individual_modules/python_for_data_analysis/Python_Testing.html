@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/python_for_data_analysis/Python_Testing';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Numpy" href="Python_NumPy.html" />
-    <link rel="prev" title="Python - Virtual environments" href="Python_Virtual_environments.html" />
+    <link rel="next" title="Testing exercise" href="Python_Testing_exercise.html" />
+    <link rel="prev" title="Scikit-Learn" href="Python_ScikitLearn.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -237,13 +237,15 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Python_Language_features.html">Python Language Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Virtual_environments.html">Python - Virtual environments</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Python - Checking and Testing Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Pandas.html">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-analysis-task.html">Python for Data Analysis - Exercise notebook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-analysis-plotly.html">Python for Data Analysis - Plotting with Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Python - Checking and Testing Code</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Python_Testing_exercise.html">Testing exercise</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -653,6 +655,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python - Checking and Testing Code</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-software">Testing software</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-level-testing">System level testing</a></li>
@@ -660,18 +663,45 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-statement">Assert statement</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-assert">When to use assert</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-might-we-want-different-behaviour-from-our-assert-statements">Why might we want different behaviour from our assert statements?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-would-you-want-your-assert-statements-to-do">What would you want your assert statements to do?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-tests">Unit-tests</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-driven-development-tdd">Test Driven Development (TDD)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactoring">Refactoring</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unittest">unittest</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest">Pytest</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test coverage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-notebook">pytest-notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unittest">unittest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixtures-and-mocks">Fixtures and mocks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-this">Why is this?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mocks">Mocks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-we-test-a-function-that-does-not-return-a-value">How can we test a function that does not return a value?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#here-is-a-possible-test">Here is a possible test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-this-test-work">How does this test work?</a></li>
 </ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linting-code-with-flake8-and-mypy">‘Linting’ code with flake8 and mypy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mypy">mypy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flake8">flake8</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test coverage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage-py-works-in-three-phases">Coverage.py works in three phases:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest">Pytest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-notebook">pytest-notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -689,10 +719,10 @@ document.write(`
 <p>At the end of this lesson you will be able to:</p>
 <ul class="simple">
 <li><p>Identify appropriate testing goals.</p></li>
-<li><p>Run tests using the PyTest framework.</p></li>
-<li><p>Create unit-tests.</p></li>
-<li><p>Use Mocks.</p></li>
-<li><p>Check code quality using flake8 and mypy.</p></li>
+<li><p>Use the Python assert statement.</p></li>
+<li><p>Create and run unit-tests.</p></li>
+<li><p>Use fixtures and mocks.</p></li>
+<li><p>Check code style and quality using flake8 and mypy.</p></li>
 </ul>
 </section>
 <section id="testing-software">
@@ -724,6 +754,48 @@ document.write(`
 <h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
 <p>If you don’t have a specification for your software, how might you establish suitable tests to find and resolve defects?</p>
 </section>
+<section id="assert-statement">
+<h2>Assert statement<a class="headerlink" href="#assert-statement" title="Link to this heading">#</a></h2>
+<p>The built-in Python assert statement looks like this -</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try modifying this code to deliberately fail the assert statements</span>
+
+<span class="k">def</span> <span class="nf">my_add_two</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">2.0</span>
+
+<span class="k">assert</span> <span class="n">my_add_two</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="c1"># Better to include a message in case of failure</span>
+<span class="k">assert</span> <span class="n">my_add_two</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;my_add_two(3) failed with </span><span class="si">{</span><span class="n">my_add_two</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">, expected 5&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="when-to-use-assert">
+<h1>When to use assert<a class="headerlink" href="#when-to-use-assert" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">assert</span></code> should never be used to modify control flow.</p>
+<p>Assertions allow you to verify that parts of your program are correct, but are only applied if the internal constant <code class="docutils literal notranslate"><span class="pre">__debug__</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.  Although <code class="docutils literal notranslate"><span class="pre">__debug__</span></code> is usually set to True, it is not guaranteed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## This is approximate what the assert statement does </span>
+
+<span class="k">def</span> <span class="nf">my_assert</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">__debug__</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">condition</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="n">my_assert</span><span class="p">(</span><span class="n">my_add_two</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;my_add_two(1) failed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="why-might-we-want-different-behaviour-from-our-assert-statements">
+<h2>Why might we want different behaviour from our assert statements?<a class="headerlink" href="#why-might-we-want-different-behaviour-from-our-assert-statements" title="Link to this heading">#</a></h2>
+</section>
+<section id="what-would-you-want-your-assert-statements-to-do">
+<h2>What would you want your assert statements to do?<a class="headerlink" href="#what-would-you-want-your-assert-statements-to-do" title="Link to this heading">#</a></h2>
+</section>
 <section id="unit-tests">
 <h2>Unit-tests<a class="headerlink" href="#unit-tests" title="Link to this heading">#</a></h2>
 <p>Unit-tests are small tests that test the behaviours of our functions and classes.</p>
@@ -737,42 +809,147 @@ document.write(`
 <p>Whether or not you adopt TDD, refactoring - changing the implementation of your code without changing its behaviour, is something that you are certain to do. If only to remove print statements, or change the names of variables.</p>
 <p>Refactoring code without appropriate tests can easily introduce new errors.</p>
 </section>
+</section>
 <section id="unittest">
-<h3>unittest<a class="headerlink" href="#unittest" title="Link to this heading">#</a></h3>
+<h2>unittest<a class="headerlink" href="#unittest" title="Link to this heading">#</a></h2>
 <p>Python 3 distributions include the unittest module.  See <a class="reference external" href="https://docs.python.org/3/library/unittest.html">https://docs.python.org/3/library/unittest.html</a></p>
-<p>Here is the example included in the Python documentation.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
 
-<span class="k">class</span> <span class="nc">TestStringMethods</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">TestMyAddTwo</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_my_add_two</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">my_add_two</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_my_add_two_3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">my_add_two</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">test_upper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="s1">&#39;FOO&#39;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">test_isupper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="s1">&#39;FOO&#39;</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="s1">&#39;Foo&#39;</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
-
-    <span class="k">def</span> <span class="nf">test_split</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello world&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">])</span>
-        <span class="c1"># check that s.split fails when the separator is not a string</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
-            <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<span class="c1"># unittest.main(argv=[&#39;&#39;], exit=False)</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
-</section>
-<section id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
-<p>Using the above as template create a test for the Upper class we used earlier.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Upper</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<section id="fixtures-and-mocks">
+<h2>Fixtures and mocks<a class="headerlink" href="#fixtures-and-mocks" title="Link to this heading">#</a></h2>
+<p>Ideally each unit of code should be tested independently.</p>
+<section id="why-is-this">
+<h3>Why is this?<a class="headerlink" href="#why-is-this" title="Link to this heading">#</a></h3>
+<p>However, there are situations where testing code might require data read from a file or a database connection. If only one test requires this external data, then opening the file and reading the data will be part of the test. If several tests require this data, then we use a fixture.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Module level fixture setup and teardown</span>
+<span class="k">def</span> <span class="nf">setUpModule</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">sample_data</span>
+    <span class="n">sample_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/rows.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">tearDownModule</span><span class="p">():</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># unittest.main(argv=[&#39;&#39;], exit=False)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Class level fixture setup and teardown</span>
+<span class="k">class</span> <span class="nc">TestMyAddTwo</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">sample_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/rows.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">tearDownClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">sample_data</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">test_file_parsing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_data</span><span class="p">:</span>
+            <span class="c1"># Do something with the line</span>
+            <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mocks">
+<h3>Mocks<a class="headerlink" href="#mocks" title="Link to this heading">#</a></h3>
+<p>Mock and MagicMock objects create all attributes and methods as you access them and store details of how they have been used. You can configure them, to specify return values or limit what attributes are available.</p>
+<p>See <a class="reference external" href="https://docs.python.org/3/library/unittest.mock.html">https://docs.python.org/3/library/unittest.mock.html</a></p>
+</section>
+<section id="how-can-we-test-a-function-that-does-not-return-a-value">
+<h3>How can we test a function that does not return a value?<a class="headerlink" href="#how-can-we-test-a-function-that-does-not-return-a-value" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_results</span><span class="p">():</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+<span class="n">show_results</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="here-is-a-possible-test">
+<h3>Here is a possible test<a class="headerlink" href="#here-is-a-possible-test" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">MagicMock</span>
+
+<span class="k">class</span> <span class="nc">TestShowResults</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">global</span> <span class="nb">print</span>
+        <span class="nb">print</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">global</span> <span class="nb">print</span>
+        <span class="nb">print</span> <span class="o">=</span> <span class="n">__builtins__</span><span class="o">.</span><span class="n">print</span>
+    <span class="k">def</span> <span class="nf">test_show_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">show_results</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">print</span><span class="o">.</span><span class="n">call_count</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># unittest.main(argv=[&#39;&#39;], exit=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-does-this-test-work">
+<h3>How does this test work?<a class="headerlink" href="#how-does-this-test-work" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="linting-code-with-flake8-and-mypy">
+<h2>‘Linting’ code with flake8 and mypy<a class="headerlink" href="#linting-code-with-flake8-and-mypy" title="Link to this heading">#</a></h2>
+<p>There are various tools that can analyse Python code and suggest fixes or improvements without running the code.</p>
+<p>These are ‘static code checkers’ or ‘linters’ - because they help you remove fluff!</p>
+<section id="mypy">
+<h3>mypy<a class="headerlink" href="#mypy" title="Link to this heading">#</a></h3>
+<p>We saw mypy briefly before, it is used to find mistakes in type hints, and can even be used to enforce type hints if desired.</p>
+<p><a class="reference external" href="https://mypy.readthedocs.io/en/stable/getting_started.html">https://mypy.readthedocs.io/en/stable/getting_started.html</a></p>
+</section>
+<section id="flake8">
+<h3>flake8<a class="headerlink" href="#flake8" title="Link to this heading">#</a></h3>
+<p>Flake8 runs a variety of checks on your Python scripts, and can be used with IDEs such as VS Code to help you write clearer, more readable, code.  The, optional, but highly recommended style guide for Python is PEP 8.</p>
+<p><a class="reference external" href="https://peps.python.org/pep-0008/">https://peps.python.org/pep-0008/</a></p>
+<p><a class="reference external" href="https://flake8.pycqa.org/en/latest/index.html">https://flake8.pycqa.org/en/latest/index.html</a></p>
+</section>
+</section>
+<section id="test-coverage">
+<h2>Test coverage<a class="headerlink" href="#test-coverage" title="Link to this heading">#</a></h2>
+<section id="coverage-py-works-in-three-phases">
+<h3><a class="reference external" href="http://Coverage.py">Coverage.py</a> works in three phases:<a class="headerlink" href="#coverage-py-works-in-three-phases" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Execution: <a class="reference external" href="http://Coverage.py">Coverage.py</a> runs your code, and monitors it to see what lines were executed.</p></li>
+<li><p>Analysis: <a class="reference external" href="http://Coverage.py">Coverage.py</a> examines your code to determine what lines could have run.</p></li>
+<li><p>Reporting: <a class="reference external" href="http://Coverage.py">Coverage.py</a> combines the results of execution and analysis to produce a coverage number and an indication of missing execution.</p></li>
+</ul>
+<p>See <a class="reference external" href="https://coverage.readthedocs.io/en/7.5.3/api.html">https://coverage.readthedocs.io/en/7.5.3/api.html</a></p>
+</section>
 </section>
 <section id="pytest">
 <h2>Pytest<a class="headerlink" href="#pytest" title="Link to this heading">#</a></h2>
@@ -780,25 +957,18 @@ document.write(`
 <p>Pytest uses file and function naming conventions to discover test.  You will rarely need to run a test directly as the framework will find and run tests for you when you modify your code.</p>
 <p>Follow the instruction here to install pytest  - use a virtual environment.</p>
 <p><a class="reference external" href="https://docs.pytest.org/en/8.2.x/getting-started.html">https://docs.pytest.org/en/8.2.x/getting-started.html</a></p>
-<p>There are plugins for pytest to extend its functionality. For example test coverage.</p>
-</section>
-<section id="test-coverage">
-<h2>Test coverage<a class="headerlink" href="#test-coverage" title="Link to this heading">#</a></h2>
+<section id="coverage">
+<h3>Coverage<a class="headerlink" href="#coverage" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://pypi.org/project/pytest-cov/">https://pypi.org/project/pytest-cov/</a></p>
 </section>
 <section id="pytest-notebook">
-<h2>pytest-notebook<a class="headerlink" href="#pytest-notebook" title="Link to this heading">#</a></h2>
+<h3>pytest-notebook<a class="headerlink" href="#pytest-notebook" title="Link to this heading">#</a></h3>
 <p>See <a class="reference external" href="https://pytest-notebook.readthedocs.io/en/latest/">https://pytest-notebook.readthedocs.io/en/latest/</a></p>
 </section>
-<section id="id1">
-<h2>Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>Create a small test-suite for our Upper() class and design a new capability for the class using TDD</p>
-<p>Here are some examples -</p>
-<ul class="simple">
-<li><p>Do not allow strings without at least one letter</p></li>
-<li><p>Only allow strings that begin with a letter</p></li>
-<li><p>Limit the length of the string to 10 characters</p></li>
-</ul>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p>See the testing section of <a class="reference external" href="https://alan-turing-institute.github.io/rse-course/html/module01_introduction_to_python/index.html">https://alan-turing-institute.github.io/rse-course/html/module01_introduction_to_python/index.html</a></p>
 </section>
 </section>
 
@@ -833,20 +1003,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Python_Virtual_environments.html"
+       href="Python_ScikitLearn.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python - Virtual environments</p>
+        <p class="prev-next-title">Scikit-Learn</p>
       </div>
     </a>
     <a class="right-next"
-       href="Python_NumPy.html"
+       href="Python_Testing_exercise.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Numpy</p>
+        <p class="prev-next-title">Testing exercise</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -866,6 +1036,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python - Checking and Testing Code</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-software">Testing software</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-level-testing">System level testing</a></li>
@@ -873,18 +1044,45 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-statement">Assert statement</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-assert">When to use assert</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-might-we-want-different-behaviour-from-our-assert-statements">Why might we want different behaviour from our assert statements?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-would-you-want-your-assert-statements-to-do">What would you want your assert statements to do?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-tests">Unit-tests</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-driven-development-tdd">Test Driven Development (TDD)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactoring">Refactoring</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unittest">unittest</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest">Pytest</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test coverage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-notebook">pytest-notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unittest">unittest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixtures-and-mocks">Fixtures and mocks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-this">Why is this?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mocks">Mocks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-we-test-a-function-that-does-not-return-a-value">How can we test a function that does not return a value?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#here-is-a-possible-test">Here is a possible test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-this-test-work">How does this test work?</a></li>
 </ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linting-code-with-flake8-and-mypy">‘Linting’ code with flake8 and mypy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mypy">mypy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flake8">flake8</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test coverage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage-py-works-in-three-phases">Coverage.py works in three phases:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest">Pytest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-notebook">pytest-notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

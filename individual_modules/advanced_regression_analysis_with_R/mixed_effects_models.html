@@ -239,13 +239,15 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Language_features.html">Python Language Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Virtual_environments.html">Python - Virtual environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Testing.html">Python - Checking and Testing Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Pandas.html">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/data-analysis-task.html">Python for Data Analysis - Exercise notebook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/data-analysis-plotly.html">Python for Data Analysis - Plotting with Plotly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_ScikitLearn.html">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Testing.html">Python - Checking and Testing Code</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../python_for_data_analysis/Python_Testing_exercise.html">Testing exercise</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -817,13 +819,13 @@ cogDat&lt;-data.frame(&quot;ID&quot; = visitID, &quot;VisitNum&quot; = visitNum,
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="LukPBUJjQfWb" data-shufflequestions="False"
+<div class="output text_html"><div id="OsZYObuSwPZH" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#LukPBUJjQfWb {
+#OsZYObuSwPZH {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -993,7 +995,7 @@ cogDat&lt;-data.frame(&quot;ID&quot; = visitID, &quot;VisitNum&quot; = visitNum,
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsLukPBUJjQfWb=[
+</style></div><script type="application/javascript">var questionsOsZYObuSwPZH=[
     {
         "question": "What is the primary advantage of using mixed effects models compared to traditional linear regression?",
         "type": "many_choice",
@@ -1847,8 +1849,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("LukPBUJjQfWb")) {
-            show_questions(questionsLukPBUJjQfWb,  LukPBUJjQfWb); 
+          if(document.getElementById("OsZYObuSwPZH")) {
+            show_questions(questionsOsZYObuSwPZH,  OsZYObuSwPZH); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1857,8 +1859,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("LukPBUJjQfWb");
-        // console.log(document.getElementById("LukPBUJjQfWb"));
+        //console.log("OsZYObuSwPZH");
+        // console.log(document.getElementById("OsZYObuSwPZH"));
 
         try_show();
         }
@@ -1907,13 +1909,13 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X36190
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X34916
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        1
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  30
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  46
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
@@ -1928,19 +1930,19 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Placebo
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         32
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X36190
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X34916
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  31
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  47
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
@@ -1955,106 +1957,25 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Placebo
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         12
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         31
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X36190
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X34916
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  32
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  48
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             12
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     No
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Placebo
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         16
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X29361
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  59
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             14
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     No
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Placebo
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         27
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X29361
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  60
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             14
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     No
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Placebo
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         28
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X29361
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        3
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  61
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             14
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     No
@@ -2064,6 +1985,87 @@ head(cogDat)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         26
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X34916
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  49
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             12
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     No
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Placebo
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         29
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X28751
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  45
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             12
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     No
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Placebo
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         29
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> X28751
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  46
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             12
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     No
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Placebo
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         24
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2087,13 +2089,13 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   4.958183
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   5.440734
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   20.54770
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   12.30422
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Low
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              High
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            High
@@ -2102,13 +2104,13 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   5.286377
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   6.608890
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   24.00010
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   26.19638
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Low
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              High
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            High
@@ -2117,13 +2119,13 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   4.799473
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   5.819596
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   22.47633
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   20.43444
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Low
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              High
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            High
@@ -2132,13 +2134,13 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   9.518420
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   4.988604
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   21.96378
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   22.62909
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Low
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              High
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            High
@@ -2147,13 +2149,13 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   7.452106
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   5.132856
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   12.89214
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   25.94950
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Low
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              High
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            High
@@ -2162,10 +2164,10 @@ head(cogDat)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  10.600287
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   8.046681
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   23.81078
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   17.50469
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              High
@@ -2191,7 +2193,7 @@ hist(nVisit, main = &quot;&quot;, xlab = &quot;nVisits&quot;, ylab = &quot;nIndi
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d598f4f2dedc2ee2a93aa1364d2af589efeedc616fa3b97f6ed4129db754b4a8.png" src="../../_images/d598f4f2dedc2ee2a93aa1364d2af589efeedc616fa3b97f6ed4129db754b4a8.png" />
+<img alt="../../_images/88a1a011f77712acccd4840caf25e8e6037430cfa0daaffc29978b115b6d25e2.png" src="../../_images/88a1a011f77712acccd4840caf25e8e6037430cfa0daaffc29978b115b6d25e2.png" />
 </div>
 </div>
 <p>We can see that the majority of individuals had more than one visit, with a mean of <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">signif(mean(nVisit),3)</span></code> and a maximum of <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">max(nVisit)</span></code> visits.</p>
@@ -2216,7 +2218,7 @@ help(lmer)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File: /var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T//RtmptMFCfL/Rtxta3f162723503
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File: /var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T//Rtmpqi9h9i/Rtxtb5576226aabc
 lmer                   package:lme4                    R Documentation
 
 
@@ -2660,7 +2662,7 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>766.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>998.7
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2696,19 +2698,19 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.01199 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.41520 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.55782 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.58809 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.00342 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.01258 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.54928 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.56189 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.39618 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.80744 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2741,10 +2743,10 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21.990  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26.954  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4.689   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 5.192   
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2756,22 +2758,22 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.849  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.547  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.962   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.132   
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 153, groups: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 194, groups: 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID, 43
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID, 51
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2795,25 +2797,25 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  22.5798
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  22.9650
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.7863
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.7893
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  28.718
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  29.097
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum   
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.3355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.3579
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.1176
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.1038
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   2.852
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3.447
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2831,7 +2833,7 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.345
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.319
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2933,7 +2935,7 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>766.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>998.7
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2969,19 +2971,19 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.01199 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.41520 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.55782 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.58809 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.00342 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.01258 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.54928 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.56189 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.39618 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.80744 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3014,10 +3016,10 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21.990  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26.954  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4.689   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 5.192   
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3029,22 +3031,22 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.849  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.547  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.962   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.132   
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 153, groups: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 194, groups: 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID, 43
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID, 51
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3077,16 +3079,16 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  22.5798
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  22.9650
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.7863
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.7893
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  54.0828
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  62.1388
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  28.718
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  29.097
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  &lt; 2e-16
@@ -3098,22 +3100,22 @@ summary(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum   
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.3355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.3579
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.1176
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.1038
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 113.4982
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 147.3735
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   2.852
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3.447
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.00516
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.000739
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ** 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ***
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3141,7 +3143,7 @@ Signif. codes:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.345
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.319
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3225,16 +3227,16 @@ anova(model.rand.int, model.lm)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 940.02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1233.6
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 949.11
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1243.4
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -467.01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -613.78
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   934.02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1227.57
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
@@ -3255,19 +3257,19 @@ anova(model.rand.int, model.lm)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 772.83
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1005.2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 784.95
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1018.3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -382.41
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -498.60
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   764.83
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   997.21
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 169.19
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 230.36
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1
@@ -3309,7 +3311,7 @@ anova(model.rand.int, model.lm)[2,8]
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.110081e-38
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4.968993e-52
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3377,10 +3379,10 @@ ranova(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -383.03
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -499.33
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 774.05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1006.7
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
@@ -3401,13 +3403,13 @@ ranova(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -467.40
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -614.29
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 940.79
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1234.6
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 168.74
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 229.93
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1
@@ -3450,7 +3452,7 @@ logLik(model.rand.int)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;log Lik.&#39; 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-383.0272
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-499.3279
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (df=
@@ -3494,13 +3496,13 @@ logLik(model.rand.int)
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="HkQIidEHMjMu" data-shufflequestions="False"
+<div class="output text_html"><div id="feaZBiLfUeOP" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#HkQIidEHMjMu {
+#feaZBiLfUeOP {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -3670,7 +3672,7 @@ logLik(model.rand.int)
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsHkQIidEHMjMu=[
+</style></div><script type="application/javascript">var questionsfeaZBiLfUeOP=[
     {
         "question": "For cognitive test B, which of these statements is true?",
         "type": "many_choice",
@@ -4550,8 +4552,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("HkQIidEHMjMu")) {
-            show_questions(questionsHkQIidEHMjMu,  HkQIidEHMjMu); 
+          if(document.getElementById("feaZBiLfUeOP")) {
+            show_questions(questionsfeaZBiLfUeOP,  feaZBiLfUeOP); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -4560,8 +4562,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("HkQIidEHMjMu");
-        // console.log(document.getElementById("HkQIidEHMjMu"));
+        //console.log("feaZBiLfUeOP");
+        // console.log(document.getElementById("feaZBiLfUeOP"));
 
         try_show();
         }
@@ -4687,19 +4689,19 @@ vcov(summary(model.rand.int))
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.61821860
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.62294550
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.03191622
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.02617668
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum   
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.03191622
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.02617668
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.01383422
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.01077829
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -4733,58 +4735,58 @@ lapply(coef(model.rand.int), head)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  VisitNum
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10014
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10104
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    24.57401
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    21.42044
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3354862
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3578756
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10800
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10241
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    23.85546
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    17.27106
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3354862
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3578756
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X11593
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10865
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    17.96057
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    19.25164
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3354862
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3578756
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X11742
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X11881
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    24.54754
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    20.19666
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3354862
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3578756
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X13576
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X12881
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    18.82539
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    24.47542
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3354862
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3578756
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X13798
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X13056
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    17.93349
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    24.21237
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3354862
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3578756
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -4825,7 +4827,7 @@ lines(x.sample, y.mean, ylim = y_lim, xlab = &quot;Visit Number&quot;, ylab = &q
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1ce488c0b9c660562bbbc4b9cbe661e9de910d1e5eadcf578c6340aed3922481.png" src="../../_images/1ce488c0b9c660562bbbc4b9cbe661e9de910d1e5eadcf578c6340aed3922481.png" />
+<img alt="../../_images/de10a1697c9399a64694ad9640537b845fd613989e7ad8e2c142cc433055f061.png" src="../../_images/de10a1697c9399a64694ad9640537b845fd613989e7ad8e2c142cc433055f061.png" />
 </div>
 </div>
 <p>In this plot each dashed grey line represents an individual, while the black solid line represents the overall mean effect. What we can see is that each line starts at a different height on the y axis courtesy of the individual specific intercepts. All the lines are parallel however. The slope of the line is determined by the slope coefficient for <code class="docutils literal notranslate"><span class="pre">VisitNum</span></code> and as this isn’t dependent on the random variable there is no variation across individuals. Hence all the lines changes at the same rate. The solid black line falls approximately in the middle, with approximately half on the individual specific lines above and below. This is due to the mean do the distribution of the individual effects being set to 0. The black line tells us about the average individual, and is what we would use to make predictions about an individual outside of this cohort and describe the effect.</p>
@@ -4855,7 +4857,7 @@ abline(h=0,lwd=2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b109f02a075b5c65d8cf1088230d4d172ff27fd710a2a725862706740da34a12.png" src="../../_images/b109f02a075b5c65d8cf1088230d4d172ff27fd710a2a725862706740da34a12.png" />
+<img alt="../../_images/c4eb06416594392fc3b99b825e07403ebfad2ddf0565eca9ffdd8e0fc613fb98.png" src="../../_images/c4eb06416594392fc3b99b825e07403ebfad2ddf0565eca9ffdd8e0fc613fb98.png" />
 </div>
 </div>
 <p>Secondly, we will consider the distribution of the residuals. Similar to linear regression, the residuals are assumed to be normally distributed with constant standard deviation. Therefore we can use a QQ plot to assess this (as well as look at the values provided in the summary of the model fit which should be symmetric and have a median ~ 0). With a qq plot (or quantile-quantile plot), we are looking for the points to follow the diagonal line, any deviation indicates that the data are not normally distributed. In this example it looks pretty good.</p>
@@ -4869,7 +4871,7 @@ qqline(resid(model.rand.int))
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/67d3ed2719c2690729e03e78e31f12e0efb4d38baefcba592fab6718e6ca272d.png" src="../../_images/67d3ed2719c2690729e03e78e31f12e0efb4d38baefcba592fab6718e6ca272d.png" />
+<img alt="../../_images/4b4f5e621d599e718151cb66c70ea55172cacc4c89e75d85a82b6f10d00bddae.png" src="../../_images/4b4f5e621d599e718151cb66c70ea55172cacc4c89e75d85a82b6f10d00bddae.png" />
 </div>
 </div>
 <p>Thirdly, an assumption specific to mixed effects models is that the random effects are also normally distributed. Again we can use a qq plot to assess this and it looks good.</p>
@@ -4883,7 +4885,7 @@ qqline(ranef(model.rand.int)$`ID`[,1])
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/33dde5f8b712eb203e454b09a292722438c5c1e9f5889e41c210ca706b5bde46.png" src="../../_images/33dde5f8b712eb203e454b09a292722438c5c1e9f5889e41c210ca706b5bde46.png" />
+<img alt="../../_images/b290006f6c77d25bfe180925d2dccb5c0b7add00463a48f30dd76aa1f5588072.png" src="../../_images/b290006f6c77d25bfe180925d2dccb5c0b7add00463a48f30dd76aa1f5588072.png" />
 </div>
 </div>
 </section>
@@ -4968,7 +4970,7 @@ summary(model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>764.5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>997.5
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -5004,19 +5006,19 @@ summary(model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.60752 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.43403 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.48102 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.57388 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.01693 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.01948 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.53227 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.55929 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.43684 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.87499 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -5040,7 +5042,7 @@ summary(model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Std.Dev.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Corr 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Corr
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -5052,13 +5054,13 @@ summary(model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25.3960 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24.34034
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 5.0394  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4.9336  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -5070,13 +5072,13 @@ summary(model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> VisitNum   
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.1963 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.03185
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.4431  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.1785  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.42
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.54
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -5088,25 +5090,25 @@ summary(model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.4424 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.46782
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.8554  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 2.1137  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 153, groups: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of obs: 194, groups: 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID, 43
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID, 51
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -5139,16 +5141,16 @@ summary(model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Intercept)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  22.5529
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  23.0459
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.8370
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.7580
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40.7797
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 46.2265
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  26.946
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  30.405
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   &lt;2e-16
@@ -5160,19 +5162,19 @@ summary(model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum   
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.3487
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.3143
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.1479
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.1124
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9.2104
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.6328
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   2.358
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   2.798
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.0422
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.0415
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> *  
@@ -5203,7 +5205,7 @@ Signif. codes:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VisitNum
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.472
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -0.221
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -5265,7 +5267,7 @@ anova(model.rand.int, model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> deviance
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Chisq
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Chisq
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Df
@@ -5280,19 +5282,19 @@ anova(model.rand.int, model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    4
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 772.83
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1005.2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 784.95
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1018.3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -382.41
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -498.60
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   764.83
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   997.21
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   
@@ -5307,25 +5309,25 @@ anova(model.rand.int, model.rand.slope)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    6
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 775.68
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1008.1
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 793.87
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1027.8
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -381.84
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -498.07
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   763.68
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   996.14
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.141
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.0687
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.5653
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     0.5861
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -5363,13 +5365,13 @@ anova(model.rand.int, model.rand.slope)
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="MeZMTrzXOhvG" data-shufflequestions="False"
+<div class="output text_html"><div id="qrcquPVVOfLm" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#MeZMTrzXOhvG {
+#qrcquPVVOfLm {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -5539,7 +5541,7 @@ anova(model.rand.int, model.rand.slope)
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsMeZMTrzXOhvG=[
+</style></div><script type="application/javascript">var questionsqrcquPVVOfLm=[
     {
         "question": "What is the variance of the random intrcepts for cognitive score B?",
         "type": "many_choice",
@@ -6393,8 +6395,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("MeZMTrzXOhvG")) {
-            show_questions(questionsMeZMTrzXOhvG,  MeZMTrzXOhvG); 
+          if(document.getElementById("qrcquPVVOfLm")) {
+            show_questions(questionsqrcquPVVOfLm,  qrcquPVVOfLm); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -6403,8 +6405,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("MeZMTrzXOhvG");
-        // console.log(document.getElementById("MeZMTrzXOhvG"));
+        //console.log("qrcquPVVOfLm");
+        // console.log(document.getElementById("qrcquPVVOfLm"));
 
         try_show();
         }
@@ -6434,58 +6436,58 @@ lapply(coef(model.rand.slope), head)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  VisitNum
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10014
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10104
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    22.82312
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    21.61819
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.0147623
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.2742039
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10800
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10241
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    24.45957
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    17.59677
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.1038878
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.1910043
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X11593
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X10865
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    17.32253
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    19.57268
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.5139856
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.2535285
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X11742
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X11881
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    24.38107
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    20.35007
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.4173572
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.2498558
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X13576
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X12881
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    18.53507
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    24.47633
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.4923051
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3622005
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X13798
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X13056
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    18.05775
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    24.17232
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.2706063
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.3770351
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -6524,7 +6526,7 @@ lines(x.sample, y.mean, ylim = y_lim, xlab = &quot;Visit Number&quot;, ylab = &q
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/22473c56afb2f4c745dc43d02c91b3d16fce2ee7be8d90ba01de517ec6319c8e.png" src="../../_images/22473c56afb2f4c745dc43d02c91b3d16fce2ee7be8d90ba01de517ec6319c8e.png" />
+<img alt="../../_images/09452e73f5c002ca2135dfcf09eaeb182be8123c01ce353a19b515fe6a2ac37e.png" src="../../_images/09452e73f5c002ca2135dfcf09eaeb182be8123c01ce353a19b515fe6a2ac37e.png" />
 </div>
 </div>
 <p>In this plot each dashed grey line represents an individual, while the black solid line represents the overall mean effect. What we can see is that each line starts at a different height on the y axis curtesy of the individual specific intercepts. As we saw from the coefficients, each individual has a different slope coefficient, so they are no longer parallel, howevere, that is not obvious to the human eye in this picture. In fact they are only very subtly different, and our significance testing informed us that there was at worst very little variance across individuals. So it is not surprising that we can’t see how this manifests in the data. The black line tells us about the average individual, and is what we would use to make predictions about an individual outside of this cohort and describe the effect.</p>
@@ -6555,7 +6557,7 @@ abline(h=0,lwd=2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/058dd93ec2028a18f8511b2679fb58b0947a7425996cb80b8e36e7d2b76e06d3.png" src="../../_images/058dd93ec2028a18f8511b2679fb58b0947a7425996cb80b8e36e7d2b76e06d3.png" />
+<img alt="../../_images/fbebb6995b57f8dead7c2bb0f9342da645f78332811986757d084f4e5b2d2147.png" src="../../_images/fbebb6995b57f8dead7c2bb0f9342da645f78332811986757d084f4e5b2d2147.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -6568,7 +6570,7 @@ qqline(resid(model.rand.slope))
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/61b1b58eb80187bbe3bf8897b50a5a244b248e8035a20992407d32d27440f65f.png" src="../../_images/61b1b58eb80187bbe3bf8897b50a5a244b248e8035a20992407d32d27440f65f.png" />
+<img alt="../../_images/9de0ae57516eff01375fac103dd3cf5a652601ae4566d066a00f8865cf4b010c.png" src="../../_images/9de0ae57516eff01375fac103dd3cf5a652601ae4566d066a00f8865cf4b010c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -6581,7 +6583,7 @@ qqline(ranef(model.rand.slope)$ID[,1])
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/99f979e293a6c3ea27778bc133e408573bfddcbf93af037a83a470abec29adff.png" src="../../_images/99f979e293a6c3ea27778bc133e408573bfddcbf93af037a83a470abec29adff.png" />
+<img alt="../../_images/60fcd5439842c8116d0641f1f5e45b4f9571aa821f78a119575b80b9d8335dd2.png" src="../../_images/60fcd5439842c8116d0641f1f5e45b4f9571aa821f78a119575b80b9d8335dd2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -6594,7 +6596,7 @@ qqline(ranef(model.rand.slope)$ID[,2])
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0dfb4c9d658ea2c1b9075e88e94377fe1b9d6f629222bb43db67b1c44f87ab91.png" src="../../_images/0dfb4c9d658ea2c1b9075e88e94377fe1b9d6f629222bb43db67b1c44f87ab91.png" />
+<img alt="../../_images/ba2599bb33dc86f56289ebc2e41bc3151f3e50d21db643279a6d45b4c6aaeed6.png" src="../../_images/ba2599bb33dc86f56289ebc2e41bc3151f3e50d21db643279a6d45b4c6aaeed6.png" />
 </div>
 </div>
 <p>As with the random intercepts model these look pretty reasonable and no reason to believe the model is biased.</p>

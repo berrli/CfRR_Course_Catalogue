@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/python_for_data_analysis/Python_ScikitLearn';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to R" href="../section_landing_pages/introduction_to_r.html" />
+    <link rel="next" title="Python - Checking and Testing Code" href="Python_Testing.html" />
     <link rel="prev" title="Python for Data Analysis - Plotting with Plotly" href="data-analysis-plotly.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -237,13 +237,15 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../section_landing_pages/python_for_data_analysis.html">Python for Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Python_Language_features.html">Python Language Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Virtual_environments.html">Python - Virtual environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Python_Testing.html">Python - Checking and Testing Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_NumPy.html">Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Pandas.html">Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Python_Matplotlib.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-analysis-task.html">Python for Data Analysis - Exercise notebook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-analysis-plotly.html">Python for Data Analysis - Plotting with Plotly</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Scikit-Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_Testing.html">Python - Checking and Testing Code</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Python_Testing_exercise.html">Testing exercise</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_r.html">Introduction to R</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -864,13 +866,13 @@ Slope of the regression line: -1.8904584011013008
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="YAwvNwQORJBV" data-shufflequestions="False"
+<div class="output text_html"><div id="HXnGoTjNcdPg" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#YAwvNwQORJBV {
+#HXnGoTjNcdPg {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1040,7 +1042,7 @@ Slope of the regression line: -1.8904584011013008
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsYAwvNwQORJBV=[
+</style></div><script type="application/javascript">var questionsHXnGoTjNcdPg=[
     {
         "question": "Given the linear regression model above, between the wind speed and NO2 concentrations, based on the intercept and slope approximation, what would be the expected NO2 concentration when the wind speed is 15 km/h? Give the value to two decimal places.",
         "type": "numeric",
@@ -1807,8 +1809,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("YAwvNwQORJBV")) {
-            show_questions(questionsYAwvNwQORJBV,  YAwvNwQORJBV); 
+          if(document.getElementById("HXnGoTjNcdPg")) {
+            show_questions(questionsHXnGoTjNcdPg,  HXnGoTjNcdPg); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1817,8 +1819,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("YAwvNwQORJBV");
-        // console.log(document.getElementById("YAwvNwQORJBV"));
+        //console.log("HXnGoTjNcdPg");
+        // console.log(document.getElementById("HXnGoTjNcdPg"));
 
         try_show();
         }
@@ -1872,7 +1874,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_42148/3890792038.py:5: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T/ipykernel_46615/3890792038.py:5: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
   colors = plt.cm.get_cmap(&#39;tab10&#39;, len(air_pollution_data_2023_complete_dataset[&#39;cluster&#39;].unique()))  # &#39;tab10&#39; supports up to 10 unique categories
 </pre></div>
 </div>
@@ -1881,13 +1883,13 @@ if (typeof version == 'undefined') {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="AyxNjqaybqFB" data-shufflequestions="False"
+<div class="output text_html"><div id="xcjdsGwDZfBV" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#AyxNjqaybqFB {
+#xcjdsGwDZfBV {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2057,7 +2059,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsAyxNjqaybqFB=[
+</style></div><script type="application/javascript">var questionsxcjdsGwDZfBV=[
     {
         "question": "Given the k-means clustering model shown above, what cluster would the data point Temperature: 6, NO2 Concentration: 30 be in? ",
         "type": "numeric",
@@ -2824,8 +2826,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("AyxNjqaybqFB")) {
-            show_questions(questionsAyxNjqaybqFB,  AyxNjqaybqFB); 
+          if(document.getElementById("xcjdsGwDZfBV")) {
+            show_questions(questionsxcjdsGwDZfBV,  xcjdsGwDZfBV); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2834,8 +2836,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("AyxNjqaybqFB");
-        // console.log(document.getElementById("AyxNjqaybqFB"));
+        //console.log("xcjdsGwDZfBV");
+        // console.log(document.getElementById("xcjdsGwDZfBV"));
 
         try_show();
         }
@@ -2872,13 +2874,13 @@ if (typeof version == 'undefined') {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="GRpMUIWtRlRw" data-shufflequestions="False"
+<div class="output text_html"><div id="mtnhbBbAaVhZ" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#GRpMUIWtRlRw {
+#mtnhbBbAaVhZ {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -3048,7 +3050,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsGRpMUIWtRlRw=[
+</style></div><script type="application/javascript">var questionsmtnhbBbAaVhZ=[
     {
         "question": "Given the decision tree model that has been created, if the NO2 air pollution concentration was predicted from a wind speed of 0.5 m/s, what estimation would be made?",
         "type": "numeric",
@@ -3815,8 +3817,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("GRpMUIWtRlRw")) {
-            show_questions(questionsGRpMUIWtRlRw,  GRpMUIWtRlRw); 
+          if(document.getElementById("mtnhbBbAaVhZ")) {
+            show_questions(questionsmtnhbBbAaVhZ,  mtnhbBbAaVhZ); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3825,8 +3827,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("GRpMUIWtRlRw");
-        // console.log(document.getElementById("GRpMUIWtRlRw"));
+        //console.log("mtnhbBbAaVhZ");
+        // console.log(document.getElementById("mtnhbBbAaVhZ"));
 
         try_show();
         }
@@ -3879,11 +3881,11 @@ if (typeof version == 'undefined') {
       </div>
     </a>
     <a class="right-next"
-       href="../section_landing_pages/introduction_to_r.html"
+       href="Python_Testing.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to R</p>
+        <p class="prev-next-title">Python - Checking and Testing Code</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
