@@ -655,7 +655,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-recap">A quick recap:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-recap">A quick recap</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentals">Fundamentals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-dictionaries">Lists and dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-flow">Control flow</a></li>
@@ -677,7 +677,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="session-1-recap">
 <h1>Session 1 Recap<a class="headerlink" href="#session-1-recap" title="Link to this heading">#</a></h1>
 <section id="a-quick-recap">
-<h2>A quick recap:<a class="headerlink" href="#a-quick-recap" title="Link to this heading">#</a></h2>
+<h2>A quick recap<a class="headerlink" href="#a-quick-recap" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Fundamentals</p></li>
 <li><p>Data structures: lists and dictionaries</p></li>
@@ -688,23 +688,24 @@ document.write(`
 </section>
 <section id="fundamentals">
 <h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">#</a></h2>
-<p>We can instantiate variables, and assign data values to them. Lets create some data for the greatest car in the world, the Citroen Berlingo Mk1.</p>
-<p><img alt="ACitroen Berlingo Mk1" src="../../_images/berlingo.jpg" /></p>
+<p>We can instantiate variables, and assign data values to them. Lets create some data about this flower, found in a lawn on campus.</p>
+<p><img alt="Picture of a Lawn Daisy" src="../../_images/flower.jpg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="o">=</span> <span class="s2">&quot;Citroen&quot;</span>
-<span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;Berlingo&quot;</span>
-<span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span>
-<span class="n">owner</span> <span class="o">=</span> <span class="s2">&quot;Simon&quot;</span>
-<span class="n">sliding_doors</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">other_doors</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">coolness_pc</span> <span class="o">=</span> <span class="mi">95</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My </span><span class="si">{</span><span class="n">make</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">coolness_pc</span><span class="si">}</span><span class="s2">% cool.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Lawn Daisy&quot;</span>
+<span class="n">native_to</span> <span class="o">=</span> <span class="s2">&quot;Europe&quot;</span>
+<span class="n">petal_colour</span> <span class="o">=</span> <span class="s2">&quot;White&quot;</span>
+<span class="n">disc_floret_colour</span> <span class="o">=</span> <span class="s2">&quot;Yellow&quot;</span>
+<span class="n">stem_height</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">petal_count</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;Exeter&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was found in </span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s2">. It has </span><span class="si">{</span><span class="n">petal_count</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">petal_colour</span><span class="si">}</span><span class="s2"> petals, and a </span><span class="si">{</span><span class="n">stem_height</span><span class="si">}</span><span class="s2"> cm stem.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My Citroen Berlingo is 95% cool.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This Lawn Daisy was found in Exeter. It has 23 White petals, and a 40 cm stem.
 </pre></div>
 </div>
 </div>
@@ -712,26 +713,34 @@ document.write(`
 <p>Each variable has a type. We did not have to declare this specifically: Python worked this out based on our data. Some common data types are <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, and <code class="docutils literal notranslate"><span class="pre">int</span></code>. We can check the type of a variable using the built-in function, <code class="docutils literal notranslate"><span class="pre">type</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">owner</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">petal_count</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">disc_floret_colour</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt; &lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can write comments using the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol, or using triple quotes. Lines in these sections will not be executed. An example if shown with the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol:</p>
+<p>We can write comments using the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol, or using triple quotes. Lines in these sections will not be executed. This is often indicated by the text colour.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_car_make</span> <span class="o">=</span> <span class="s2">&quot;Mercedes&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">new_car_make</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line will not execute: species = &quot;wrong species&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Neither will these lines</span>
+<span class="sd">species = &quot;wrong species again&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;B. perennis&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">species</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mercedes
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B. perennis
 </pre></div>
 </div>
 </div>
@@ -742,14 +751,15 @@ document.write(`
 <p>We can hold more than one piece of data in a data structure. We can use create lists using square brackets, as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_info</span> <span class="o">=</span> <span class="p">[</span><span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">sliding_doors</span><span class="p">,</span> <span class="n">other_doors</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car_info</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">car_info</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flower_info</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">native_to</span><span class="p">,</span> <span class="n">petal_colour</span><span class="p">,</span> <span class="n">disc_floret_colour</span><span class="p">,</span> <span class="n">stem_height</span><span class="p">,</span> <span class="n">petal_count</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">species</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">flower_info</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">flower_info</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Citroen&#39;, &#39;Berlingo&#39;, &#39;blue&#39;, 2, 3]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Lawn Daisy&#39;, &#39;Europe&#39;, &#39;White&#39;, &#39;Yellow&#39;, 40, 23, &#39;Exeter&#39;, &#39;B. perennis&#39;]
 &lt;class &#39;list&#39;&gt;
 </pre></div>
 </div>
@@ -758,14 +768,15 @@ document.write(`
 <p>We can access specific elements of a list using the elements index. Remember that indexing starts from 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element_2</span> <span class="o">=</span> <span class="n">car_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element_2</span> <span class="o">=</span> <span class="n">flower_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">element_2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">element_2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Berlingo
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Europe
 &lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
@@ -774,14 +785,15 @@ document.write(`
 <p>Data structures often have built-in functions, or methods, attached to them. These provide fast ways of achieving common tasks. We can use the .append method to insert an element at the final index plus one, of a list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cost</span> <span class="o">=</span> <span class="mi">2000</span>
-<span class="n">car_info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car_info</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kingdom</span> <span class="o">=</span> <span class="s2">&quot;Kingdom: Plantae&quot;</span>
+<span class="n">flower_info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kingdom</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">flower_info</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Citroen&#39;, &#39;Berlingo&#39;, &#39;blue&#39;, 2, 3, 2000]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Lawn Daisy&#39;, &#39;Europe&#39;, &#39;White&#39;, &#39;Yellow&#39;, 40, 23, &#39;Exeter&#39;, &#39;B. perennis&#39;, &#39;Kingdom: Plantae&#39;]
 </pre></div>
 </div>
 </div>
@@ -789,37 +801,41 @@ document.write(`
 <p>We can update a list element, using the element’s index. Remember that a negative index counts from the end of the list, with an index of -1 indicating the final element index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_cost</span> <span class="o">=</span> <span class="mi">1850</span>
-<span class="n">car_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_cost</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car_info</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">correct_kingdom</span> <span class="o">=</span> <span class="s2">&quot;Plantae&quot;</span>
+<span class="n">flower_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">correct_kingdom</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">flower_info</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Citroen&#39;, &#39;Berlingo&#39;, &#39;blue&#39;, 2, 3, 1850]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Lawn Daisy&#39;, &#39;Europe&#39;, &#39;White&#39;, &#39;Yellow&#39;, 40, 23, &#39;Exeter&#39;, &#39;B. perennis&#39;, &#39;Plantae&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can make a dictionary using key, values pairs. Dictionaries are useful when we want to return values, based on a value name, and not an index. For example:</p>
+<p>We can make a dictionary using key, values pairs. Dictionaries are useful when we want to return values, based on the name of the variable (i.e. its key), and not just an index. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;make&quot;</span><span class="p">:</span> <span class="s2">&quot;Citroen&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Berlingo&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="s2">&quot;Simon&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;sliding_doors&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
-    <span class="s2">&quot;other_doors&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> 
-    <span class="s2">&quot;coolness_pc&quot;</span><span class="p">:</span> <span class="mi">95</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flower_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+    <span class="s2">&quot;native_to&quot;</span><span class="p">:</span> <span class="n">native_to</span><span class="p">,</span>
+    <span class="s2">&quot;petal_colour&quot;</span><span class="p">:</span> <span class="n">petal_colour</span><span class="p">,</span>
+    <span class="s2">&quot;disc_floret_colour&quot;</span><span class="p">:</span> <span class="n">disc_floret_colour</span><span class="p">,</span>
+    <span class="s2">&quot;stem_height&quot;</span><span class="p">:</span> <span class="n">stem_height</span><span class="p">,</span>
+    <span class="s2">&quot;petal_count&quot;</span><span class="p">:</span> <span class="n">petal_count</span><span class="p">,</span>
+    <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span>
+    <span class="s2">&quot;species&quot;</span><span class="p">:</span> <span class="n">species</span><span class="p">,</span>
+    <span class="s2">&quot;kingdom&quot;</span><span class="p">:</span> <span class="n">kingdom</span><span class="p">,</span>
 <span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car_dict</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">car_dict</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">flower_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">flower_dict</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;make&#39;: &#39;Citroen&#39;, &#39;model&#39;: &#39;Berlingo&#39;, &#39;color&#39;: &#39;blue&#39;, &#39;owner&#39;: &#39;Simon&#39;, &#39;sliding_doors&#39;: 2, &#39;other_doors&#39;: 3, &#39;coolness_pc&#39;: 95}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Lawn Daisy&#39;, &#39;native_to&#39;: &#39;Europe&#39;, &#39;petal_colour&#39;: &#39;White&#39;, &#39;disc_floret_colour&#39;: &#39;Yellow&#39;, &#39;stem_height&#39;: 40, &#39;petal_count&#39;: 23, &#39;location&#39;: &#39;Exeter&#39;, &#39;species&#39;: &#39;B. perennis&#39;, &#39;kingdom&#39;: &#39;Kingdom: Plantae&#39;}
 &lt;class &#39;dict&#39;&gt;
 </pre></div>
 </div>
@@ -828,12 +844,12 @@ document.write(`
 <p>We can then access values based on their key. To access the value associated with the coolness percentage key:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">car_dict</span><span class="p">[</span><span class="s2">&quot;coolness_pc&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">flower_dict</span><span class="p">[</span><span class="s2">&quot;disc_floret_colour&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yellow
 </pre></div>
 </div>
 </div>
@@ -841,14 +857,15 @@ document.write(`
 <p>We can add data to a dictionary in-place, as it is mutable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">current_price</span> <span class="o">=</span> <span class="mi">1850</span>
-<span class="n">car_dict</span><span class="p">[</span><span class="s2">&quot;current_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_price</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car_dict</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_stem_height</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">flower_dict</span><span class="p">[</span><span class="s2">&quot;stem_height&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_stem_height</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">flower_dict</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;make&#39;: &#39;Citroen&#39;, &#39;model&#39;: &#39;Berlingo&#39;, &#39;color&#39;: &#39;blue&#39;, &#39;owner&#39;: &#39;Simon&#39;, &#39;sliding_doors&#39;: 2, &#39;other_doors&#39;: 3, &#39;coolness_pc&#39;: 95, &#39;current_price&#39;: 1850}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Lawn Daisy&#39;, &#39;native_to&#39;: &#39;Europe&#39;, &#39;petal_colour&#39;: &#39;White&#39;, &#39;disc_floret_colour&#39;: &#39;Yellow&#39;, &#39;stem_height&#39;: 35, &#39;petal_count&#39;: 23, &#39;location&#39;: &#39;Exeter&#39;, &#39;species&#39;: &#39;B. perennis&#39;, &#39;kingdom&#39;: &#39;Kingdom: Plantae&#39;}
 </pre></div>
 </div>
 </div>
@@ -856,13 +873,14 @@ document.write(`
 <p>Finally, we can access just the keys, just the values, or the key, value pairs of a dictionary, using built-in methods:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_fields</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">car_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">car_fields</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flower_fields</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">flower_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">flower_fields</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;make&#39;, &#39;model&#39;, &#39;color&#39;, &#39;owner&#39;, &#39;sliding_doors&#39;, &#39;other_doors&#39;, &#39;coolness_pc&#39;, &#39;current_price&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;name&#39;, &#39;native_to&#39;, &#39;petal_colour&#39;, &#39;disc_floret_colour&#39;, &#39;stem_height&#39;, &#39;petal_count&#39;, &#39;location&#39;, &#39;species&#39;, &#39;kingdom&#39;]
 </pre></div>
 </div>
 </div>
@@ -870,52 +888,61 @@ document.write(`
 </section>
 <section id="control-flow">
 <h2>Control flow<a class="headerlink" href="#control-flow" title="Link to this heading">#</a></h2>
-<p>We can use <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements to perform different tasks, based on data values. For example, imagine if we are trying to sell our car, stored in the <code class="docutils literal notranslate"><span class="pre">car_dict</span></code> dictionary. Lets say that we will indicate on our inventory system when a buyer has offered more than 90% of the asking price of a car. We will update the boolean flag when we should sell it.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements to perform different tasks, based on data values. For example, imagine we are classifying different types of flowers, and we want to use a script to sort them into different groups for processing later on. Lets start by creating a second flower dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sell_flag</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">asking_price</span> <span class="o">=</span> <span class="mi">1500</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flower_dict_2</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bluebell&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;native_to&quot;</span><span class="p">:</span> <span class="s2">&quot;British Isles&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tepal_colour&quot;</span><span class="p">:</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stem_height&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="s2">&quot;tepal_count&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Dartmoor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;species&quot;</span><span class="p">:</span> <span class="s2">&quot;H. non-scripta&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kingdom&quot;</span><span class="p">:</span> <span class="s2">&quot;Plantae&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets identify flowers above a certain stem height.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold_height</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">daisy_height</span> <span class="o">=</span> <span class="n">flower_dict</span><span class="p">[</span><span class="s2">&quot;stem_height&quot;</span><span class="p">]</span>
 
-<span class="n">current_price</span> <span class="o">=</span> <span class="n">car_dict</span><span class="p">[</span><span class="s2">&quot;current_price&quot;</span><span class="p">]</span>
-
-<span class="k">if</span> <span class="n">asking_price</span> <span class="o">&gt;=</span> <span class="n">current_price</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">:</span>
-    <span class="n">sell_flag</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You got yourself a deal!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">daisy_height</span> <span class="o">&gt;=</span> <span class="n">threshold_height</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Daisy found above threshold height&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You&#39;re taking the mick matey!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Daisy was not above threshold height&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You&#39;re taking the mick matey!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daisy found above threshold height
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now for an unrealistic example. Lets say a buyer wants a car that is a Berlingo, but has a car to trade in. As a dealer, we are willing to take the car and a lower asking price for the Berlingo if the car is in our desired car list. We can update our system accordingly, using the <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">in</span></code> operators.</p>
+<p>Lets write a piece of control flow using <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code>, and using the <code class="docutils literal notranslate"><span class="pre">and</span></code> logical operator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sell_flag</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">desired_cars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Audi&quot;</span><span class="p">,</span> <span class="s2">&quot;Mercedes&quot;</span><span class="p">,</span> <span class="s2">&quot;Aston Martin&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold_height</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">bluebell_height</span> <span class="o">=</span> <span class="n">flower_dict_2</span><span class="p">[</span><span class="s2">&quot;stem_height&quot;</span><span class="p">]</span>
 
-<span class="n">asking_price</span> <span class="o">=</span> <span class="mi">556</span>
-<span class="n">trade_in_car</span> <span class="o">=</span> <span class="s2">&quot;Audi&quot;</span>
-
-<span class="n">current_price</span> <span class="o">=</span> <span class="n">car_dict</span><span class="p">[</span><span class="s2">&quot;current_price&quot;</span><span class="p">]</span>
-
-<span class="k">if</span> <span class="n">asking_price</span> <span class="o">&gt;=</span> <span class="n">current_price</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">:</span>
-    <span class="n">sell_flag</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m happy with that.&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="p">(</span><span class="n">trade_in_car</span> <span class="ow">in</span> <span class="n">desired_cars</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">asking_price</span> <span class="o">&gt;=</span> <span class="n">current_price</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">):</span>
-    <span class="n">sell_flag</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Great to do business with you!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">daisy_height</span> <span class="o">&gt;=</span> <span class="n">threshold_height</span> <span class="ow">and</span> <span class="n">bluebell_height</span> <span class="o">&gt;=</span> <span class="n">threshold_height</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Daisy and Bluebell found above threshold height&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">daisy_height</span> <span class="o">&lt;</span> <span class="n">threshold_height</span> <span class="ow">and</span> <span class="n">bluebell_height</span> <span class="o">&gt;=</span> <span class="n">threshold_height</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bluebell found above threshold height&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">daisy_height</span> <span class="o">&gt;=</span> <span class="n">threshold_height</span> <span class="ow">and</span> <span class="n">bluebell_height</span> <span class="o">&lt;</span> <span class="n">threshold_height</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Daisy found above threshold height&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry mate thats the best I can do.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No flowers found above threshold height&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Great to do business with you!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daisy and Bluebell found above threshold height
 </pre></div>
 </div>
 </div>
@@ -923,23 +950,46 @@ document.write(`
 </section>
 <section id="loops">
 <h2>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h2>
-<p>It is often very helpful to perform calculations over a number of items, usually stored in a data structure. If the data structure is iterable, then we can write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to execute operations over each element. For example, lets print out every value in our <code class="docutils literal notranslate"><span class="pre">car_dict</span></code> dictionary:</p>
+<p>It is often very helpful to perform calculations over a number of items, usually stored in a data structure. If the data structure is iterable, then we can write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to execute operations over each element. For example, lets print out every value in our <code class="docutils literal notranslate"><span class="pre">flower_dict</span></code> dictionary:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">car_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">flower_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Citroen
-Berlingo
-blue
-Simon
-2
-3
-95
-1850
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lawn Daisy
+Europe
+White
+Yellow
+35
+23
+Exeter
+B. perennis
+Kingdom: Plantae
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can extract the key and the value at the same time, using <code class="docutils literal notranslate"><span class="pre">dict.items()</span></code>, and display them using the f-string syntax:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">flower_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name: Lawn Daisy
+native_to: Europe
+petal_colour: White
+disc_floret_colour: Yellow
+stem_height: 35
+petal_count: 23
+location: Exeter
+species: B. perennis
+kingdom: Kingdom: Plantae
 </pre></div>
 </div>
 </div>
@@ -947,26 +997,26 @@ Simon
 <p>Lets try to multiply every value by 10. Why are some results strange?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">car_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">flower_dict_2</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
     <span class="n">new_value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">*</span> <span class="mi">10</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CitroenCitroenCitroenCitroenCitroenCitroenCitroenCitroenCitroenCitroen
-BerlingoBerlingoBerlingoBerlingoBerlingoBerlingoBerlingoBerlingoBerlingoBerlingo
-blueblueblueblueblueblueblueblueblueblue
-SimonSimonSimonSimonSimonSimonSimonSimonSimonSimon
-20
-30
-950
-18500
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BluebellBluebellBluebellBluebellBluebellBluebellBluebellBluebellBluebellBluebell
+British IslesBritish IslesBritish IslesBritish IslesBritish IslesBritish IslesBritish IslesBritish IslesBritish IslesBritish Isles
+BlueBlueBlueBlueBlueBlueBlueBlueBlueBlue
+120
+60
+DartmoorDartmoorDartmoorDartmoorDartmoorDartmoorDartmoorDartmoorDartmoorDartmoor
+H. non-scriptaH. non-scriptaH. non-scriptaH. non-scriptaH. non-scriptaH. non-scriptaH. non-scriptaH. non-scriptaH. non-scriptaH. non-scripta
+PlantaePlantaePlantaePlantaePlantaePlantaePlantaePlantaePlantaePlantae
 </pre></div>
 </div>
 </div>
 </div>
-<p>When we use an asterisk operator on a string we are overloading it. It is actually concatenating the string 10 times!</p>
+<p>When we use an asterisk operator on a string we are overloading it. We are concatenating the strings 10 times! Note that the numerical calculations are still correct.</p>
 </section>
 <section id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
@@ -1106,7 +1156,7 @@ SimonSimonSimonSimonSimonSimonSimonSimonSimonSimon
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-recap">A quick recap:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-recap">A quick recap</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentals">Fundamentals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-dictionaries">Lists and dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-flow">Control flow</a></li>
