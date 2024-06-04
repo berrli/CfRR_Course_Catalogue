@@ -57,12 +57,10 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/control_flow';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Plots" href="plots.html" />
+    <link rel="next" title="Ploting in R" href="plots.html" />
     <link rel="prev" title="Manipulating Datasets" href="manipulating_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -266,19 +264,12 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manipulating_data.html">Manipulating Datasets</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Control Flow</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plots.html">Ploting in R</a></li>
 
 
 
@@ -295,7 +286,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
-
 
 </ul>
 </li>
@@ -391,7 +381,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction to Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
@@ -658,6 +648,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Control Flow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a></li>
 </ul>
 </li>
@@ -668,6 +659,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">IF Statements</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-comparisons">Other Comparisons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-combining-for-loops-and-control-flow">Activity: Combining for loops and control flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
 </ul>
 </li>
 </ul>
@@ -686,24 +678,37 @@ document.write(`
 <h1>Control Flow<a class="headerlink" href="#control-flow" title="Link to this heading">#</a></h1>
 <p>R is just another programming language and here we are going to introduce some common programming paradigms that
 empower you to write code efficiently and control the flow of information.</p>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Learn the fundamental concepts of control flow in R programming, including loops and conditional statements</p></li>
+<li><p>Understand how to use for loops to automate repetitive tasks in R</p></li>
+<li><p>Learn to implement if statement for decision-making processes in R</p></li>
+<li><p>Recognize the importance of NA values and how to handle missing data in R</p></li>
+<li><p>Learn to integrate loops with conditional statements for complex data processing</p></li>
+</ul>
+</section>
 <section id="for-loops">
 <h2>For Loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h2>
 <p>Code is often focused around highly repetative tasks.
 Suppose we want to print each word in a sentence.
 One way is to use six <code class="docutils literal notranslate"><span class="pre">print</span></code> statements:</p>
+<div class="cell tag_remove-input docutils container">
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">best_practice</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Let&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;the&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;computer&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;do&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;the&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;work&quot;</span><span class="p">)</span>
-<span class="n">print_words</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">2</span><span class="p">])</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">3</span><span class="p">])</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">4</span><span class="p">])</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">5</span><span class="p">])</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="m">6</span><span class="p">])</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+best_practice &lt;- c(&quot;Let&quot;, &quot;the&quot;, &quot;computer&quot;, &quot;do&quot;, &quot;the&quot;, &quot;work&quot;)
+print_words &lt;- function(sentence) {
+  print(sentence[1])
+  print(sentence[2])
+  print(sentence[3])
+  print(sentence[4])
+  print(sentence[5])
+  print(sentence[6])
+}
 
-<span class="nf">print_words</span><span class="p">(</span><span class="n">best_practice</span><span class="p">)</span>
+print_words(best_practice)
 </pre></div>
 </div>
 </div>
@@ -725,22 +730,21 @@ One way is to use six <code class="docutils literal notranslate"><span class="pr
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">best_practice</span><span class="p">[</span><span class="m">-6</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+best_practice[-6]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'Let'</li><li>'the'</li><li>'computer'</li><li>'do'</li><li>'the'</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Let&quot;      &quot;the&quot;      &quot;computer&quot; &quot;do&quot;       &quot;the&quot;     
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print_words</span><span class="p">(</span><span class="n">best_practice</span><span class="p">[</span><span class="m">-6</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+print_words(best_practice[-6])
 </pre></div>
 </div>
 </div>
@@ -765,13 +769,14 @@ for more details.</p>
 <p>Here’s a better approach:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">print_words</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">word</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">sentence</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+print_words &lt;- function(sentence) {
+  for (word in sentence) {
+    print(word)
+  }
+}
 
-<span class="nf">print_words</span><span class="p">(</span><span class="n">best_practice</span><span class="p">)</span>
+print_words(best_practice)
 </pre></div>
 </div>
 </div>
@@ -798,28 +803,33 @@ The general form of a loop is:</p>
 <p>Here’s another loop that repeatedly updates a variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">len</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span>
-<span class="n">vowels</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;e&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;o&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;u&quot;</span><span class="p">)</span>
-<span class="nf">for </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vowels</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">len</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
-<span class="p">}</span>
-<span class="c1"># Number of vowels</span>
-<span class="n">len</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+len &lt;- 0
+vowels &lt;- c(&quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, &quot;u&quot;)
+for (v in vowels) {
+  len &lt;- len + 1
+}
+# Number of vowels
+len
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">5</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5
+</pre></div>
+</div>
+</div>
 </div>
 <p>It’s worth tracing the execution of this little program step by step. Since there are five elements in the vector <code class="docutils literal notranslate"><span class="pre">vowels</span></code>, the statement inside the loop will be executed five times. The first time around, <code class="docutils literal notranslate"><span class="pre">len</span></code> is zero (the value assigned to it on line 1) and <code class="docutils literal notranslate"><span class="pre">v</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>. The statement adds 1 to the old value of <code class="docutils literal notranslate"><span class="pre">len</span></code>, producing 1, and updates <code class="docutils literal notranslate"><span class="pre">len</span></code> to refer to that new value. The next time around, <code class="docutils literal notranslate"><span class="pre">v</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">len</span></code> is 1, so <code class="docutils literal notranslate"><span class="pre">len</span></code> is updated to be 2. After three more updates, <code class="docutils literal notranslate"><span class="pre">len</span></code> is 5; since there is nothing left in the vector <code class="docutils literal notranslate"><span class="pre">vowels</span></code> for R to process, the loop finishes.</p>
 <p>Note that a loop variable is just a variable that’s being used to record progress in a loop.
 It still exists after the loop is over, and we can re-use variables previously defined as loop variables as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">letter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;z&quot;</span>
-<span class="nf">for </span><span class="p">(</span><span class="n">letter</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+letter &lt;- &quot;z&quot;
+for (letter in c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)) {
+  print(letter)
+}
 </pre></div>
 </div>
 </div>
@@ -833,23 +843,31 @@ It still exists after the loop is over, and we can re-use variables previously d
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># after the loop, letter is</span>
-<span class="n">letter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# after the loop, letter is
+letter
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'c'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;c&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Note also that finding the length of a vector is such a common operation that R actually has a built-in function to do it called <code class="docutils literal notranslate"><span class="pre">length</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="n">vowels</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+length(vowels)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">5</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5
+</pre></div>
+</div>
+</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">length</span></code> is much faster than any R function we could write ourselves, and much easier to read than a two-line loop; it will also give us the length of many other things that we haven’t met yet, so we should always use it when we can.</p>
 <section id="activity">
@@ -862,13 +880,14 @@ It still exists after the loop is over, and we can re-use variables previously d
 <p>As well as repeating tasks, it’s possible we want R to only perform certain tasks in certain situations. To do this we need to write code that automatically decides between multiple options. The tool R gives us for doing this is called a conditional statement, and looks like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">37</span>
-<span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;greater&quot;</span><span class="p">)</span>
-<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;not greater&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="nf">print</span><span class="p">(</span><span class="s">&quot;done&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+num &lt;- 37
+if (num &gt; 100) {
+  print(&quot;greater&quot;)
+} else {
+  print(&quot;not greater&quot;)
+}
+print(&quot;done&quot;)
 </pre></div>
 </div>
 </div>
@@ -884,30 +903,39 @@ It still exists after the loop is over, and we can re-use variables previously d
 <p>In the example above, the test <code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">&gt;</span> <span class="pre">100</span></code> returns the value <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>, which is why the code inside the <code class="docutils literal notranslate"><span class="pre">if</span></code> block was skipped and the code inside the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement was run instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+num &gt; 100
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">FALSE</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] FALSE
+</pre></div>
+</div>
+</div>
 </div>
 <p>And as you likely guessed, the opposite of <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+num &lt; 100
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">TRUE</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] TRUE
+</pre></div>
+</div>
+</div>
 </div>
 <p>Conditional statements don’t have to include an <code class="docutils literal notranslate"><span class="pre">else</span></code>. If there isn’t one, R simply does nothing if the test is false:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">53</span>
-<span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;num is greater than 100&quot;</span><span class="p">)</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+num &lt;- 53
+if (num &gt; 100) {
+  print(&quot;num is greater than 100&quot;)
+}
 </pre></div>
 </div>
 </div>
@@ -916,40 +944,52 @@ It still exists after the loop is over, and we can re-use variables previously d
 This makes it simple to write a function that returns the sign of a number:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sign</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="nf">if </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="m">-1</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+sign &lt;- function(num) {
+  if (num &gt; 0) {
+    return(1)
+  } else if (num == 0) {
+    return(0)
+  } else {
+    return(-1)
+  }
+}
 
-<span class="nf">sign</span><span class="p">(</span><span class="m">-3</span><span class="p">)</span>
+sign(-3)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">-1</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] -1
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sign</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+sign(0)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sign</span><span class="p">(</span><span class="m">2</span><span class="o">/</span><span class="m">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+sign(2/3)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">1</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 1
+</pre></div>
+</div>
+</div>
 </div>
 <p>Note that when combining <code class="docutils literal notranslate"><span class="pre">else</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code> in an <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> statement (similar to <code class="docutils literal notranslate"><span class="pre">elif</span></code> in Python), the <code class="docutils literal notranslate"><span class="pre">if</span></code> portion still requires a direct input condition.  This is never the case for the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement alone, which is only executed if all other conditions go unsatisfied.
 Note that the test for equality uses two equal signs, <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>
@@ -962,11 +1002,12 @@ A vertical bar, <code class="docutils literal notranslate"><span class="pre">|</
 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is only true if both parts are true:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="m">-1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;both parts are true&quot;</span><span class="p">)</span>
-<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;at least one part is not true&quot;</span><span class="p">)</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+if (1 &gt; 0 &amp; -1 &gt; 0) {
+    print(&quot;both parts are true&quot;)
+} else {
+  print(&quot;at least one part is not true&quot;)
+}
 </pre></div>
 </div>
 </div>
@@ -979,11 +1020,12 @@ A vertical bar, <code class="docutils literal notranslate"><span class="pre">|</
 <p>while <code class="docutils literal notranslate"><span class="pre">|</span></code> is true if either part is true:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">-1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;at least one part is true&quot;</span><span class="p">)</span>
-<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;neither part is true&quot;</span><span class="p">)</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+if (1 &gt; 0 | -1 &gt; 0) {
+    print(&quot;at least one part is true&quot;)
+} else {
+  print(&quot;neither part is true&quot;)
+}
 </pre></div>
 </div>
 </div>
@@ -999,6 +1041,1032 @@ A vertical bar, <code class="docutils literal notranslate"><span class="pre">|</
 <h2>Activity: Combining for loops and control flow<a class="headerlink" href="#activity-combining-for-loops-and-control-flow" title="Link to this heading">#</a></h2>
 <p>Write a for loop that iterates through numbers 1 to 10 but only prints numbers greater than 3 and less than 7.</p>
 </section>
+<section id="summary-quiz">
+<h2>Summary Quiz<a class="headerlink" href="#summary-quiz" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="BWoqzqMLFHIc" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"
+               data-maxwidth="600"
+               style="border-radius: 10px; text-align: left"> <style>
+#BWoqzqMLFHIc {
+   --jq-multiple-choice-bg: #6f78ffff;
+   --jq-mc-button-bg: #fafafa;
+   --jq-mc-button-border: #e0e0e0e0;
+   --jq-mc-button-inset-shadow: #555555;
+   --jq-many-choice-bg: #f75c03ff;
+   --jq-numeric-bg: #392061ff;
+   --jq-numeric-input-bg: #c0c0c0;
+   --jq-numeric-input-label: #101010;
+   --jq-numeric-input-shadow: #999999;
+   --jq-incorrect-color: #c80202;
+   --jq-correct-color: #009113;
+   --jq-text-color: #fafafa;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+    border-radius: inherit;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    border-radius: inherit;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: var(--jq-numeric-input-bg);
+    color: var(--jq-text-color);
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: var(--jq-numeric-input-bg);
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem var(--jq-numeric-input-shadow);
+}
+
+.MCButton {
+    background: var(--jq-mc-button-bg);
+    border: 1px solid var(--jq-mc-button-border);
+    border-radius: inherit;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--jq-multiple-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--jq-many-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--jq-numeric-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: var(--jq-numeric-input-label);
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--jq-incorrect-color);
+}
+
+.correct {
+    color: var(--jq-correct-color);
+}
+
+.correctButton {
+    /*
+    background: var(--jq-correct-color);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--jq-incorrect-color);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--jq-correct-color);
+    }
+}
+</style></div><script type="application/javascript">var questionsBWoqzqMLFHIc=[
+    {
+        "question": "In R, what value is used to represent missing data?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "NULL",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "NaN",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "NA",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Missing",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What would the following R code do? for (i in 1:5) { print(i) }",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Print numbers from 0 to 4",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Print numbers from 1 to 5",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "Prints the number 5, five times",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Causes an error",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following is the correct syntax for a for loop in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "for (variable in collection) { do things with variable }",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "for variable in collection: { do things with variable }",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "foreach variable in collection { do things with variable }",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "loop (variable in collection) { do things with variable }",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    if ("feedback" in answer) {
+                        fb.textContent = jaxify(answer.feedback);
+                    } else {
+                        fb.textContent = jaxify("Correct");
+                    }
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+    var max_width = mydiv.dataset.maxwidth;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        iDiv.style.maxWidth  =max_width+"px";
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+        
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        
+        if (qa.question) {
+            iDiv.append(outerqDiv);
+
+            //qDiv.textContent=qa.question;
+            qDiv.innerHTML = jaxify(qa.question);
+            outerqDiv.append(qDiv);
+        }
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if ((qa.type == "multiple_choice") || (qa.type == "many_choice") ) {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+            if ("answer_cols" in qa) {
+                //aDiv.style.gridTemplateColumns = 'auto '.repeat(qa.answer_cols);
+                aDiv.style.gridTemplateColumns = 'repeat(' + qa.answer_cols + ', 1fr)';
+            }
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+/* This is to handle asynchrony issues in loading Jupyter notebooks
+           where the quiz has been previously run. The Javascript was generally
+           being run before the div was added to the DOM. I tried to do this
+           more elegantly using Mutation Observer, but I didn't get it to work.
+
+           Someone more knowledgeable could make this better ;-) */
+
+        function try_show() {
+          if(document.getElementById("BWoqzqMLFHIc")) {
+            show_questions(questionsBWoqzqMLFHIc,  BWoqzqMLFHIc); 
+          } else {
+             setTimeout(try_show, 200);
+          }
+        };
+    
+        {
+        // console.log(element);
+
+        //console.log("BWoqzqMLFHIc");
+        // console.log(document.getElementById("BWoqzqMLFHIc"));
+
+        try_show();
+        }
+        </script></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1010,16 +2078,16 @@ A vertical bar, <code class="docutils literal notranslate"><span class="pre">|</
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "r"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ir",
+            name: "python3",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ir'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1045,7 +2113,7 @@ A vertical bar, <code class="docutils literal notranslate"><span class="pre">|</
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Plots</p>
+        <p class="prev-next-title">Ploting in R</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1066,6 +2134,7 @@ A vertical bar, <code class="docutils literal notranslate"><span class="pre">|</
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Control Flow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a></li>
 </ul>
 </li>
@@ -1076,6 +2145,7 @@ A vertical bar, <code class="docutils literal notranslate"><span class="pre">|</
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">IF Statements</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-comparisons">Other Comparisons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-combining-for-loops-and-control-flow">Activity: Combining for loops and control flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
 </ul>
 </li>
 </ul>

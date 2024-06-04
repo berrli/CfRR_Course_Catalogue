@@ -57,12 +57,10 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/data_types';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Loading Data From Files" href="load_data.html" />
+    <link rel="next" title="Loading Data" href="load_data.html" />
     <link rel="prev" title="Running Commands With R" href="basic_commands.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -266,19 +264,12 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manipulating_data.html">Manipulating Datasets</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plots.html">Ploting in R</a></li>
 
 
 
@@ -295,7 +286,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
-
 
 </ul>
 </li>
@@ -391,7 +381,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction to Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
@@ -658,6 +648,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Types and Structures</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inbuilt-datasets">Inbuilt Datasets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-datasets">Exploring datasets</a></li>
 </ul>
@@ -681,6 +672,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors">Factors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-data-exploration">Activity: Data Exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
 </ul>
 </li>
 </ul>
@@ -697,140 +689,320 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-types-and-structures">
 <h1>Data Types and Structures<a class="headerlink" href="#data-types-and-structures" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand and identify the five core data types used in R (Numeric, Integer, Complex, Character, Logical)</p></li>
+<li><p>Learn how to use functions like <code class="docutils literal notranslate"><span class="pre">typeof()</span></code>, <code class="docutils literal notranslate"><span class="pre">class()</span></code>, <code class="docutils literal notranslate"><span class="pre">mode()</span></code>, <code class="docutils literal notranslate"><span class="pre">length()</span></code>, and <code class="docutils literal notranslate"><span class="pre">attributes()</span></code> to examine the features of variables or objects in R</p></li>
+<li><p>Learn methods to address columns in data frames using the <code class="docutils literal notranslate"><span class="pre">$</span></code> operator or square brackets</p></li>
+<li><p>Practice defining variables and using R functions to profile their characteristics</p></li>
+<li><p>Understand and perform conversions between different data types in R</p></li>
+</ul>
+</section>
 <section id="inbuilt-datasets">
 <h2>Inbuilt Datasets<a class="headerlink" href="#inbuilt-datasets" title="Link to this heading">#</a></h2>
 <p>R has a number of datasets included for you to practice with. We can get a list of these by running the command <code class="docutils literal notranslate"><span class="pre">data()</span></code></p>
+<div class="cell tag_remove-input docutils container">
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+data()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><h3>Data sets</h3>
-<table class="dataframe">
-<caption>A data.frame: 111 × 3</caption>
-<thead>
-	<tr><th scope=col>Package</th><th scope=col>Item</th><th scope=col>Title</th></tr>
-	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>datasets</td><td>AirPassengers              </td><td>Monthly Airline Passenger Numbers 1949-1960                    </td></tr>
-	<tr><td>datasets</td><td>BJsales                    </td><td>Sales Data with Leading Indicator                              </td></tr>
-	<tr><td>datasets</td><td>BJsales.lead (BJsales)     </td><td>Sales Data with Leading Indicator                              </td></tr>
-	<tr><td>datasets</td><td>BOD                        </td><td>Biochemical Oxygen Demand                                      </td></tr>
-	<tr><td>datasets</td><td>CO2                        </td><td>Carbon Dioxide Uptake in Grass Plants                          </td></tr>
-	<tr><td>datasets</td><td>ChickWeight                </td><td>Weight versus age of chicks on different diets                 </td></tr>
-	<tr><td>datasets</td><td>DNase                      </td><td>Elisa assay of DNase                                           </td></tr>
-	<tr><td>datasets</td><td>EuStockMarkets             </td><td>Daily Closing Prices of Major European Stock Indices, 1991-1998</td></tr>
-	<tr><td>datasets</td><td>Formaldehyde               </td><td>Determination of Formaldehyde                                  </td></tr>
-	<tr><td>datasets</td><td>HairEyeColor               </td><td>Hair and Eye Color of Statistics Students                      </td></tr>
-	<tr><td>datasets</td><td>Harman23.cor               </td><td>Harman Example 2.3                                             </td></tr>
-	<tr><td>datasets</td><td>Harman74.cor               </td><td>Harman Example 7.4                                             </td></tr>
-	<tr><td>datasets</td><td>Indometh                   </td><td>Pharmacokinetics of Indomethacin                               </td></tr>
-	<tr><td>datasets</td><td>InsectSprays               </td><td>Effectiveness of Insect Sprays                                 </td></tr>
-	<tr><td>datasets</td><td><span style=white-space:pre-wrap>JohnsonJohnson             </span></td><td><span style=white-space:pre-wrap>Quarterly Earnings per Johnson &amp; Johnson Share                 </span></td></tr>
-	<tr><td>datasets</td><td>LakeHuron                  </td><td>Level of Lake Huron 1875-1972                                  </td></tr>
-	<tr><td>datasets</td><td>LifeCycleSavings           </td><td>Intercountry Life-Cycle Savings Data                           </td></tr>
-	<tr><td>datasets</td><td>Loblolly                   </td><td>Growth of Loblolly pine trees                                  </td></tr>
-	<tr><td>datasets</td><td>Nile                       </td><td>Flow of the River Nile                                         </td></tr>
-	<tr><td>datasets</td><td>Orange                     </td><td>Growth of Orange Trees                                         </td></tr>
-	<tr><td>datasets</td><td>OrchardSprays              </td><td>Potency of Orchard Sprays                                      </td></tr>
-	<tr><td>datasets</td><td>PlantGrowth                </td><td>Results from an Experiment on Plant Growth                     </td></tr>
-	<tr><td>datasets</td><td>Puromycin                  </td><td>Reaction Velocity of an Enzymatic Reaction                     </td></tr>
-	<tr><td>datasets</td><td>Seatbelts                  </td><td>Road Casualties in Great Britain 1969-84                       </td></tr>
-	<tr><td>datasets</td><td>Theoph                     </td><td>Pharmacokinetics of Theophylline                               </td></tr>
-	<tr><td>datasets</td><td>Titanic                    </td><td>Survival of passengers on the Titanic                          </td></tr>
-	<tr><td>datasets</td><td>ToothGrowth                </td><td>The Effect of Vitamin C on Tooth Growth in Guinea Pigs         </td></tr>
-	<tr><td>datasets</td><td>UCBAdmissions              </td><td>Student Admissions at UC Berkeley                              </td></tr>
-	<tr><td>datasets</td><td>UKDriverDeaths             </td><td>Road Casualties in Great Britain 1969-84                       </td></tr>
-	<tr><td>datasets</td><td>UKgas                      </td><td>UK Quarterly Gas Consumption                                   </td></tr>
-	<tr><td>datasets</td><td>USAccDeaths                </td><td>Accidental Deaths in the US 1973-1978                          </td></tr>
-	<tr><td>datasets</td><td>USArrests                  </td><td>Violent Crime Rates by US State                                </td></tr>
-	<tr><td>datasets</td><td>USJudgeRatings             </td><td>Lawyers' Ratings of State Judges in the US Superior Court      </td></tr>
-	<tr><td>datasets</td><td>USPersonalExpenditure      </td><td>Personal Expenditure Data                                      </td></tr>
-	<tr><td>datasets</td><td>UScitiesD                  </td><td>Distances Between European Cities and Between US Cities        </td></tr>
-	<tr><td>datasets</td><td>VADeaths                   </td><td>Death Rates in Virginia (1940)                                 </td></tr>
-	<tr><td>datasets</td><td>WWWusage                   </td><td>Internet Usage per Minute                                      </td></tr>
-	<tr><td>datasets</td><td>WorldPhones                </td><td>The World's Telephones                                         </td></tr>
-	<tr><td>datasets</td><td>ability.cov                </td><td>Ability and Intelligence Tests                                 </td></tr>
-	<tr><td>datasets</td><td>airmiles                   </td><td>Passenger Miles on Commercial US Airlines, 1937-1960           </td></tr>
-	<tr><td>datasets</td><td>airquality                 </td><td>New York Air Quality Measurements                              </td></tr>
-	<tr><td>datasets</td><td>anscombe                   </td><td>Anscombe's Quartet of 'Identical' Simple Linear Regressions    </td></tr>
-	<tr><td>datasets</td><td>attenu                     </td><td>The Joyner-Boore Attenuation Data                              </td></tr>
-	<tr><td>datasets</td><td>attitude                   </td><td>The Chatterjee-Price Attitude Data                             </td></tr>
-	<tr><td>datasets</td><td>austres                    </td><td>Quarterly Time Series of the Number of Australian Residents    </td></tr>
-	<tr><td>datasets</td><td>beaver1 (beavers)          </td><td>Body Temperature Series of Two Beavers                         </td></tr>
-	<tr><td>datasets</td><td>beaver2 (beavers)          </td><td>Body Temperature Series of Two Beavers                         </td></tr>
-	<tr><td>datasets</td><td>cars                       </td><td>Speed and Stopping Distances of Cars                           </td></tr>
-	<tr><td>datasets</td><td>chickwts                   </td><td>Chicken Weights by Feed Type                                   </td></tr>
-	<tr><td>datasets</td><td>co2                        </td><td>Mauna Loa Atmospheric CO2 Concentration                        </td></tr>
-	<tr><td>datasets</td><td>crimtab                    </td><td>Student's 3000 Criminals Data                                  </td></tr>
-	<tr><td>datasets</td><td>discoveries                </td><td>Yearly Numbers of Important Discoveries                        </td></tr>
-	<tr><td>datasets</td><td>esoph                      </td><td>Smoking, Alcohol and (O)esophageal Cancer                      </td></tr>
-	<tr><td>datasets</td><td>euro                       </td><td>Conversion Rates of Euro Currencies                            </td></tr>
-	<tr><td>datasets</td><td>euro.cross (euro)          </td><td>Conversion Rates of Euro Currencies                            </td></tr>
-	<tr><td>datasets</td><td>eurodist                   </td><td>Distances Between European Cities and Between US Cities        </td></tr>
-	<tr><td>datasets</td><td>faithful                   </td><td>Old Faithful Geyser Data                                       </td></tr>
-	<tr><td>datasets</td><td>fdeaths (UKLungDeaths)     </td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
-	<tr><td>datasets</td><td>freeny                     </td><td>Freeny's Revenue Data                                          </td></tr>
-	<tr><td>datasets</td><td>freeny.x (freeny)          </td><td>Freeny's Revenue Data                                          </td></tr>
-	<tr><td>datasets</td><td>freeny.y (freeny)          </td><td>Freeny's Revenue Data                                          </td></tr>
-	<tr><td>datasets</td><td>infert                     </td><td>Infertility after Spontaneous and Induced Abortion             </td></tr>
-	<tr><td>datasets</td><td>iris                       </td><td>Edgar Anderson's Iris Data                                     </td></tr>
-	<tr><td>datasets</td><td>iris3                      </td><td>Edgar Anderson's Iris Data                                     </td></tr>
-	<tr><td>datasets</td><td>islands                    </td><td>Areas of the World's Major Landmasses                          </td></tr>
-	<tr><td>datasets</td><td>ldeaths (UKLungDeaths)     </td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
-	<tr><td>datasets</td><td>lh                         </td><td>Luteinizing Hormone in Blood Samples                           </td></tr>
-	<tr><td>datasets</td><td>longley                    </td><td>Longley's Economic Regression Data                             </td></tr>
-	<tr><td>datasets</td><td>lynx                       </td><td>Annual Canadian Lynx trappings 1821-1934                       </td></tr>
-	<tr><td>datasets</td><td>mdeaths (UKLungDeaths)     </td><td>Monthly Deaths from Lung Diseases in the UK                    </td></tr>
-	<tr><td>datasets</td><td>morley                     </td><td>Michelson Speed of Light Data                                  </td></tr>
-	<tr><td>datasets</td><td>mtcars                     </td><td>Motor Trend Car Road Tests                                     </td></tr>
-	<tr><td>datasets</td><td>nhtemp                     </td><td>Average Yearly Temperatures in New Haven                       </td></tr>
-	<tr><td>datasets</td><td>nottem                     </td><td>Average Monthly Temperatures at Nottingham, 1920-1939          </td></tr>
-	<tr><td>datasets</td><td>npk                        </td><td>Classical N, P, K Factorial Experiment                         </td></tr>
-	<tr><td>datasets</td><td>occupationalStatus         </td><td>Occupational Status of Fathers and their Sons                  </td></tr>
-	<tr><td>datasets</td><td>precip                     </td><td>Annual Precipitation in US Cities                              </td></tr>
-	<tr><td>datasets</td><td>presidents                 </td><td>Quarterly Approval Ratings of US Presidents                    </td></tr>
-	<tr><td>datasets</td><td>pressure                   </td><td>Vapor Pressure of Mercury as a Function of Temperature         </td></tr>
-	<tr><td>datasets</td><td>quakes                     </td><td>Locations of Earthquakes off Fiji                              </td></tr>
-	<tr><td>datasets</td><td>randu                      </td><td>Random Numbers from Congruential Generator RANDU               </td></tr>
-	<tr><td>datasets</td><td>rivers                     </td><td>Lengths of Major North American Rivers                         </td></tr>
-	<tr><td>datasets</td><td>rock                       </td><td>Measurements on Petroleum Rock Samples                         </td></tr>
-	<tr><td>datasets</td><td>sleep                      </td><td>Student's Sleep Data                                           </td></tr>
-	<tr><td>datasets</td><td>stack.loss (stackloss)     </td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
-	<tr><td>datasets</td><td>stack.x (stackloss)        </td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
-	<tr><td>datasets</td><td>stackloss                  </td><td>Brownlee's Stack Loss Plant Data                               </td></tr>
-	<tr><td>datasets</td><td>state.abb (state)          </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.area (state)         </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.center (state)       </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.division (state)     </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.name (state)         </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.region (state)       </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>state.x77 (state)          </td><td>US State Facts and Figures                                     </td></tr>
-	<tr><td>datasets</td><td>sunspot.month              </td><td>Monthly Sunspot Data, from 1749 to "Present"                   </td></tr>
-	<tr><td>datasets</td><td>sunspot.year               </td><td>Yearly Sunspot Data, 1700-1988                                 </td></tr>
-	<tr><td>datasets</td><td>sunspots                   </td><td>Monthly Sunspot Numbers, 1749-1983                             </td></tr>
-	<tr><td>datasets</td><td>swiss                      </td><td>Swiss Fertility and Socioeconomic Indicators (1888) Data       </td></tr>
-	<tr><td>datasets</td><td>treering                   </td><td>Yearly Treering Data, -6000-1979                               </td></tr>
-	<tr><td>datasets</td><td>trees                      </td><td>Diameter, Height and Volume for Black Cherry Trees             </td></tr>
-	<tr><td>datasets</td><td>uspop                      </td><td>Populations Recorded by the US Census                          </td></tr>
-	<tr><td>datasets</td><td>volcano                    </td><td>Topographic Information on Auckland's Maunga Whau Volcano      </td></tr>
-	<tr><td>datasets</td><td>warpbreaks                 </td><td>The Number of Breaks in Yarn during Weaving                    </td></tr>
-	<tr><td>datasets</td><td>women                      </td><td>Average Heights and Weights for American Women                 </td></tr>
-	<tr><td>.       </td><td>bp_dataset_session4        </td><td>                                                               </td></tr>
-	<tr><td>.       </td><td>code_session2              </td><td>                                                               </td></tr>
-	<tr><td>.       </td><td>plotting_arguments         </td><td>                                                               </td></tr>
-	<tr><td>.       </td><td>r_training_session_2_script</td><td>                                                               </td></tr>
-	<tr><td>.       </td><td>r_training_session_3_script</td><td>                                                               </td></tr>
-	<tr><td>.       </td><td>r_training_session_4       </td><td>                                                               </td></tr>
-	<tr><td>.       </td><td>worms                      </td><td>                                                               </td></tr>
-</tbody>
-</table>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File: /var/folders/r7/wblx0jw96hz08nvjz9p3zsgr0000gp/T//RtmpcTNU8Z/RpackageIQR5eca5ebeecfa
+Data sets in package ‘.’:
 
-<p>Use ‘data(package = .packages(all.available = TRUE))’
-to list the data sets in all *available* packages.</p></div></div>
+
+
+bp_dataset_session4     
+
+code_session2           
+
+plotting_arguments      
+
+r_training_session_2_script
+
+                        
+
+r_training_session_3_script
+
+                        
+
+r_training_session_4    
+
+worms                   
+
+
+
+Data sets in package ‘datasets’:
+
+
+
+AirPassengers           Monthly Airline Passenger Numbers 1949-1960
+
+BJsales                 Sales Data with Leading Indicator
+
+BJsales.lead (BJsales)
+
+                        Sales Data with Leading Indicator
+
+BOD                     Biochemical Oxygen Demand
+
+CO2                     Carbon Dioxide Uptake in Grass Plants
+
+ChickWeight             Weight versus age of chicks on different diets
+
+DNase                   Elisa assay of DNase
+
+EuStockMarkets          Daily Closing Prices of Major European Stock
+
+                        Indices, 1991-1998
+
+Formaldehyde            Determination of Formaldehyde
+
+HairEyeColor            Hair and Eye Color of Statistics Students
+
+Harman23.cor            Harman Example 2.3
+
+Harman74.cor            Harman Example 7.4
+
+Indometh                Pharmacokinetics of Indomethacin
+
+InsectSprays            Effectiveness of Insect Sprays
+
+JohnsonJohnson          Quarterly Earnings per Johnson &amp; Johnson Share
+
+LakeHuron               Level of Lake Huron 1875-1972
+
+LifeCycleSavings        Intercountry Life-Cycle Savings Data
+
+Loblolly                Growth of Loblolly pine trees
+
+Nile                    Flow of the River Nile
+
+Orange                  Growth of Orange Trees
+
+OrchardSprays           Potency of Orchard Sprays
+
+PlantGrowth             Results from an Experiment on Plant Growth
+
+Puromycin               Reaction Velocity of an Enzymatic Reaction
+
+Seatbelts               Road Casualties in Great Britain 1969-84
+
+Theoph                  Pharmacokinetics of Theophylline
+
+Titanic                 Survival of passengers on the Titanic
+
+ToothGrowth             The Effect of Vitamin C on Tooth Growth in
+
+                        Guinea Pigs
+
+UCBAdmissions           Student Admissions at UC Berkeley
+
+UKDriverDeaths          Road Casualties in Great Britain 1969-84
+
+UKgas                   UK Quarterly Gas Consumption
+
+USAccDeaths             Accidental Deaths in the US 1973-1978
+
+USArrests               Violent Crime Rates by US State
+
+USJudgeRatings          Lawyers&#39; Ratings of State Judges in the US
+
+                        Superior Court
+
+USPersonalExpenditure   Personal Expenditure Data
+
+UScitiesD               Distances Between European Cities and Between
+
+                        US Cities
+
+VADeaths                Death Rates in Virginia (1940)
+
+WWWusage                Internet Usage per Minute
+
+WorldPhones             The World&#39;s Telephones
+
+ability.cov             Ability and Intelligence Tests
+
+airmiles                Passenger Miles on Commercial US Airlines,
+
+                        1937-1960
+
+airquality              New York Air Quality Measurements
+
+anscombe                Anscombe&#39;s Quartet of &#39;Identical&#39; Simple Linear
+
+                        Regressions
+
+attenu                  The Joyner-Boore Attenuation Data
+
+attitude                The Chatterjee-Price Attitude Data
+
+austres                 Quarterly Time Series of the Number of
+
+                        Australian Residents
+
+beaver1 (beavers)       Body Temperature Series of Two Beavers
+
+beaver2 (beavers)       Body Temperature Series of Two Beavers
+
+cars                    Speed and Stopping Distances of Cars
+
+chickwts                Chicken Weights by Feed Type
+
+co2                     Mauna Loa Atmospheric CO2 Concentration
+
+crimtab                 Student&#39;s 3000 Criminals Data
+
+discoveries             Yearly Numbers of Important Discoveries
+
+esoph                   Smoking, Alcohol and (O)esophageal Cancer
+
+euro                    Conversion Rates of Euro Currencies
+
+euro.cross (euro)       Conversion Rates of Euro Currencies
+
+eurodist                Distances Between European Cities and Between
+
+                        US Cities
+
+faithful                Old Faithful Geyser Data
+
+fdeaths (UKLungDeaths)
+
+                        Monthly Deaths from Lung Diseases in the UK
+
+freeny                  Freeny&#39;s Revenue Data
+
+freeny.x (freeny)       Freeny&#39;s Revenue Data
+
+freeny.y (freeny)       Freeny&#39;s Revenue Data
+
+infert                  Infertility after Spontaneous and Induced
+
+                        Abortion
+
+iris                    Edgar Anderson&#39;s Iris Data
+
+iris3                   Edgar Anderson&#39;s Iris Data
+
+islands                 Areas of the World&#39;s Major Landmasses
+
+ldeaths (UKLungDeaths)
+
+                        Monthly Deaths from Lung Diseases in the UK
+
+lh                      Luteinizing Hormone in Blood Samples
+
+longley                 Longley&#39;s Economic Regression Data
+
+lynx                    Annual Canadian Lynx trappings 1821-1934
+
+mdeaths (UKLungDeaths)
+
+                        Monthly Deaths from Lung Diseases in the UK
+
+morley                  Michelson Speed of Light Data
+
+mtcars                  Motor Trend Car Road Tests
+
+nhtemp                  Average Yearly Temperatures in New Haven
+
+nottem                  Average Monthly Temperatures at Nottingham,
+
+                        1920-1939
+
+npk                     Classical N, P, K Factorial Experiment
+
+occupationalStatus      Occupational Status of Fathers and their Sons
+
+precip                  Annual Precipitation in US Cities
+
+presidents              Quarterly Approval Ratings of US Presidents
+
+pressure                Vapor Pressure of Mercury as a Function of
+
+                        Temperature
+
+quakes                  Locations of Earthquakes off Fiji
+
+randu                   Random Numbers from Congruential Generator
+
+                        RANDU
+
+rivers                  Lengths of Major North American Rivers
+
+rock                    Measurements on Petroleum Rock Samples
+
+sleep                   Student&#39;s Sleep Data
+
+stack.loss (stackloss)
+
+                        Brownlee&#39;s Stack Loss Plant Data
+
+stack.x (stackloss)     Brownlee&#39;s Stack Loss Plant Data
+
+stackloss               Brownlee&#39;s Stack Loss Plant Data
+
+state.abb (state)       US State Facts and Figures
+
+state.area (state)      US State Facts and Figures
+
+state.center (state)    US State Facts and Figures
+
+state.division (state)
+
+                        US State Facts and Figures
+
+state.name (state)      US State Facts and Figures
+
+state.region (state)    US State Facts and Figures
+
+state.x77 (state)       US State Facts and Figures
+
+sunspot.month           Monthly Sunspot Data, from 1749 to &quot;Present&quot;
+
+sunspot.year            Yearly Sunspot Data, 1700-1988
+
+sunspots                Monthly Sunspot Numbers, 1749-1983
+
+swiss                   Swiss Fertility and Socioeconomic Indicators
+
+                        (1888) Data
+
+treering                Yearly Treering Data, -6000-1979
+
+trees                   Diameter, Height and Volume for Black Cherry
+
+                        Trees
+
+uspop                   Populations Recorded by the US Census
+
+volcano                 Topographic Information on Auckland&#39;s Maunga
+
+                        Whau Volcano
+
+warpbreaks              The Number of Breaks in Yarn during Weaving
+
+women                   Average Heights and Weights for American Women
+
+
+
+
+
+Use ‘data(package = .packages(all.available = TRUE))’
+
+to list the data sets in all *available* packages.
+
+---
+</pre></div>
+</div>
+</div>
 </div>
 <p>This command won’t produce any output but open a file in the scripts pane that lists the available datasets.
 In this session, we will be using the built-in R data sets stored in the variables <code class="docutils literal notranslate"><span class="pre">iris</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">mtcars</span></code>.
@@ -844,29 +1016,31 @@ information we want to store.</p>
 <p>First, let’s ask what type of thing <code class="docutils literal notranslate"><span class="pre">iris</span></code> is using the function <code class="docutils literal notranslate"><span class="pre">class()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+class(iris)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'data.frame'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;data.frame&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <p>The output tells us that it is a data frame. A data frame is an example of R object, and can be defined by certain properties. A data frame is comparable to a spreadsheet in MS Excel as it is a 2 dimensional object (i.e. has rows and columns). Data frames are very useful for storing data, especially if you are used to work with your data in tables. A typical data frame of experimental data contains individual observations in rows and variables in columns.
 We can see the shape, or dimensions, of the data frame with the function <code class="docutils literal notranslate"><span class="pre">dim()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+dim(iris)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>150</li><li>5</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 150   5
+</pre></div>
+</div>
+</div>
 </div>
 <p>This tells us that our data frame, <code class="docutils literal notranslate"><span class="pre">iris</span></code>, has 150 rows and 5 columns.</p>
 <p>To explore data frames, there are a number of relevant functions:</p>
@@ -888,128 +1062,122 @@ If we want to get a single value from the data frame, we can index a specific po
 If you are familiar with matrices we index in the same way. For example, to get the element in the top left corner, i.e. in the first row and first column we run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+iris[1, 1]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">5.1</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5.1
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can use this principle to extract any entry of the matrix. For example the 30th row and 3rd column</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">30</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+iris[30,3]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">1.6</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 1.6
+</pre></div>
+</div>
+</div>
 </div>
 <p>An index like ``[30, 3]``` selects a single element of a data frame, but we can select larger sections as well. For example, we can select the first three columns of values for the first four rows like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+iris[1:4, 1:3]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 4 × 3</caption>
-<thead>
-	<tr><th></th><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th></tr>
-	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>1</th><td>5.1</td><td>3.5</td><td>1.4</td></tr>
-	<tr><th scope=row>2</th><td>4.9</td><td>3.0</td><td>1.4</td></tr>
-	<tr><th scope=row>3</th><td>4.7</td><td>3.2</td><td>1.3</td></tr>
-	<tr><th scope=row>4</th><td>4.6</td><td>3.1</td><td>1.5</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Sepal.Length Sepal.Width Petal.Length
+1          5.1         3.5          1.4
+2          4.9         3.0          1.4
+3          4.7         3.2          1.3
+4          4.6         3.1          1.5
+</pre></div>
+</div>
+</div>
 </div>
 <p>The slice <code class="docutils literal notranslate"><span class="pre">1:4</span></code> means, “Start at index 1 and go to index 4.” The slice does not need to start at 1, e.g. the line below selects rows 5 through 10:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">5</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+iris[5:10, 1:3]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 6 × 3</caption>
-<thead>
-	<tr><th></th><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th></tr>
-	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>5</th><td>5.0</td><td>3.6</td><td>1.4</td></tr>
-	<tr><th scope=row>6</th><td>5.4</td><td>3.9</td><td>1.7</td></tr>
-	<tr><th scope=row>7</th><td>4.6</td><td>3.4</td><td>1.4</td></tr>
-	<tr><th scope=row>8</th><td>5.0</td><td>3.4</td><td>1.5</td></tr>
-	<tr><th scope=row>9</th><td>4.4</td><td>2.9</td><td>1.4</td></tr>
-	<tr><th scope=row>10</th><td>4.9</td><td>3.1</td><td>1.5</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Sepal.Length Sepal.Width Petal.Length
+5           5.0         3.6          1.4
+6           5.4         3.9          1.7
+7           4.6         3.4          1.4
+8           5.0         3.4          1.5
+9           4.4         2.9          1.4
+10          4.9         3.1          1.5
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can use the function <code class="docutils literal notranslate"><span class="pre">c()</span></code>, which stands for <strong>c</strong>ombine, to select non-contiguous entries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">37</span><span class="p">,</span><span class="w"> </span><span class="m">56</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+iris[c(3, 8, 37, 56), c(1,3)]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 4 × 2</caption>
-<thead>
-	<tr><th></th><th scope=col>Sepal.Length</th><th scope=col>Petal.Length</th></tr>
-	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>3</th><td>4.7</td><td>1.3</td></tr>
-	<tr><th scope=row>8</th><td>5.0</td><td>1.5</td></tr>
-	<tr><th scope=row>37</th><td>5.5</td><td>1.3</td></tr>
-	<tr><th scope=row>56</th><td>5.7</td><td>4.5</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Sepal.Length Petal.Length
+3           4.7          1.3
+8           5.0          1.5
+37          5.5          1.3
+56          5.7          4.5
+</pre></div>
+</div>
+</div>
 </div>
 <p>We also don’t have to provide a slice for either the rows or the columns. If we don’t include a slice for the rows, R returns all the rows; if we don’t include a slice for the columns, R returns all the columns. If we don’t provide a slice for either rows or columns, e.g. <code class="docutils literal notranslate"><span class="pre">iris[,</span> <span class="pre">]</span></code>, R returns the full data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+iris[5, ]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 1 × 5</caption>
-<thead>
-	<tr><th></th><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
-	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>5</th><td>5</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+5            5         3.6          1.4         0.2  setosa
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+iris[, 2]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>3.5</li><li>3</li><li>3.2</li><li>3.1</li><li>3.6</li><li>3.9</li><li>3.4</li><li>3.4</li><li>2.9</li><li>3.1</li><li>3.7</li><li>3.4</li><li>3</li><li>3</li><li>4</li><li>4.4</li><li>3.9</li><li>3.5</li><li>3.8</li><li>3.8</li><li>3.4</li><li>3.7</li><li>3.6</li><li>3.3</li><li>3.4</li><li>3</li><li>3.4</li><li>3.5</li><li>3.4</li><li>3.2</li><li>3.1</li><li>3.4</li><li>4.1</li><li>4.2</li><li>3.1</li><li>3.2</li><li>3.5</li><li>3.6</li><li>3</li><li>3.4</li><li>3.5</li><li>2.3</li><li>3.2</li><li>3.5</li><li>3.8</li><li>3</li><li>3.8</li><li>3.2</li><li>3.7</li><li>3.3</li><li>3.2</li><li>3.2</li><li>3.1</li><li>2.3</li><li>2.8</li><li>2.8</li><li>3.3</li><li>2.4</li><li>2.9</li><li>2.7</li><li>2</li><li>3</li><li>2.2</li><li>2.9</li><li>2.9</li><li>3.1</li><li>3</li><li>2.7</li><li>2.2</li><li>2.5</li><li>3.2</li><li>2.8</li><li>2.5</li><li>2.8</li><li>2.9</li><li>3</li><li>2.8</li><li>3</li><li>2.9</li><li>2.6</li><li>2.4</li><li>2.4</li><li>2.7</li><li>2.7</li><li>3</li><li>3.4</li><li>3.1</li><li>2.3</li><li>3</li><li>2.5</li><li>2.6</li><li>3</li><li>2.6</li><li>2.3</li><li>2.7</li><li>3</li><li>2.9</li><li>2.9</li><li>2.5</li><li>2.8</li><li>3.3</li><li>2.7</li><li>3</li><li>2.9</li><li>3</li><li>3</li><li>2.5</li><li>2.9</li><li>2.5</li><li>3.6</li><li>3.2</li><li>2.7</li><li>3</li><li>2.5</li><li>2.8</li><li>3.2</li><li>3</li><li>3.8</li><li>2.6</li><li>2.2</li><li>3.2</li><li>2.8</li><li>2.8</li><li>2.7</li><li>3.3</li><li>3.2</li><li>2.8</li><li>3</li><li>2.8</li><li>3</li><li>2.8</li><li>3.8</li><li>2.8</li><li>2.8</li><li>2.6</li><li>3</li><li>3.4</li><li>3.1</li><li>3</li><li>3.1</li><li>3.1</li><li>3.1</li><li>2.7</li><li>3.2</li><li>3.3</li><li>3</li><li>2.5</li><li>3</li><li>3.4</li><li>3</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5
+ [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2
+ [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3
+ [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8
+ [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5
+ [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9
+[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2
+[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2
+[145] 3.3 3.0 2.5 3.0 3.4 3.0
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="addressing-columns-by-name">
@@ -1043,56 +1211,70 @@ If you are familiar with matrices we index in the same way. For example, to get 
 <p>Let’s define some variables we can use R to profile the charateristics of</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;dataset&quot;</span>
-<span class="nf">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+x &lt;- &quot;dataset&quot;
+typeof(x)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'character'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;character&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span>
-<span class="n">y</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+y &lt;- 1:10
+y
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [1]  1  2  3  4  5  6  7  8  9 10
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">typeof</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+typeof(y)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'integer'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;integer&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+class(y)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'integer'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;integer&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">length</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+length(y)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">10</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 10
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="converting-between-datatypes">
@@ -1103,13 +1285,17 @@ series of functions <code class="docutils literal notranslate"><span class="pre"
 <p>For example, let’s convert our numeric variable <code class="docutils literal notranslate"><span class="pre">y</span></code> into a character.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="nf">typeof</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+y &lt;- as.character(y)
+typeof(y)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'character'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;character&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <section id="activity-determining-data-yypes">
 <h2>Activity: Determining Data Yypes<a class="headerlink" href="#activity-determining-data-yypes" title="Link to this heading">#</a></h2>
@@ -1143,8 +1329,9 @@ a given length. They are one-dimensional. We can think of each column of a data 
 <p>The concatenate or combine <code class="docutils literal notranslate"><span class="pre">c()</span></code> function will explicitly <strong>construct</strong> a vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v_num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">12</span><span class="p">)</span>
-<span class="n">v_log</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+v_num &lt;- c(9,20,12)
+v_log &lt;- c(TRUE, FALSE, FALSE, TRUE)
 </pre></div>
 </div>
 </div>
@@ -1152,67 +1339,59 @@ a given length. They are one-dimensional. We can think of each column of a data 
 <p>As we create these vectors you should see them listed in your environment pane. We can then call the name of the varible to see what the value is at that point in time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v_num</span><span class="w"> </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+v_num 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>9</li><li>20</li><li>12</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]  9 20 12
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v_log</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+v_log
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]  TRUE FALSE FALSE  TRUE
+</pre></div>
+</div>
+</div>
 </div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">c()</span></code> can also be used to <strong>add elements</strong> to a vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v_name</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Sarah&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tracy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Jon&quot;</span><span class="p">)</span>
-<span class="n">v_name</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">v_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Annette&quot;</span><span class="p">)</span>
-<span class="n">v_name</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+v_name &lt;- c(&quot;Sarah&quot;, &quot;Tracy&quot;, &quot;Jon&quot;)
+v_name &lt;- c(v_name, &quot;Annette&quot;)
+v_name
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'Sarah'</li><li>'Tracy'</li><li>'Jon'</li><li>'Annette'</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Sarah&quot;   &quot;Tracy&quot;   &quot;Jon&quot;     &quot;Annette&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <p>If we want to create a series of numbers, like 1 to 140, we can bypass the <code class="docutils literal notranslate"><span class="pre">c()</span></code> constructor and just write</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">v_int</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+(v_int &lt;- 1:4)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 1 2 3 4
+</pre></div>
+</div>
+</div>
 </div>
 <p>When we call a vector <em>atomic</em>, we mean that the vector only holds data of a single data type.</p>
 </section>
@@ -1223,32 +1402,27 @@ a given length. They are one-dimensional. We can think of each column of a data 
 to get the first ten letters in the alphabet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">],</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">11</span><span class="o">:</span><span class="m">20</span><span class="p">)</span>
-<span class="n">dat</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+dat &lt;- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+dat
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 10 × 3</caption>
-<thead>
-	<tr><th scope=col>id</th><th scope=col>x</th><th scope=col>y</th></tr>
-	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>a</td><td> 1</td><td>11</td></tr>
-	<tr><td>b</td><td> 2</td><td>12</td></tr>
-	<tr><td>c</td><td> 3</td><td>13</td></tr>
-	<tr><td>d</td><td> 4</td><td>14</td></tr>
-	<tr><td>e</td><td> 5</td><td>15</td></tr>
-	<tr><td>f</td><td> 6</td><td>16</td></tr>
-	<tr><td>g</td><td> 7</td><td>17</td></tr>
-	<tr><td>h</td><td> 8</td><td>18</td></tr>
-	<tr><td>i</td><td> 9</td><td>19</td></tr>
-	<tr><td>j</td><td>10</td><td>20</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   id  x  y
+1   a  1 11
+2   b  2 12
+3   c  3 13
+4   d  4 14
+5   e  5 15
+6   f  6 16
+7   g  7 17
+8   h  8 18
+9   i  9 19
+10  j 10 20
+</pre></div>
+</div>
+</div>
 </div>
 <p>Columns are variables, and each column will have a specified data type, which all entries must adhere to.
 Rows are observations. Rows and columns will have <code class="docutils literal notranslate"><span class="pre">rownames</span></code> and <code class="docutils literal notranslate"><span class="pre">colnames</span></code> that you can use to extract
@@ -1274,37 +1448,34 @@ It is more efficient memory wise than a data.frame, but can not be used as a sub
 <p>We can construct a matrix as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">&lt;-</span><span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
-<span class="n">m</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+m&lt;-matrix(1:6, nrow=2, ncol=3)
+m
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A matrix: 2 × 3 of type int</caption>
-<tbody>
-	<tr><td>1</td><td>3</td><td>5</td></tr>
-	<tr><td>2</td><td>4</td><td>6</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+</pre></div>
+</div>
+</div>
 </div>
 <p>When creating a <strong>matrix</strong>, it is important to remember that matrices <strong><em>are filled column-wise</em></strong> If that is not what you want, you can use the <code class="docutils literal notranslate"><span class="pre">byrow</span></code> argument (a logical: can be <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>) to specify how the matrix is filled.</p>
 <p>We can confirm the data type of a matrix with the function <code class="docutils literal notranslate"><span class="pre">class</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+class(m)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'matrix'</li><li>'array'</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;matrix&quot; &quot;array&quot; 
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="arrays">
@@ -1320,100 +1491,174 @@ data types connected in some way.</p>
 <p>We can create a list of the vectors, data.frames we have already constructed as follows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">v_log</span><span class="p">,</span><span class="w"> </span><span class="n">v_num</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="p">)</span>
-<span class="n">l</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+l &lt;- list(v_log, v_num, iris)
+l
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><ol>
-	<li><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li></ol>
-</li>
-	<li><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>9</li><li>20</li><li>12</li></ol>
-</li>
-	<li><table class="dataframe">
-<caption>A data.frame: 150 × 5</caption>
-<thead>
-	<tr><th scope=col>Sepal.Length</th><th scope=col>Sepal.Width</th><th scope=col>Petal.Length</th><th scope=col>Petal.Width</th><th scope=col>Species</th></tr>
-	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
-	<tr><td>4.6</td><td>3.4</td><td>1.4</td><td>0.3</td><td>setosa</td></tr>
-	<tr><td>5.0</td><td>3.4</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.4</td><td>2.9</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.9</td><td>3.1</td><td>1.5</td><td>0.1</td><td>setosa</td></tr>
-	<tr><td>5.4</td><td>3.7</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.8</td><td>3.4</td><td>1.6</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.8</td><td>3.0</td><td>1.4</td><td>0.1</td><td>setosa</td></tr>
-	<tr><td>4.3</td><td>3.0</td><td>1.1</td><td>0.1</td><td>setosa</td></tr>
-	<tr><td>5.8</td><td>4.0</td><td>1.2</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.7</td><td>4.4</td><td>1.5</td><td>0.4</td><td>setosa</td></tr>
-	<tr><td>5.4</td><td>3.9</td><td>1.3</td><td>0.4</td><td>setosa</td></tr>
-	<tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.3</td><td>setosa</td></tr>
-	<tr><td>5.7</td><td>3.8</td><td>1.7</td><td>0.3</td><td>setosa</td></tr>
-	<tr><td>5.1</td><td>3.8</td><td>1.5</td><td>0.3</td><td>setosa</td></tr>
-	<tr><td>5.4</td><td>3.4</td><td>1.7</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.1</td><td>3.7</td><td>1.5</td><td>0.4</td><td>setosa</td></tr>
-	<tr><td>4.6</td><td>3.6</td><td>1.0</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.1</td><td>3.3</td><td>1.7</td><td>0.5</td><td>setosa</td></tr>
-	<tr><td>4.8</td><td>3.4</td><td>1.9</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.0</td><td>3.0</td><td>1.6</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.0</td><td>3.4</td><td>1.6</td><td>0.4</td><td>setosa</td></tr>
-	<tr><td>5.2</td><td>3.5</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>5.2</td><td>3.4</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>4.7</td><td>3.2</td><td>1.6</td><td>0.2</td><td>setosa</td></tr>
-	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
-	<tr><td>6.9</td><td>3.2</td><td>5.7</td><td>2.3</td><td>virginica</td></tr>
-	<tr><td>5.6</td><td>2.8</td><td>4.9</td><td>2.0</td><td>virginica</td></tr>
-	<tr><td>7.7</td><td>2.8</td><td>6.7</td><td>2.0</td><td>virginica</td></tr>
-	<tr><td>6.3</td><td>2.7</td><td>4.9</td><td>1.8</td><td>virginica</td></tr>
-	<tr><td>6.7</td><td>3.3</td><td>5.7</td><td>2.1</td><td>virginica</td></tr>
-	<tr><td>7.2</td><td>3.2</td><td>6.0</td><td>1.8</td><td>virginica</td></tr>
-	<tr><td>6.2</td><td>2.8</td><td>4.8</td><td>1.8</td><td>virginica</td></tr>
-	<tr><td>6.1</td><td>3.0</td><td>4.9</td><td>1.8</td><td>virginica</td></tr>
-	<tr><td>6.4</td><td>2.8</td><td>5.6</td><td>2.1</td><td>virginica</td></tr>
-	<tr><td>7.2</td><td>3.0</td><td>5.8</td><td>1.6</td><td>virginica</td></tr>
-	<tr><td>7.4</td><td>2.8</td><td>6.1</td><td>1.9</td><td>virginica</td></tr>
-	<tr><td>7.9</td><td>3.8</td><td>6.4</td><td>2.0</td><td>virginica</td></tr>
-	<tr><td>6.4</td><td>2.8</td><td>5.6</td><td>2.2</td><td>virginica</td></tr>
-	<tr><td>6.3</td><td>2.8</td><td>5.1</td><td>1.5</td><td>virginica</td></tr>
-	<tr><td>6.1</td><td>2.6</td><td>5.6</td><td>1.4</td><td>virginica</td></tr>
-	<tr><td>7.7</td><td>3.0</td><td>6.1</td><td>2.3</td><td>virginica</td></tr>
-	<tr><td>6.3</td><td>3.4</td><td>5.6</td><td>2.4</td><td>virginica</td></tr>
-	<tr><td>6.4</td><td>3.1</td><td>5.5</td><td>1.8</td><td>virginica</td></tr>
-	<tr><td>6.0</td><td>3.0</td><td>4.8</td><td>1.8</td><td>virginica</td></tr>
-	<tr><td>6.9</td><td>3.1</td><td>5.4</td><td>2.1</td><td>virginica</td></tr>
-	<tr><td>6.7</td><td>3.1</td><td>5.6</td><td>2.4</td><td>virginica</td></tr>
-	<tr><td>6.9</td><td>3.1</td><td>5.1</td><td>2.3</td><td>virginica</td></tr>
-	<tr><td>5.8</td><td>2.7</td><td>5.1</td><td>1.9</td><td>virginica</td></tr>
-	<tr><td>6.8</td><td>3.2</td><td>5.9</td><td>2.3</td><td>virginica</td></tr>
-	<tr><td>6.7</td><td>3.3</td><td>5.7</td><td>2.5</td><td>virginica</td></tr>
-	<tr><td>6.7</td><td>3.0</td><td>5.2</td><td>2.3</td><td>virginica</td></tr>
-	<tr><td>6.3</td><td>2.5</td><td>5.0</td><td>1.9</td><td>virginica</td></tr>
-	<tr><td>6.5</td><td>3.0</td><td>5.2</td><td>2.0</td><td>virginica</td></tr>
-	<tr><td>6.2</td><td>3.4</td><td>5.4</td><td>2.3</td><td>virginica</td></tr>
-	<tr><td>5.9</td><td>3.0</td><td>5.1</td><td>1.8</td><td>virginica</td></tr>
-</tbody>
-</table>
-</li>
-</ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1]]
+[1]  TRUE FALSE FALSE  TRUE
+
+[[2]]
+[1]  9 20 12
+
+[[3]]
+    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+1            5.1         3.5          1.4         0.2     setosa
+2            4.9         3.0          1.4         0.2     setosa
+3            4.7         3.2          1.3         0.2     setosa
+4            4.6         3.1          1.5         0.2     setosa
+5            5.0         3.6          1.4         0.2     setosa
+6            5.4         3.9          1.7         0.4     setosa
+7            4.6         3.4          1.4         0.3     setosa
+8            5.0         3.4          1.5         0.2     setosa
+9            4.4         2.9          1.4         0.2     setosa
+10           4.9         3.1          1.5         0.1     setosa
+11           5.4         3.7          1.5         0.2     setosa
+12           4.8         3.4          1.6         0.2     setosa
+13           4.8         3.0          1.4         0.1     setosa
+14           4.3         3.0          1.1         0.1     setosa
+15           5.8         4.0          1.2         0.2     setosa
+16           5.7         4.4          1.5         0.4     setosa
+17           5.4         3.9          1.3         0.4     setosa
+18           5.1         3.5          1.4         0.3     setosa
+19           5.7         3.8          1.7         0.3     setosa
+20           5.1         3.8          1.5         0.3     setosa
+21           5.4         3.4          1.7         0.2     setosa
+22           5.1         3.7          1.5         0.4     setosa
+23           4.6         3.6          1.0         0.2     setosa
+24           5.1         3.3          1.7         0.5     setosa
+25           4.8         3.4          1.9         0.2     setosa
+26           5.0         3.0          1.6         0.2     setosa
+27           5.0         3.4          1.6         0.4     setosa
+28           5.2         3.5          1.5         0.2     setosa
+29           5.2         3.4          1.4         0.2     setosa
+30           4.7         3.2          1.6         0.2     setosa
+31           4.8         3.1          1.6         0.2     setosa
+32           5.4         3.4          1.5         0.4     setosa
+33           5.2         4.1          1.5         0.1     setosa
+34           5.5         4.2          1.4         0.2     setosa
+35           4.9         3.1          1.5         0.2     setosa
+36           5.0         3.2          1.2         0.2     setosa
+37           5.5         3.5          1.3         0.2     setosa
+38           4.9         3.6          1.4         0.1     setosa
+39           4.4         3.0          1.3         0.2     setosa
+40           5.1         3.4          1.5         0.2     setosa
+41           5.0         3.5          1.3         0.3     setosa
+42           4.5         2.3          1.3         0.3     setosa
+43           4.4         3.2          1.3         0.2     setosa
+44           5.0         3.5          1.6         0.6     setosa
+45           5.1         3.8          1.9         0.4     setosa
+46           4.8         3.0          1.4         0.3     setosa
+47           5.1         3.8          1.6         0.2     setosa
+48           4.6         3.2          1.4         0.2     setosa
+49           5.3         3.7          1.5         0.2     setosa
+50           5.0         3.3          1.4         0.2     setosa
+51           7.0         3.2          4.7         1.4 versicolor
+52           6.4         3.2          4.5         1.5 versicolor
+53           6.9         3.1          4.9         1.5 versicolor
+54           5.5         2.3          4.0         1.3 versicolor
+55           6.5         2.8          4.6         1.5 versicolor
+56           5.7         2.8          4.5         1.3 versicolor
+57           6.3         3.3          4.7         1.6 versicolor
+58           4.9         2.4          3.3         1.0 versicolor
+59           6.6         2.9          4.6         1.3 versicolor
+60           5.2         2.7          3.9         1.4 versicolor
+61           5.0         2.0          3.5         1.0 versicolor
+62           5.9         3.0          4.2         1.5 versicolor
+63           6.0         2.2          4.0         1.0 versicolor
+64           6.1         2.9          4.7         1.4 versicolor
+65           5.6         2.9          3.6         1.3 versicolor
+66           6.7         3.1          4.4         1.4 versicolor
+67           5.6         3.0          4.5         1.5 versicolor
+68           5.8         2.7          4.1         1.0 versicolor
+69           6.2         2.2          4.5         1.5 versicolor
+70           5.6         2.5          3.9         1.1 versicolor
+71           5.9         3.2          4.8         1.8 versicolor
+72           6.1         2.8          4.0         1.3 versicolor
+73           6.3         2.5          4.9         1.5 versicolor
+74           6.1         2.8          4.7         1.2 versicolor
+75           6.4         2.9          4.3         1.3 versicolor
+76           6.6         3.0          4.4         1.4 versicolor
+77           6.8         2.8          4.8         1.4 versicolor
+78           6.7         3.0          5.0         1.7 versicolor
+79           6.0         2.9          4.5         1.5 versicolor
+80           5.7         2.6          3.5         1.0 versicolor
+81           5.5         2.4          3.8         1.1 versicolor
+82           5.5         2.4          3.7         1.0 versicolor
+83           5.8         2.7          3.9         1.2 versicolor
+84           6.0         2.7          5.1         1.6 versicolor
+85           5.4         3.0          4.5         1.5 versicolor
+86           6.0         3.4          4.5         1.6 versicolor
+87           6.7         3.1          4.7         1.5 versicolor
+88           6.3         2.3          4.4         1.3 versicolor
+89           5.6         3.0          4.1         1.3 versicolor
+90           5.5         2.5          4.0         1.3 versicolor
+91           5.5         2.6          4.4         1.2 versicolor
+92           6.1         3.0          4.6         1.4 versicolor
+93           5.8         2.6          4.0         1.2 versicolor
+94           5.0         2.3          3.3         1.0 versicolor
+95           5.6         2.7          4.2         1.3 versicolor
+96           5.7         3.0          4.2         1.2 versicolor
+97           5.7         2.9          4.2         1.3 versicolor
+98           6.2         2.9          4.3         1.3 versicolor
+99           5.1         2.5          3.0         1.1 versicolor
+100          5.7         2.8          4.1         1.3 versicolor
+101          6.3         3.3          6.0         2.5  virginica
+102          5.8         2.7          5.1         1.9  virginica
+103          7.1         3.0          5.9         2.1  virginica
+104          6.3         2.9          5.6         1.8  virginica
+105          6.5         3.0          5.8         2.2  virginica
+106          7.6         3.0          6.6         2.1  virginica
+107          4.9         2.5          4.5         1.7  virginica
+108          7.3         2.9          6.3         1.8  virginica
+109          6.7         2.5          5.8         1.8  virginica
+110          7.2         3.6          6.1         2.5  virginica
+111          6.5         3.2          5.1         2.0  virginica
+112          6.4         2.7          5.3         1.9  virginica
+113          6.8         3.0          5.5         2.1  virginica
+114          5.7         2.5          5.0         2.0  virginica
+115          5.8         2.8          5.1         2.4  virginica
+116          6.4         3.2          5.3         2.3  virginica
+117          6.5         3.0          5.5         1.8  virginica
+118          7.7         3.8          6.7         2.2  virginica
+119          7.7         2.6          6.9         2.3  virginica
+120          6.0         2.2          5.0         1.5  virginica
+121          6.9         3.2          5.7         2.3  virginica
+122          5.6         2.8          4.9         2.0  virginica
+123          7.7         2.8          6.7         2.0  virginica
+124          6.3         2.7          4.9         1.8  virginica
+125          6.7         3.3          5.7         2.1  virginica
+126          7.2         3.2          6.0         1.8  virginica
+127          6.2         2.8          4.8         1.8  virginica
+128          6.1         3.0          4.9         1.8  virginica
+129          6.4         2.8          5.6         2.1  virginica
+130          7.2         3.0          5.8         1.6  virginica
+131          7.4         2.8          6.1         1.9  virginica
+132          7.9         3.8          6.4         2.0  virginica
+133          6.4         2.8          5.6         2.2  virginica
+134          6.3         2.8          5.1         1.5  virginica
+135          6.1         2.6          5.6         1.4  virginica
+136          7.7         3.0          6.1         2.3  virginica
+137          6.3         3.4          5.6         2.4  virginica
+138          6.4         3.1          5.5         1.8  virginica
+139          6.0         3.0          4.8         1.8  virginica
+140          6.9         3.1          5.4         2.1  virginica
+141          6.7         3.1          5.6         2.4  virginica
+142          6.9         3.1          5.1         2.3  virginica
+143          5.8         2.7          5.1         1.9  virginica
+144          6.8         3.2          5.9         2.3  virginica
+145          6.7         3.3          5.7         2.5  virginica
+146          6.7         3.0          5.2         2.3  virginica
+147          6.3         2.5          5.0         1.9  virginica
+148          6.5         3.0          5.2         2.0  virginica
+149          6.2         3.4          5.4         2.3  virginica
+150          5.9         3.0          5.1         1.8  virginica
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="factors">
@@ -1429,23 +1674,31 @@ it to a vector</p>
 coerce it into a factor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w">      </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;March&quot;</span><span class="p">,</span><span class="s">&quot;February&quot;</span><span class="p">,</span><span class="s">&quot;February&quot;</span><span class="p">,</span><span class="s">&quot;November&quot;</span><span class="p">,</span><span class="s">&quot;February&quot;</span><span class="p">,</span><span class="s">&quot;March&quot;</span><span class="p">,</span><span class="s">&quot;March&quot;</span><span class="p">,</span><span class="s">&quot;March&quot;</span><span class="p">,</span><span class="s">&quot;February&quot;</span><span class="p">,</span><span class="s">&quot;November&quot;</span><span class="p">)</span>
-<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+a      &lt;- c(&quot;March&quot;,&quot;February&quot;,&quot;February&quot;,&quot;November&quot;,&quot;February&quot;,&quot;March&quot;,&quot;March&quot;,&quot;March&quot;,&quot;February&quot;,&quot;November&quot;)
+class(a)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'character'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;character&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">fact</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.factor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+fact &lt;- as.factor(a)
+class(a)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'character'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;character&quot;
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="activity-data-exploration">
@@ -1456,6 +1709,1032 @@ coerce it into a factor.</p>
 <li><p>What type is the object?</p></li>
 <li><p>What value is in the 6th row of the 4th column?</p></li>
 </ul>
+</section>
+<section id="summary-quiz">
+<h2>Summary Quiz<a class="headerlink" href="#summary-quiz" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="XtVIuTRynxjW" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"
+               data-maxwidth="600"
+               style="border-radius: 10px; text-align: left"> <style>
+#XtVIuTRynxjW {
+   --jq-multiple-choice-bg: #6f78ffff;
+   --jq-mc-button-bg: #fafafa;
+   --jq-mc-button-border: #e0e0e0e0;
+   --jq-mc-button-inset-shadow: #555555;
+   --jq-many-choice-bg: #f75c03ff;
+   --jq-numeric-bg: #392061ff;
+   --jq-numeric-input-bg: #c0c0c0;
+   --jq-numeric-input-label: #101010;
+   --jq-numeric-input-shadow: #999999;
+   --jq-incorrect-color: #c80202;
+   --jq-correct-color: #009113;
+   --jq-text-color: #fafafa;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+    border-radius: inherit;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    border-radius: inherit;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: var(--jq-numeric-input-bg);
+    color: var(--jq-text-color);
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: var(--jq-numeric-input-bg);
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem var(--jq-numeric-input-shadow);
+}
+
+.MCButton {
+    background: var(--jq-mc-button-bg);
+    border: 1px solid var(--jq-mc-button-border);
+    border-radius: inherit;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--jq-multiple-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--jq-many-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--jq-numeric-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: var(--jq-numeric-input-label);
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--jq-incorrect-color);
+}
+
+.correct {
+    color: var(--jq-correct-color);
+}
+
+.correctButton {
+    /*
+    background: var(--jq-correct-color);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--jq-incorrect-color);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--jq-correct-color);
+    }
+}
+</style></div><script type="application/javascript">var questionsXtVIuTRynxjW=[
+    {
+        "question": "What does a relative file path NOT start with?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "A drive letter (e.g., C:)",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A forward slash (/)",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "A dot (.)",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A folder name",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "Which operator is used to assign a value to a variable in R?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "==",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "->",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "=",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "<-",
+                "correct": true,
+                "feedback": "Correct"
+            }
+        ]
+    },
+    {
+        "question": "What is the primary use of the console pane in RStudio?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "To edit scripts and save them for later use",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To browse files and manage projects",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "To execute R commands and display results",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "To visualize data using plots",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    if ("feedback" in answer) {
+                        fb.textContent = jaxify(answer.feedback);
+                    } else {
+                        fb.textContent = jaxify("Correct");
+                    }
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+    var max_width = mydiv.dataset.maxwidth;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        iDiv.style.maxWidth  =max_width+"px";
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+        
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        
+        if (qa.question) {
+            iDiv.append(outerqDiv);
+
+            //qDiv.textContent=qa.question;
+            qDiv.innerHTML = jaxify(qa.question);
+            outerqDiv.append(qDiv);
+        }
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if ((qa.type == "multiple_choice") || (qa.type == "many_choice") ) {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+            if ("answer_cols" in qa) {
+                //aDiv.style.gridTemplateColumns = 'auto '.repeat(qa.answer_cols);
+                aDiv.style.gridTemplateColumns = 'repeat(' + qa.answer_cols + ', 1fr)';
+            }
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+/* This is to handle asynchrony issues in loading Jupyter notebooks
+           where the quiz has been previously run. The Javascript was generally
+           being run before the div was added to the DOM. I tried to do this
+           more elegantly using Mutation Observer, but I didn't get it to work.
+
+           Someone more knowledgeable could make this better ;-) */
+
+        function try_show() {
+          if(document.getElementById("XtVIuTRynxjW")) {
+            show_questions(questionsXtVIuTRynxjW,  XtVIuTRynxjW); 
+          } else {
+             setTimeout(try_show, 200);
+          }
+        };
+    
+        {
+        // console.log(element);
+
+        //console.log("XtVIuTRynxjW");
+        // console.log(document.getElementById("XtVIuTRynxjW"));
+
+        try_show();
+        }
+        </script></div>
+</div>
 </section>
 </section>
 
@@ -1468,16 +2747,16 @@ coerce it into a factor.</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "r"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ir",
+            name: "python3",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ir'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1503,7 +2782,7 @@ coerce it into a factor.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Loading Data From Files</p>
+        <p class="prev-next-title">Loading Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1524,6 +2803,7 @@ coerce it into a factor.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Types and Structures</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inbuilt-datasets">Inbuilt Datasets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-datasets">Exploring datasets</a></li>
 </ul>
@@ -1547,6 +2827,7 @@ coerce it into a factor.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors">Factors</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-data-exploration">Activity: Data Exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
 </ul>
 </li>
 </ul>

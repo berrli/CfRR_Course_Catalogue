@@ -266,19 +266,12 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Ploting in R</a></li>
 
 
 
@@ -295,7 +288,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/good_practise.html">Establishing Good Practices when Coding</a></li>
-
 
 </ul>
 </li>
@@ -391,7 +383,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction to Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
@@ -658,6 +650,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Regression Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-workshop">Overview of Workshop</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisites">Pre-requisites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-notes">Course Notes</a></li>
@@ -668,6 +661,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-line">What is a line?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-simple-linear-regression-model-in-r">Fitting a Simple Linear Regression Model in R</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-linear-regression-exercise">Simple Linear Regression Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
 </ul>
 </li>
 </ul>
@@ -688,10 +682,23 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>Of note is that throughout this workshop R code snippets are denoted with the use of ‘%%R’ at the top of the cell blocks. This inclusion is to allow for python quiz functionality within the workshop, but the content of the code being ran being in R.</p>
 </div>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Learn the definition and purpose of regression analysis and its applications in statistical modeling</p></li>
+<li><p>Recognise different types of regression models, including simple linear regression, multiple linear regression, and logistic regression</p></li>
+<li><p>Understand the roles of dependent and independent variables in a regression model</p></li>
+<li><p>Learn how to use the <code class="docutils literal notranslate"><span class="pre">lm()</span></code> function to fit simple and multiple linear regression models</p></li>
+<li><p>Gain the ability to interpret the meaning of coefficients in a regression model, including both slope and intercept</p></li>
+<li><p>Learn the concept of hypothesis testing in the context of regression analysis and how to apply it to assess the significance of regression coefficients</p></li>
+<li><p>Develop the skills to use fitted regression models to make predictions on new data</p></li>
+<li><p>Understand the differences and relationships between regression analysis and other common statistical methods</p></li>
+</ul>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
+</section>
 <section id="overview-of-workshop">
 <h2>Overview of Workshop<a class="headerlink" href="#overview-of-workshop" title="Link to this heading">#</a></h2>
 <p>Welcome to Introductory Regression Analysis with R. Our aim is to provide you with a comprehensive introduction to the statistical tool regression and how to perform these analyses in R.</p>
@@ -758,7 +765,7 @@ abline(a = -44, b = 0.62)
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/42afcda68795db5008fcc0e32e983a2e81169d1f40d9ef8cb1610d7edc6b02da.png"><img alt="../../_images/42afcda68795db5008fcc0e32e983a2e81169d1f40d9ef8cb1610d7edc6b02da.png" src="../../_images/42afcda68795db5008fcc0e32e983a2e81169d1f40d9ef8cb1610d7edc6b02da.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/42afcda68795db5008fcc0e32e983a2e81169d1f40d9ef8cb1610d7edc6b02da.png" src="../../_images/42afcda68795db5008fcc0e32e983a2e81169d1f40d9ef8cb1610d7edc6b02da.png" />
 </div>
 </div>
 </section>
@@ -808,7 +815,7 @@ abline(h = 0)
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/6e6b057e08fdf84508228995f695cdbd8188c2cef5c91ffa53fbb22fa107e717.png"><img alt="../../_images/6e6b057e08fdf84508228995f695cdbd8188c2cef5c91ffa53fbb22fa107e717.png" src="../../_images/6e6b057e08fdf84508228995f695cdbd8188c2cef5c91ffa53fbb22fa107e717.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/6e6b057e08fdf84508228995f695cdbd8188c2cef5c91ffa53fbb22fa107e717.png" src="../../_images/6e6b057e08fdf84508228995f695cdbd8188c2cef5c91ffa53fbb22fa107e717.png" />
 </div>
 </div>
 <p>What you should observe is that changing <span class="math notranslate nohighlight">\(\theta_{1}\)</span> changes the slope of the line:</p>
@@ -910,15 +917,18 @@ equation = paste0(&quot;$weight =&quot;,  signif(summary(model)$coefficients[1,1
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+</section>
+<section id="summary-quiz">
+<h2>Summary Quiz<a class="headerlink" href="#summary-quiz" title="Link to this heading">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="sgxFGsznGfhr" data-shufflequestions="False"
+<div class="output text_html"><div id="gujdYPjxrzbC" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#sgxFGsznGfhr {
+#gujdYPjxrzbC {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1088,7 +1098,7 @@ equation = paste0(&quot;$weight =&quot;,  signif(summary(model)$coefficients[1,1
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionssgxFGsznGfhr=[
+</style></div><script type="application/javascript">var questionsgujdYPjxrzbC=[
     {
         "question": "What is the value of the intercept?",
         "type": "many_choice",
@@ -1906,8 +1916,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("sgxFGsznGfhr")) {
-            show_questions(questionssgxFGsznGfhr,  sgxFGsznGfhr); 
+          if(document.getElementById("gujdYPjxrzbC")) {
+            show_questions(questionsgujdYPjxrzbC,  gujdYPjxrzbC); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1916,8 +1926,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("sgxFGsznGfhr");
-        // console.log(document.getElementById("sgxFGsznGfhr"));
+        //console.log("gujdYPjxrzbC");
+        // console.log(document.getElementById("gujdYPjxrzbC"));
 
         try_show();
         }
@@ -1991,6 +2001,7 @@ if (typeof version == 'undefined') {
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Regression Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-workshop">Overview of Workshop</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-requisites">Pre-requisites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-notes">Course Notes</a></li>
@@ -2001,6 +2012,7 @@ if (typeof version == 'undefined') {
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-line">What is a line?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-simple-linear-regression-model-in-r">Fitting a Simple Linear Regression Model in R</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-linear-regression-exercise">Simple Linear Regression Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
 </ul>
 </li>
 </ul>

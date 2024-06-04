@@ -264,19 +264,12 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Ploting in R</a></li>
 
 
 
@@ -293,7 +286,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/good_practise.html">Establishing Good Practices when Coding</a></li>
-
 
 </ul>
 </li>
@@ -389,7 +381,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction to Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
@@ -655,6 +647,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-more-predictor-variables">Including more predictor variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-mixed-effects-regression-models">Logistic mixed effects regression models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
@@ -675,6 +668,15 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="expanding-the-mixed-effects-model-framework">
 <h1>Expanding the mixed effects model framework<a class="headerlink" href="#expanding-the-mixed-effects-model-framework" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Learn how regression models can handle different types of variables, multiple variables, and various relationships between variables</p></li>
+<li><p>Gain knowledge on incorporating more predictor variables as fixed effects in mixed effects models</p></li>
+<li><p>Learn to fit logistic mixed effects regression models for binary outcome variables using the <code class="docutils literal notranslate"><span class="pre">glmer()</span></code> function in R</p></li>
+<li><p>Understand how to compare models with and without random effects to determine the necessity of including random intercepts</p></li>
+<li><p>Develop skills to interpret the fixed and random effects in mixed effects models, including the estimation of odds ratios for logistic regression models</p></li>
+</ul>
 <p>So far we have considered a fairly simple regression model with one continuous predictor variable and one continuous outcome variable and fitting a straight line between these. This has enabled us to get to grips with the core concepts but regression can do so much more than this. It is an incredibly flexible framework that can handle</p>
 <ul class="simple">
 <li><p>different types of variables</p></li>
@@ -688,6 +690,7 @@ document.write(`
 <li><p>the relationship that you want to model between each predictor variable and outcome variable.</p></li>
 </ul>
 <p>Basically anything you can do with a standard regression model you can do with a mixed effects model.</p>
+</section>
 <section id="including-more-predictor-variables">
 <h2>Including more predictor variables<a class="headerlink" href="#including-more-predictor-variables" title="Link to this heading">#</a></h2>
 <p>We can easily incorporate more predictor variables as fixed effects into our model. As with linear regression, we need to specify these in the formula we provide to R. If in addition to <code class="docutils literal notranslate"><span class="pre">VisitNum</span></code> we want to control for differences between males and females we can include a fixed effect for <code class="docutils literal notranslate"><span class="pre">sex</span></code>.</p>
@@ -705,28 +708,28 @@ summary(model.sex)
 Formula: CognitionA ~ VisitNum + Sex + (1 | ID)
    Data: cogDat
 
-REML criterion at convergence: 901
+REML criterion at convergence: 808.5
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--2.54325 -0.58793 -0.01082  0.59579  2.56237 
+-2.15684 -0.64686 -0.03676  0.60659  2.02730 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 31.889   5.647   
- Residual              3.557   1.886   
-Number of obs: 184, groups:  ID, 42
+ ID       (Intercept) 23.672   4.865   
+ Residual              3.762   1.940   
+Number of obs: 164, groups:  ID, 41
 
 Fixed effects:
             Estimate Std. Error t value
-(Intercept) 22.15045    1.27339  17.395
-VisitNum     0.37110    0.08181   4.536
-SexM        -1.59848    1.77230  -0.902
+(Intercept)  20.8406     1.2363  16.857
+VisitNum      0.4433     0.1071   4.140
+SexM          0.8121     1.5806   0.514
 
 Correlation of Fixed Effects:
          (Intr) VistNm
-VisitNum -0.171       
-SexM     -0.697 -0.004
+VisitNum -0.203       
+SexM     -0.746 -0.021
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: Matrix
@@ -756,27 +759,27 @@ Formula: MentalWellbeing ~ VisitNum + (1 | ID)
    Data: cogDat
 
      AIC      BIC   logLik deviance df.resid 
-   280.1    293.8   -137.1    274.1      704 
+   367.2    380.9   -180.6    361.2      706 
 
 Scaled residuals: 
-     Min       1Q   Median       3Q      Max 
--2.48200 -0.00437 -0.00175  0.01461  1.84828 
+    Min      1Q  Median      3Q     Max 
+-3.5324 -0.0070 -0.0031  0.0717  1.1377 
 
 Random effects:
  Groups Name        Variance Std.Dev.
- ID     (Intercept) 563.3    23.73   
-Number of obs: 707, groups:  ID, 175
+ ID     (Intercept) 347      18.63   
+Number of obs: 709, groups:  ID, 175
 
 Fixed effects:
             Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)  -9.0032     0.9828  -9.161  &lt; 2e-16 ***
-VisitNum     -0.9113     0.2398  -3.801 0.000144 ***
+(Intercept)  -8.2663     0.8698  -9.504  &lt; 2e-16 ***
+VisitNum     -0.8023     0.1762  -4.552 5.31e-06 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
          (Intr)
-VisitNum -0.232
+VisitNum -0.187
 </pre></div>
 </div>
 </div>
@@ -797,8 +800,8 @@ Models:
 null.log: MentalWellbeing ~ VisitNum
 model.log: MentalWellbeing ~ VisitNum + (1 | ID)
           npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)    
-null.log     2 793.94 803.07 -394.97   789.94                         
-model.log    3 280.10 293.79 -137.05   274.10 515.84  1  &lt; 2.2e-16 ***
+null.log     2 853.82 862.95 -424.91   849.82                         
+model.log    3 367.21 380.90 -180.60   361.21 488.61  1  &lt; 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 </pre></div>
@@ -816,7 +819,7 @@ exp(coef(summary(model.log))[,&quot;Estimate&quot;])
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (Intercept)     VisitNum 
-0.0001230138 0.4020020632 
+0.0002570408 0.4482874766 
 </pre></div>
 </div>
 </div>
@@ -863,13 +866,13 @@ exp(coef(summary(model.log))[,&quot;Estimate&quot;])
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="NGiXQFaGrDnV" data-shufflequestions="False"
+<div class="output text_html"><div id="mAcQRltcqfCj" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#NGiXQFaGrDnV {
+#mAcQRltcqfCj {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1039,7 +1042,7 @@ exp(coef(summary(model.log))[,&quot;Estimate&quot;])
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsNGiXQFaGrDnV=[
+</style></div><script type="application/javascript">var questionsmAcQRltcqfCj=[
     {
         "question": "Smoking behaviour is significantly associated (P < 0.05) with which cognitive tests? Select all that apply",
         "type": "many_choice",
@@ -1893,8 +1896,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("NGiXQFaGrDnV")) {
-            show_questions(questionsNGiXQFaGrDnV,  NGiXQFaGrDnV); 
+          if(document.getElementById("mAcQRltcqfCj")) {
+            show_questions(questionsmAcQRltcqfCj,  mAcQRltcqfCj); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1903,8 +1906,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("NGiXQFaGrDnV");
-        // console.log(document.getElementById("NGiXQFaGrDnV"));
+        //console.log("mAcQRltcqfCj");
+        // console.log(document.getElementById("mAcQRltcqfCj"));
 
         try_show();
         }
@@ -1951,13 +1954,13 @@ if (typeof version == 'undefined') {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="tvawgtpuMnjQ" data-shufflequestions="False"
+<div class="output text_html"><div id="IErTAZFmCosV" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#tvawgtpuMnjQ {
+#IErTAZFmCosV {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2127,7 +2130,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionstvawgtpuMnjQ=[
+</style></div><script type="application/javascript">var questionsIErTAZFmCosV=[
     {
         "question": "Which cognitive tests significantly influence mental well being? Select all that apply",
         "type": "many_choice",
@@ -2955,8 +2958,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("tvawgtpuMnjQ")) {
-            show_questions(questionstvawgtpuMnjQ,  tvawgtpuMnjQ); 
+          if(document.getElementById("IErTAZFmCosV")) {
+            show_questions(questionsIErTAZFmCosV,  IErTAZFmCosV); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2965,8 +2968,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("tvawgtpuMnjQ");
-        // console.log(document.getElementById("tvawgtpuMnjQ"));
+        //console.log("IErTAZFmCosV");
+        // console.log(document.getElementById("IErTAZFmCosV"));
 
         try_show();
         }
@@ -2987,13 +2990,13 @@ if (typeof version == 'undefined') {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="NKenEiLAMGGG" data-shufflequestions="False"
+<div class="output text_html"><div id="lnlJFiTAknHQ" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#NKenEiLAMGGG {
+#lnlJFiTAknHQ {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -3163,7 +3166,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsNKenEiLAMGGG=[
+</style></div><script type="application/javascript">var questionslnlJFiTAknHQ=[
     {
         "question": "Does physical well being improve over the course of the study?",
         "type": "many_choice",
@@ -3939,8 +3942,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("NKenEiLAMGGG")) {
-            show_questions(questionsNKenEiLAMGGG,  NKenEiLAMGGG); 
+          if(document.getElementById("lnlJFiTAknHQ")) {
+            show_questions(questionslnlJFiTAknHQ,  lnlJFiTAknHQ); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3949,8 +3952,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("NKenEiLAMGGG");
-        // console.log(document.getElementById("NKenEiLAMGGG"));
+        //console.log("lnlJFiTAknHQ");
+        // console.log(document.getElementById("lnlJFiTAknHQ"));
 
         try_show();
         }
@@ -4023,6 +4026,7 @@ if (typeof version == 'undefined') {
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-more-predictor-variables">Including more predictor variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-mixed-effects-regression-models">Logistic mixed effects regression models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>

@@ -57,13 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/stats';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Establishing Good Practices when Coding" href="good_practise.html" />
-    <link rel="prev" title="Plots" href="plots.html" />
+    <link rel="prev" title="Ploting in R" href="plots.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -266,19 +264,12 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manipulating_data.html">Manipulating Datasets</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plots.html">Ploting in R</a></li>
 
 
 
@@ -295,7 +286,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
-
 
 </ul>
 </li>
@@ -391,7 +381,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction to Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
@@ -658,6 +648,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Statistical Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-dataset">Loading the dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-organisation">Data Organisation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a></li>
@@ -684,7 +675,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-chi-square-test">Common statistical tests: Chi-square test</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-correlation">Common statistical tests: Correlation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-correlation">Common statistical tests: Correlation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -701,6 +695,16 @@ document.write(`
 <h1>Statistical Analysis<a class="headerlink" href="#statistical-analysis" title="Link to this heading">#</a></h1>
 <p>R is synomous with data analysis. Here we will learn how to perform a number of common statistical tests with R. Please note that the focus here is on how
 to perform a given test in R, it is not to discuss the merits of or scenarios in which you would use a specific test.</p>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand the process of loading and organizing datasets</p></li>
+<li><p>Learn how to calculate summary statistics, including mean, median, standard deviation, and variance</p></li>
+<li><p>Analyze data subsets using the <code class="docutils literal notranslate"><span class="pre">tapply</span></code> and <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> functions</p></li>
+<li><p>Create frequency tables and cross-tabulations for categorical data</p></li>
+<li><p>Conduct and interpret common statistical tests such as t-tests and ANOVA</p></li>
+</ul>
+</section>
 <section id="loading-the-dataset">
 <h2>Loading the dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">#</a></h2>
 <p>To do statistics we need some observed data. We will use a dataset contained in the csv file <a class="reference download internal" download="" href="../../_downloads/fdddc3ebd3102a9389df1b4e38c38fa3/bp_dataset_session4.csv"><span class="xref download myst">bp_dataset.csv</span></a>. This dataset is based on a clinical trial to test the effect of two
@@ -710,46 +714,41 @@ drugs is to reduce blood pressure. Some additional information about the people 
 <p>Let’s start by loading the dataset. You need to ensure that the dataset is located in your current working directory.
 We will read in the csv file and assign it to a variable called <code class="docutils literal notranslate"><span class="pre">bp_dataset</span></code>. The <code class="docutils literal notranslate"><span class="pre">header=TRUE</span></code> argument means R will take the entries in the first row
 and use these to set the column headings.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">bp_dataset</span><span class="o">&lt;-</span><span class="nf">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;data/bp_dataset_session4.csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">bp_dataset</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+bp_dataset&lt;-read.csv(file=&quot;data/bp_dataset_session4.csv&quot;, header=TRUE)
+head(bp_dataset)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 6 × 7</caption>
-<thead>
-	<tr><th></th><th scope=col>ptid</th><th scope=col>male</th><th scope=col>age</th><th scope=col>intervention</th><th scope=col>bp_baseline</th><th scope=col>bp_3m</th><th scope=col>bp_6m</th></tr>
-	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>1</th><td>1</td><td>1</td><td>41</td><td>Drug B </td><td>218</td><td>153</td><td>163</td></tr>
-	<tr><th scope=row>2</th><td>2</td><td>0</td><td>46</td><td>Drug B </td><td>200</td><td>162</td><td>177</td></tr>
-	<tr><th scope=row>3</th><td>3</td><td>0</td><td>37</td><td>Drug A </td><td>198</td><td>122</td><td>166</td></tr>
-	<tr><th scope=row>4</th><td>4</td><td>0</td><td>46</td><td>Drug A </td><td>202</td><td>148</td><td>128</td></tr>
-	<tr><th scope=row>5</th><td>5</td><td>1</td><td>44</td><td>Control</td><td>142</td><td>196</td><td>231</td></tr>
-	<tr><th scope=row>6</th><td>6</td><td>1</td><td>36</td><td>Drug B </td><td>148</td><td>191</td><td>164</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  ptid male age intervention bp_baseline bp_3m bp_6m
+1    1    1  41       Drug B         218   153   163
+2    2    0  46       Drug B         200   162   177
+3    3    0  37       Drug A         198   122   166
+4    4    0  46       Drug A         202   148   128
+5    5    1  44      Control         142   196   231
+6    6    1  36       Drug B         148   191   164
+</pre></div>
+</div>
+</div>
 </div>
 <p>Let’s find out how many rows (observations) and variables (columns) are in this dataset using the <code class="docutils literal notranslate"><span class="pre">dim</span></code> command (for dimensions).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">bp_dataset</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+dim(bp_dataset)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>100</li><li>7</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 100   7
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="data-organisation">
@@ -758,7 +757,8 @@ and use these to set the column headings.</p>
 <p>We also want to check the types of variable in the dataframe. The <code class="docutils literal notranslate"><span class="pre">str()</span></code> command allows us to check the structure of the dataframe and tells us about the types of variables in our dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">bp_dataset</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+str(bp_dataset)
 </pre></div>
 </div>
 </div>
@@ -791,131 +791,165 @@ in most cases R will convert it to a factor within the function calls if it is n
 <p>We want to find the mean, median, standard deviation and variance for these variables. Let’s start with the mean. To find the mean for <code class="docutils literal notranslate"><span class="pre">age</span></code> we can use:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mean</span><span class="p">(</span><span class="n">bp_dataset</span><span class="o">$</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+mean(bp_dataset$age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">49.03</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 49.03
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can attach the dataframe <code class="docutils literal notranslate"><span class="pre">bp_dataset</span></code>, so we don’t need to use the <code class="docutils literal notranslate"><span class="pre">$</span></code> notation for each command. Remember to use the <code class="docutils literal notranslate"><span class="pre">detach()</span></code>
 command when you wish to detach the dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">attach</span><span class="p">(</span><span class="n">bp_dataset</span><span class="p">)</span>
-<span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+attach(bp_dataset)
+mean(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">49.03</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 49.03
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can also calculate the median, standard deviation, variance, minimum, maximum, range and sum fairly easily using base R functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sd</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+sd(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">12.3111635305014</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 12.31116
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">median</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+median(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">47</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 47
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">var</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+var(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">151.564747474747</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 151.5647
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+min(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">26</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 26
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+max(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">81</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 81
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">range</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+range(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>26</li><li>81</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 26 81
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+sum(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">4903</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 4903
+</pre></div>
+</div>
+</div>
 </div>
 <p><em>Note</em> The commands ‘sd’ and ‘var’ calculate the sample sd and variance, not the population sd and variance.</p>
 <p>We can also calculate percentiles. Using the <code class="docutils literal notranslate"><span class="pre">quantile()</span></code> command we need to specify which quantiles ( as proportions) that we want to calculate, where the 0.5 quantile would represent the median.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">probs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">.</span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="n">.</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">.</span><span class="m">75</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+quantile(age, probs = c(.25, .5, .75))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>25%</dt><dd>40</dd><dt>50%</dt><dd>47</dd><dt>75%</dt><dd>56.25</dd></dl>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  25%   50%   75% 
+40.00 47.00 56.25 
+</pre></div>
+</div>
+</div>
 </div>
 <p>To get the inter-quartile range (75th percentile minus 25th percentile) we can do this with the <code class="docutils literal notranslate"><span class="pre">IQR()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">IQR</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+IQR(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">16.25</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 16.25
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can also calculate multiple descriptive summary statistics of a numeric variable simultaneously using the function <code class="docutils literal notranslate"><span class="pre">summary()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+summary(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   26.00   40.00   47.00   49.03   56.25   81.00 
 </pre></div>
 </div>
@@ -938,46 +972,48 @@ command requires 3  arguments :</p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tapply</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+tapply(age, male, mean)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>0</dt><dd>51.9459459459459</dd><dt>1</dt><dd>47.3174603174603</dd></dl>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0        1 
+51.94595 47.31746 
+</pre></div>
+</div>
+</div>
 </div>
 <p>If we want to calculate a summary statistics for a sub group, by subsetting it and providing the subset to the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> function. For example
 to calucate the mean of just the means (i.e where male==1).
 Note the use of <code class="docutils literal notranslate"><span class="pre">==</span></code> for specifiying an equality condition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">[</span><span class="n">male</span><span class="o">==</span><span class="m">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+mean(age[male==1])
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">47.3174603174603</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 47.31746
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">tapply()</span></code> function to calculate the medians for the intervention groups.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tapply</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">intervention</span><span class="p">,</span><span class="w"> </span><span class="n">median</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+tapply(age, intervention, median)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>Control</dt><dd>49.5</dd><dt>Drug A</dt><dd>49.5</dd><dt>Drug B</dt><dd>42.5</dd></dl>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Control  Drug A  Drug B 
+   49.5    49.5    42.5 
+</pre></div>
+</div>
+</div>
 </div>
 <p>If we want to calculate summary statistics for combinations of groups for example by sex and intervention group, we can use the <code class="docutils literal notranslate"><span class="pre">aggregate()</span></code>
 command. We use the formula method to specify which variables we want summarise (on the left hand side of the ~) and which we want to group by
@@ -987,27 +1023,22 @@ in. The <code class="docutils literal notranslate"><span class="pre">FUN</span><
 Note that we need to include the dataset as an argument, even though we have attached <code class="docutils literal notranslate"><span class="pre">bp_dataset</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">aggregate</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">male</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intervention</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">bp_dataset</span><span class="p">,</span><span class="w"> </span><span class="n">FUN</span><span class="o">=</span><span class="n">mean</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+aggregate(age ~ male + intervention, data=bp_dataset, FUN=mean)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A data.frame: 6 × 3</caption>
-<thead>
-	<tr><th scope=col>male</th><th scope=col>intervention</th><th scope=col>age</th></tr>
-	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>0</td><td>Control</td><td>53.84615</td></tr>
-	<tr><td>1</td><td>Control</td><td>49.33333</td></tr>
-	<tr><td>0</td><td>Drug A </td><td>56.63636</td></tr>
-	<tr><td>1</td><td>Drug A </td><td>47.73913</td></tr>
-	<tr><td>0</td><td>Drug B </td><td>46.07692</td></tr>
-	<tr><td>1</td><td>Drug B </td><td>45.72000</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  male intervention      age
+1    0      Control 53.84615
+2    1      Control 49.33333
+3    0       Drug A 56.63636
+4    1       Drug A 47.73913
+5    0       Drug B 46.07692
+6    1       Drug B 45.72000
+</pre></div>
+</div>
+</div>
 </div>
 <section id="id1">
 <h2>Activity<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
@@ -1022,12 +1053,13 @@ Note that we need to include the dataset as an argument, even though we have att
 <p>We can create a frequency table for categorical variables using the <code class="docutils literal notranslate"><span class="pre">table()</span></code> command.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+table(male)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>male
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>male
  0  1 
 37 63 
 </pre></div>
@@ -1038,12 +1070,13 @@ Note that we need to include the dataset as an argument, even though we have att
 second variable the columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">intervention</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+table(male, intervention)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    intervention
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    intervention
 male Control Drug A Drug B
    0      13     11     13
    1      15     23     25
@@ -1057,13 +1090,14 @@ tables for fixed values of the other variables.</p>
 table and then pass to <code class="docutils literal notranslate"><span class="pre">prop.table()</span></code>. You can either do this in two stages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">table.male</span><span class="o">&lt;-</span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">)</span>
-<span class="nf">prop.table</span><span class="p">(</span><span class="n">table.male</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+table.male&lt;-table(male)
+prop.table(table.male)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>male
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>male
    0    1 
 0.37 0.63 
 </pre></div>
@@ -1073,12 +1107,13 @@ table and then pass to <code class="docutils literal notranslate"><span class="p
 <p>Or as a nested function call:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">prop.table</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">intervention</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+prop.table(table(male, intervention))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    intervention
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    intervention
 male Control Drug A Drug B
    0    0.13   0.11   0.13
    1    0.15   0.23   0.25
@@ -1089,12 +1124,13 @@ male Control Drug A Drug B
 <p>We can also create a table for a subgroup of the data by providing just a subset of the data to the <code class="docutils literal notranslate"><span class="pre">table()</span></code> function. For example to count the number of each sex, only for people aged over 50:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">[</span><span class="n">age</span><span class="o">&gt;</span><span class="m">50</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+table(male[age&gt;50])
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0  1 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0  1 
 17 19 
 </pre></div>
 </div>
@@ -1116,12 +1152,13 @@ greater than or equal to 180.</p></li>
 value of a continuous variable is equal to a pre-specified value. The default behaviour, and the most common application is to compare to a value of 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(age)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
 
 data:  age
 t = 39.826, df = 99, p-value &lt; 2.2e-16
@@ -1149,12 +1186,13 @@ estimated mean of the sample.</p>
 For the 90% confidence interval, we can run</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="o">=</span><span class="m">0.90</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(age, conf.level=0.90)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
 
 data:  age
 t = 39.826, df = 99, p-value &lt; 2.2e-16
@@ -1174,12 +1212,13 @@ or less than the specified value  by including the argument <code class="docutil
 whether the true mean <code class="docutils literal notranslate"><span class="pre">age</span></code> is greater than 0 we use:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="o">=</span><span class="s">&quot;greater&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(age, alternative=&quot;greater&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
 
 data:  age
 t = 39.826, df = 99, p-value &lt; 2.2e-16
@@ -1197,12 +1236,13 @@ mean of x
 other than 0 by including the argument <code class="docutils literal notranslate"><span class="pre">mu</span></code>. For example, we can use a t-test to test if true mean <code class="docutils literal notranslate"><span class="pre">age</span></code>=50.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="o">=</span><span class="m">50</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(age, mu=50)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
 
 data:  age
 t = -0.7879, df = 99, p-value = 0.4326
@@ -1222,13 +1262,14 @@ save to your computer. We can save the output of a t.test (or indeed any other s
 further.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">t.out</span><span class="o">&lt;-</span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="o">=</span><span class="m">50</span><span class="p">)</span>
-<span class="n">t.out</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.out&lt;-t.test(age, mu=50)
+t.out
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
 
 data:  age
 t = -0.7879, df = 99, p-value = 0.4326
@@ -1246,66 +1287,78 @@ mean of x
 explore the object that we have created. If we use <code class="docutils literal notranslate"><span class="pre">class()</span></code> we can learn what type of object it is.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">t.out</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+class(t.out)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'htest'</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;htest&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">htest</span></code> - that’s a new one. This is a type of object that has been specfying defined to hold the result of a t-test. It consists of different objects
 or slots where didferent parts of the result are stored. We can get a list of this elements with the function <code class="docutils literal notranslate"><span class="pre">names()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">t.out</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+names(t.out)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'statistic'</li><li>'parameter'</li><li>'p.value'</li><li>'conf.int'</li><li>'estimate'</li><li>'null.value'</li><li>'stderr'</li><li>'alternative'</li><li>'method'</li><li>'data.name'</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [1] &quot;statistic&quot;   &quot;parameter&quot;   &quot;p.value&quot;     &quot;conf.int&quot;    &quot;estimate&quot;   
+ [6] &quot;null.value&quot;  &quot;stderr&quot;      &quot;alternative&quot; &quot;method&quot;      &quot;data.name&quot;  
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can see 10 items listed. All of these are named elements stored within our <code class="docutils literal notranslate"><span class="pre">htest</span></code> object which we can extract by name using the <code class="docutils literal notranslate"><span class="pre">$</span></code>. For example
 we can get just the p-value as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">t.out</span><span class="o">$</span><span class="n">p.value</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.out$p.value
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.432636031241971</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.432636
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can get the estimated mean:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">t.out</span><span class="o">$</span><span class="n">estimate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.out$estimate
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><strong>mean of x:</strong> 49.03</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean of x 
+    49.03 
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can get the confidence interval:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">t.out</span><span class="o">$</span><span class="n">conf.int</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.out$conf.int
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>46.5871980629027</li><li>51.4728019370973</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 46.5872 51.4728
+attr(,&quot;conf.level&quot;)
+[1] 0.95
+</pre></div>
+</div>
+</div>
 </div>
 <p>While the p-value and estimated mean were single values, the confidence interval has returned a vector of length 2. The <code class="docutils literal notranslate"><span class="pre">htest</span></code>
 object contains a range of different elements.</p>
@@ -1321,12 +1374,13 @@ which indicates which entries are female and which are male, we will use the for
 for specifying the comparision we want to make.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="o">~</span><span class="n">male</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(age~male)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
 
 data:  age by male
 t = 1.739, df = 63.594, p-value = 0.08687
@@ -1351,15 +1405,16 @@ we will create two numeric vectors, one with the ages of the female participants
 two vectors as the first two argument in the <code class="docutils literal notranslate"><span class="pre">t.test()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">age.males</span><span class="o">&lt;-</span><span class="n">age</span><span class="p">[</span><span class="n">male</span><span class="o">==</span><span class="m">1</span><span class="p">]</span>
-<span class="n">age.females</span><span class="o">&lt;-</span><span class="n">age</span><span class="p">[</span><span class="n">male</span><span class="o">==</span><span class="m">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+age.males&lt;-age[male==1]
+age.females&lt;-age[male==0]
 
-<span class="nf">t.test</span><span class="p">(</span><span class="n">age.males</span><span class="p">,</span><span class="w"> </span><span class="n">age.females</span><span class="p">)</span>
+t.test(age.males, age.females)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
 
 data:  age.males and age.females
 t = -1.739, df = 63.594, p-value = 0.08687
@@ -1376,12 +1431,13 @@ mean of x mean of y
 <p>We can perform a one-side test using the <code class="docutils literal notranslate"><span class="pre">alternative</span></code> argument as shown above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age.males</span><span class="p">,</span><span class="w"> </span><span class="n">age.females</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;less&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(age.males, age.females, alternative = &quot;less&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
 
 data:  age.males and age.females
 t = -1.739, df = 63.594, p-value = 0.04343
@@ -1399,12 +1455,13 @@ mean of x mean of y
 we can include the argument <code class="docutils literal notranslate"><span class="pre">var.equal</span></code> and set it to TRUE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">age</span><span class="o">~</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">var.equal</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(age~male, var.equal=TRUE)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Two Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Two Sample t-test
 
 data:  age by male
 t = 1.8368, df = 98, p-value = 0.06927
@@ -1422,12 +1479,13 @@ mean in group 0 mean in group 1
 The null hypothesis for this test is that variances are equal. So a significant result means that the assumption of equal variances is rejected. To compare the variances in age by gender:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">var.test</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">male</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+var.test(age ~ male)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	F test to compare two variances
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	F test to compare two variances
 
 data:  age by male
 F = 1.5248, num df = 36, denom df = 62, p-value = 0.1431
@@ -1444,12 +1502,13 @@ ratio of variances
 <p>An alternative statistical test to test for equal variances is Bartlett’s test (again, the null hypothesis is that the variances are equal for each group):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">bartlett.test</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">male</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+bartlett.test(age ~ male)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Bartlett test of homogeneity of variances
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Bartlett test of homogeneity of variances
 
 data:  age by male
 Bartlett&#39;s K-squared = 2.0664, df = 1, p-value = 0.1506
@@ -1469,12 +1528,13 @@ baseline measurement, there is a ‘matched’ measurement taken at 3 months. To
 set it to TRUE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">bp_3m</span><span class="p">,</span><span class="n">bp_baseline</span><span class="p">,</span><span class="w"> </span><span class="n">paired</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(bp_3m,bp_baseline, paired=TRUE)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Paired t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Paired t-test
 
 data:  bp_3m and bp_baseline
 t = -4.5608, df = 99, p-value = 1.462e-05
@@ -1498,12 +1558,13 @@ mean difference
 take into account the paired nature of the variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">bp_3m</span><span class="p">,</span><span class="n">bp_baseline</span><span class="p">,</span><span class="n">paired</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+t.test(bp_3m,bp_baseline,paired=FALSE)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
 
 data:  bp_3m and bp_baseline
 t = -4.8468, df = 197.48, p-value = 2.534e-06
@@ -1532,12 +1593,13 @@ mean of x mean of y
 It works in a very similar way to the two sample t- test, and many of the arguments are shared.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">wilcox.test</span><span class="p">(</span><span class="n">age</span><span class="o">~</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;greater&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+wilcox.test(age~male, alternative = &quot;greater&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Wilcoxon rank sum test with continuity correction
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Wilcoxon rank sum test with continuity correction
 
 data:  age by male
 W = 1374, p-value = 0.06865
@@ -1551,28 +1613,31 @@ alternative hypothesis: true location shift is greater than 0
 the variable are different to the t-test output but they are accessed in the same way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m.out</span><span class="o">&lt;-</span><span class="nf">wilcox.test</span><span class="p">(</span><span class="n">age</span><span class="o">~</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;greater&quot;</span><span class="p">)</span>
-<span class="n">m.out</span><span class="o">$</span><span class="n">p.value</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+m.out&lt;-wilcox.test(age~male, alternative = &quot;greater&quot;)
+m.out$p.value
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.0686534524054603</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.06865345
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">m.out</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+names(m.out)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'statistic'</li><li>'parameter'</li><li>'p.value'</li><li>'null.value'</li><li>'alternative'</li><li>'method'</li><li>'data.name'</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;statistic&quot;   &quot;parameter&quot;   &quot;p.value&quot;     &quot;null.value&quot;  &quot;alternative&quot;
+[6] &quot;method&quot;      &quot;data.name&quot;  
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="common-statistical-tests-anova">
@@ -1582,12 +1647,13 @@ is equal across groups. There are two ways to perform an ANOVA in R, both use th
 <p>For example, to compare mean BP at 3 months across Drug A, Drug B, Control, first using the <code class="docutils literal notranslate"><span class="pre">aov()</span> </code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">aov</span><span class="p">(</span><span class="n">bp_3m</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">intervention</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+aov(bp_3m ~ intervention)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
    aov(formula = bp_3m ~ intervention)
 
 Terms:
@@ -1603,12 +1669,13 @@ Estimated effects may be unbalanced
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">aov</span><span class="p">(</span><span class="n">bp_3m</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">intervention</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+summary(aov(bp_3m ~ intervention))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 intervention  2  12718    6359   14.74 2.57e-06 ***
 Residuals    97  41840     431                     
 ---
@@ -1623,23 +1690,23 @@ print the required test result. This is not an uncommon approach for performing 
 <code class="docutils literal notranslate"><span class="pre">lm()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">bp_3m</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">intervention</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+anova(lm(bp_3m ~ intervention))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A anova: 2 × 5</caption>
-<thead>
-	<tr><th></th><th scope=col>Df</th><th scope=col>Sum Sq</th><th scope=col>Mean Sq</th><th scope=col>F value</th><th scope=col>Pr(&gt;F)</th></tr>
-	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>intervention</th><td> 2</td><td>12718.47</td><td>6359.2360</td><td>14.74294</td><td>2.566788e-06</td></tr>
-	<tr><th scope=row>Residuals</th><td>97</td><td>41840.09</td><td> 431.3411</td><td>      NA</td><td>          NA</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analysis of Variance Table
+
+Response: bp_3m
+             Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+intervention  2  12718  6359.2  14.743 2.567e-06 ***
+Residuals    97  41840   431.3                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</pre></div>
+</div>
+</div>
 </div>
 <section id="id4">
 <h2>Activity<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
@@ -1652,12 +1719,13 @@ print the required test result. This is not an uncommon approach for performing 
 The function is <code class="docutils literal notranslate"><span class="pre">chisq.test()</span></code> and requires a cross tabulation of the two variables as the input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">chisq.test</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">male</span><span class="p">,</span><span class="w"> </span><span class="n">intervention</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+chisq.test(table(male, intervention))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pearson&#39;s Chi-squared test
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pearson&#39;s Chi-squared test
 
 data:  table(male, intervention)
 X-squared = 1.5097, df = 2, p-value = 0.4701
@@ -1672,12 +1740,16 @@ X-squared = 1.5097, df = 2, p-value = 0.4701
 For example to calculate the correlation between age and BP at baseline we can run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cor</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">bp_baseline</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+cor(age, bp_baseline)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.0113820051816785</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.01138201
+</pre></div>
+</div>
+</div>
 </div>
 <p>The output of this function is very simple compared to the tests we looked at before, it is just a simple value. If you compare the function name to
 the names o fthe other functions to perform statistical tests, this doesn’t have the suffix <code class="docutils literal notranslate"><span class="pre">.test</span></code>. This function simply caluclated the value of
@@ -1685,12 +1757,13 @@ the correlation statistic and does not perform any hypothesis testing with it. T
 <p>We can use <code class="docutils literal notranslate"><span class="pre">cor.test</span></code> to find the  correlation between <code class="docutils literal notranslate"><span class="pre">age</span></code> and <code class="docutils literal notranslate"><span class="pre">bp_baseline</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cor.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">bp_baseline</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+cor.test(age, bp_baseline)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pearson&#39;s product-moment correlation
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pearson&#39;s product-moment correlation
 
 data:  age and bp_baseline
 t = 0.11268, df = 98, p-value = 0.9105
@@ -1709,16 +1782,13 @@ sample estimates:
 <code class="docutils literal notranslate"><span class="pre">method</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cor.test</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">bp_baseline</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="o">=</span><span class="s">&quot;spearman&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+cor.test(age, bp_baseline, method=&quot;spearman&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in cor.test.default(age, bp_baseline, method = &quot;spearman&quot;):
-“Cannot compute exact p-value with ties”
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Spearman&#39;s rank correlation rho
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Spearman&#39;s rank correlation rho
 
 data:  age and bp_baseline
 S = 165406, p-value = 0.9412
@@ -1728,8 +1798,1039 @@ sample estimates:
 0.007464794 
 </pre></div>
 </div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In addition: Warning message:
+In cor.test.default(age, bp_baseline, method = &quot;spearman&quot;) :
+  Cannot compute exact p-value with ties
+</pre></div>
 </div>
 </div>
+</div>
+<section id="summary-quiz">
+<h2>Summary Quiz<a class="headerlink" href="#summary-quiz" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="kGHkZgDSUvZI" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"
+               data-maxwidth="600"
+               style="border-radius: 10px; text-align: left"> <style>
+#kGHkZgDSUvZI {
+   --jq-multiple-choice-bg: #6f78ffff;
+   --jq-mc-button-bg: #fafafa;
+   --jq-mc-button-border: #e0e0e0e0;
+   --jq-mc-button-inset-shadow: #555555;
+   --jq-many-choice-bg: #f75c03ff;
+   --jq-numeric-bg: #392061ff;
+   --jq-numeric-input-bg: #c0c0c0;
+   --jq-numeric-input-label: #101010;
+   --jq-numeric-input-shadow: #999999;
+   --jq-incorrect-color: #c80202;
+   --jq-correct-color: #009113;
+   --jq-text-color: #fafafa;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+    border-radius: inherit;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    border-radius: inherit;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: var(--jq-numeric-input-bg);
+    color: var(--jq-text-color);
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: var(--jq-numeric-input-bg);
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem var(--jq-numeric-input-shadow);
+}
+
+.MCButton {
+    background: var(--jq-mc-button-bg);
+    border: 1px solid var(--jq-mc-button-border);
+    border-radius: inherit;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--jq-multiple-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--jq-many-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--jq-numeric-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: var(--jq-numeric-input-label);
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--jq-incorrect-color);
+}
+
+.correct {
+    color: var(--jq-correct-color);
+}
+
+.correctButton {
+    /*
+    background: var(--jq-correct-color);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--jq-incorrect-color);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--jq-correct-color);
+    }
+}
+</style></div><script type="application/javascript">var questionskGHkZgDSUvZI=[
+    {
+        "question": "What does the t.test() function in R test for?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The variance of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The mean of a continuous variable against a pre-specified value",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The correlation between two variables",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The maximum value of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "When conducting a paired t-test, what arguement must be included to specify the paired nature of the data?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "paired = TRUE",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "var.equal = TRUE",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "alternative = \"two.sided\"",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "mu = 0",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What does the cor.test() function in R calculate?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "The mean of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The correlation coefficient and its significance",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The variance of a dataset",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "A frequency table",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    if ("feedback" in answer) {
+                        fb.textContent = jaxify(answer.feedback);
+                    } else {
+                        fb.textContent = jaxify("Correct");
+                    }
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+    var max_width = mydiv.dataset.maxwidth;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        iDiv.style.maxWidth  =max_width+"px";
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+        
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        
+        if (qa.question) {
+            iDiv.append(outerqDiv);
+
+            //qDiv.textContent=qa.question;
+            qDiv.innerHTML = jaxify(qa.question);
+            outerqDiv.append(qDiv);
+        }
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if ((qa.type == "multiple_choice") || (qa.type == "many_choice") ) {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+            if ("answer_cols" in qa) {
+                //aDiv.style.gridTemplateColumns = 'auto '.repeat(qa.answer_cols);
+                aDiv.style.gridTemplateColumns = 'repeat(' + qa.answer_cols + ', 1fr)';
+            }
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+/* This is to handle asynchrony issues in loading Jupyter notebooks
+           where the quiz has been previously run. The Javascript was generally
+           being run before the div was added to the DOM. I tried to do this
+           more elegantly using Mutation Observer, but I didn't get it to work.
+
+           Someone more knowledgeable could make this better ;-) */
+
+        function try_show() {
+          if(document.getElementById("kGHkZgDSUvZI")) {
+            show_questions(questionskGHkZgDSUvZI,  kGHkZgDSUvZI); 
+          } else {
+             setTimeout(try_show, 200);
+          }
+        };
+    
+        {
+        // console.log(element);
+
+        //console.log("kGHkZgDSUvZI");
+        // console.log(document.getElementById("kGHkZgDSUvZI"));
+
+        try_show();
+        }
+        </script></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1741,16 +2842,16 @@ sample estimates:
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "r"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ir",
+            name: "python3",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ir'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1768,7 +2869,7 @@ sample estimates:
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Plots</p>
+        <p class="prev-next-title">Ploting in R</p>
       </div>
     </a>
     <a class="right-next"
@@ -1797,6 +2898,7 @@ sample estimates:
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Statistical Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-dataset">Loading the dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-organisation">Data Organisation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary statistics</a></li>
@@ -1823,7 +2925,10 @@ sample estimates:
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-chi-square-test">Common statistical tests: Chi-square test</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-correlation">Common statistical tests: Correlation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#common-statistical-tests-correlation">Common statistical tests: Correlation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>

@@ -264,19 +264,12 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/load_data.html">Loading Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/manipulating_data.html">Manipulating Datasets</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/control_flow.html">Control Flow</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/plots.html">Ploting in R</a></li>
 
 
 
@@ -293,7 +286,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_r/good_practise.html">Establishing Good Practices when Coding</a></li>
-
 
 </ul>
 </li>
@@ -389,7 +381,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction to Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
@@ -690,21 +682,21 @@ summary(model.int)
 lm(formula = CognitionB ~ VisitNum * Sex, data = cogDat)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--10.0439  -2.9890  -0.2351   2.9613  11.4649 
+    Min      1Q  Median      3Q     Max 
+-12.937  -2.827   0.218   2.982  12.064 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     8.4569     0.4566  18.523   &lt;2e-16 ***
-VisitNum        0.2655     0.1329   1.997   0.0461 *  
-SexM           -0.4223     0.6104  -0.692   0.4893    
-VisitNum:SexM  -0.3016     0.1790  -1.685   0.0924 .  
+(Intercept)     7.7202     0.4353  17.737  &lt; 2e-16 ***
+VisitNum        0.3977     0.1196   3.325 0.000931 ***
+SexM            1.2563     0.6497   1.934 0.053556 .  
+VisitNum:SexM  -0.4590     0.1858  -2.471 0.013729 *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 4.095 on 720 degrees of freedom
-Multiple R-squared:  0.02987,	Adjusted R-squared:  0.02583 
-F-statistic:  7.39 on 3 and 720 DF,  p-value: 7.003e-05
+Residual standard error: 4.527 on 693 degrees of freedom
+Multiple R-squared:  0.01617,	Adjusted R-squared:  0.01192 
+F-statistic: 3.798 on 3 and 693 DF,  p-value: 0.01017
 </pre></div>
 </div>
 </div>
@@ -724,20 +716,20 @@ summary(model.int)
 lm(formula = CognitionB ~ VisitNum:Sex, data = cogDat)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--9.9809 -2.9682 -0.2984  2.9523 11.4965 
+     Min       1Q   Median       3Q      Max 
+-12.7225  -2.9448   0.2117   3.0424  11.6298 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    8.22064    0.30295  27.136  &lt; 2e-16 ***
-VisitNum:SexF  0.32450    0.10189   3.185  0.00151 ** 
-VisitNum:SexM -0.08393    0.09782  -0.858  0.39118    
+(Intercept)    8.28413    0.32378  25.585  &lt; 2e-16 ***
+VisitNum:SexF  0.26797    0.09922   2.701  0.00709 ** 
+VisitNum:SexM  0.11395    0.10974   1.038  0.29946    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 4.093 on 721 degrees of freedom
-Multiple R-squared:  0.02923,	Adjusted R-squared:  0.02654 
-F-statistic: 10.85 on 2 and 721 DF,  p-value: 2.268e-05
+Residual standard error: 4.536 on 694 degrees of freedom
+Multiple R-squared:  0.01087,	Adjusted R-squared:  0.008016 
+F-statistic: 3.812 on 2 and 694 DF,  p-value: 0.02257
 </pre></div>
 </div>
 </div>
@@ -756,21 +748,21 @@ summary(model.int)
 lm(formula = CognitionB ~ Sex + VisitNum:Sex, data = cogDat)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--10.0439  -2.9890  -0.2351   2.9613  11.4649 
+    Min      1Q  Median      3Q     Max 
+-12.937  -2.827   0.218   2.982  12.064 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    8.45687    0.45656  18.523   &lt;2e-16 ***
-SexM          -0.42230    0.61044  -0.692   0.4893    
-SexF:VisitNum  0.26549    0.13291   1.997   0.0461 *  
-SexM:VisitNum -0.03607    0.11984  -0.301   0.7635    
+(Intercept)    7.72023    0.43527  17.737  &lt; 2e-16 ***
+SexM           1.25633    0.64970   1.934 0.053556 .  
+SexF:VisitNum  0.39774    0.11962   3.325 0.000931 ***
+SexM:VisitNum -0.06122    0.14213  -0.431 0.666781    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 4.095 on 720 degrees of freedom
-Multiple R-squared:  0.02987,	Adjusted R-squared:  0.02583 
-F-statistic:  7.39 on 3 and 720 DF,  p-value: 7.003e-05
+Residual standard error: 4.527 on 693 degrees of freedom
+Multiple R-squared:  0.01617,	Adjusted R-squared:  0.01192 
+F-statistic: 3.798 on 3 and 693 DF,  p-value: 0.01017
 </pre></div>
 </div>
 </div>

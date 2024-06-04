@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Plots &#8212; Coding For Reproducible Research</title>
+    <title>Ploting in R &#8212; Coding For Reproducible Research</title>
   
   
   
@@ -57,8 +57,6 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'individual_modules/introduction_to_r/plots';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -266,19 +264,12 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data From Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_data.html">Loading Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manipulating_data.html">Manipulating Datasets</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="control_flow.html">Control Flow</a></li>
 
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Plots</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ploting in R</a></li>
 
 
 
@@ -295,7 +286,6 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="good_practise.html">Establishing Good Practices when Coding</a></li>
-
 
 </ul>
 </li>
@@ -391,7 +381,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../section_landing_pages/introduction_to_julia.html">Introduction to Julia</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction to Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/introduction_to_julia.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/variables.html">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/operations.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction_to_julia/control_flow.html">Control Flow</a></li>
@@ -647,7 +637,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Plots</h1>
+    <h1>Ploting in R</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -657,7 +647,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ploting in R</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">Plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguements">Arguements</a></li>
 </ul>
 </li>
@@ -667,6 +659,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composite-plots">Creating composite plots</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-plots">Saving and exporting plots</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
 </ul>
 </li>
 </ul>
@@ -681,8 +674,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="plots">
-<h1>Plots<a class="headerlink" href="#plots" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ploting-in-r">
+<h1>Ploting in R<a class="headerlink" href="#ploting-in-r" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Learn the basics of creating plots using the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function</p></li>
+<li><p>Understand how to use various arguments such as <code class="docutils literal notranslate"><span class="pre">xlab</span></code>, <code class="docutils literal notranslate"><span class="pre">ylab</span></code>, and <code class="docutils literal notranslate"><span class="pre">col</span></code> to customize plots</p></li>
+<li><p>Learn how to add new data points or lines to existing plots for enhanced visualization</p></li>
+<li><p>Understand how to adjust plot margins and layout for better presentation</p></li>
+<li><p>Learn how to create multiple plots in a single window for comparative analysis</p></li>
+<li><p>Understand how to save and export plots to different file formats</p></li>
+</ul>
+</section>
+<section id="plots">
+<h2>Plots<a class="headerlink" href="#plots" title="Link to this heading">#</a></h2>
 <p>The mathematician Richard Hamming once said, “The purpose of computing is insight, not numbers,” and the best way
 to develop insight is often to visualize data. Visualization deserves an entire lecture (or course) of its own,
 but we can explore a few of R’s plotting features. R is synonymous with data analysis and visualisation. R is capable of plotting many
@@ -690,39 +696,45 @@ different types of plots and importantly these are infinitely customisable. To m
 we need to take advantage of the many arguments available in plotting functions.</p>
 <p>The R base function <code class="docutils literal notranslate"><span class="pre">plot()</span></code> can generate a range of different plots from some user supplied data.</p>
 <p>If we provide one vector of continous data, it plots that on the y-axis against the index on the x-axis.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plot(iris$Sepal.Length)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/e6e43a1a34b94addc71212bcd11a02a6e4d2cf5efb2d49fd195dda101a10e99b.png"><img alt="../../_images/e6e43a1a34b94addc71212bcd11a02a6e4d2cf5efb2d49fd195dda101a10e99b.png" src="../../_images/e6e43a1a34b94addc71212bcd11a02a6e4d2cf5efb2d49fd195dda101a10e99b.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/18338d93fdff807c2f0b6b4042f1dd3e1dac85621c1ca36342c8b82c696b4b99.png" src="../../_images/18338d93fdff807c2f0b6b4042f1dd3e1dac85621c1ca36342c8b82c696b4b99.png" />
 </div>
 </div>
 <p>If we want to plot a scatterplot between two continuous variables, we provide both to the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function. The order here can be important, if not explicitly labeled as the x or y variable, R will take the first entry as the x variable and  the second entry as the y variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plot(iris$Sepal.Length, iris$Sepal.Width)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/9957641b0472b2179a07f9d1459b5c14833baa96037c348e41f1161fdb838c9c.png"><img alt="../../_images/9957641b0472b2179a07f9d1459b5c14833baa96037c348e41f1161fdb838c9c.png" src="../../_images/9957641b0472b2179a07f9d1459b5c14833baa96037c348e41f1161fdb838c9c.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/334f7a8b4e7e9d34bddffdfdec95f2225a2c11981e1de94958943400de28b02d.png" src="../../_images/334f7a8b4e7e9d34bddffdfdec95f2225a2c11981e1de94958943400de28b02d.png" />
 </div>
 </div>
 <p>Alternatively we can use the argument keywords to specify which variable should be plotted on which axis, in this
 case is doesn’t matter which order we include the arguments. For example we can state the y variable first.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plot(y = iris$Sepal.Length, x = iris$Sepal.Width)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/296a9fc248f7ae33c274e701af9452f3e3a9456dafa8587fc866ddb54b3786e9.png"><img alt="../../_images/296a9fc248f7ae33c274e701af9452f3e3a9456dafa8587fc866ddb54b3786e9.png" src="../../_images/296a9fc248f7ae33c274e701af9452f3e3a9456dafa8587fc866ddb54b3786e9.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/ed9601dc1cbfcc40265b3d55bc5f7c4945b5cde2e88ca936cc0cf0411220e522.png" src="../../_images/ed9601dc1cbfcc40265b3d55bc5f7c4945b5cde2e88ca936cc0cf0411220e522.png" />
 </div>
 </div>
+</section>
 <section id="arguements">
 <h2>Arguements<a class="headerlink" href="#arguements" title="Link to this heading">#</a></h2>
 <p>When calling a function, in the case of multiple arguments, there are two ways arguments can be specified.  They can be specified <strong>positionally</strong>, where R knows which argument is which based on the order they are listed or  using <strong>keywords</strong> where a keyword followed by = is used to inform R which argument is which. With keyword arguments,  the order does not matter, with positional arguments it is critical. It is not uncommon to see both ways used within the same function call.</p>
@@ -730,117 +742,106 @@ case is doesn’t matter which order we include the arguments. For example we ca
 arguments (<code class="docutils literal notranslate"><span class="pre">xlab</span></code> and <code class="docutils literal notranslate"><span class="pre">ylab</span></code>) in the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plot(iris$Sepal.Length, iris$Sepal.Width , xlab = &quot;Sepal Length (cm)&quot;, ylab = &quot;Sepal Width (cm)&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/cbf79e7aeb819c5f2a57ddc281ceea9f5c2a30363b3458fa4357986352a33ca7.png"><img alt="../../_images/cbf79e7aeb819c5f2a57ddc281ceea9f5c2a30363b3458fa4357986352a33ca7.png" src="../../_images/cbf79e7aeb819c5f2a57ddc281ceea9f5c2a30363b3458fa4357986352a33ca7.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/fc8443b640019524313f1d97b2662ea6d499a53e7d9c04af77efba5510fc45f1.png" src="../../_images/fc8443b640019524313f1d97b2662ea6d499a53e7d9c04af77efba5510fc45f1.png" />
 </div>
 </div>
 <p>We can also change the colour of the points with the <code class="docutils literal notranslate"><span class="pre">col</span></code> argument. If we give it one colour, all the points
 will be changed to the same colour.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plot(iris$Sepal.Length, iris$Sepal.Width , xlab = &quot;Sepal Length (cm)&quot;, ylab = &quot;Sepal Width (cm)&quot;, col = &quot;red&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/b703657a6e221d4c23785db3049970c11f21741a9bfd7b111e5a5cb293693708.png"><img alt="../../_images/b703657a6e221d4c23785db3049970c11f21741a9bfd7b111e5a5cb293693708.png" src="../../_images/b703657a6e221d4c23785db3049970c11f21741a9bfd7b111e5a5cb293693708.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/70bfd18cceee0576e386db47f54fec4f426f0681839d1fe2d231f5276927e8b9.png" src="../../_images/70bfd18cceee0576e386db47f54fec4f426f0681839d1fe2d231f5276927e8b9.png" />
 </div>
 </div>
 <p>Alternatively, we can provide a vector of colours, where the first colour will be the colour of the first point drawn, the second colour, the colour of the second point and so on.
 This vector does have to be the same length as the number of points. For example if we provide a vector of three colours, this will recycled until all the points have been pointed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plot(iris$Sepal.Length, iris$Sepal.Width , xlab = &quot;Sepal Length (cm)&quot;, ylab = &quot;Sepal Width (cm)&quot;, col = c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/c8c936bf15d30c3fbdbd1e95ceae4ae482793d79d0c0ea511cea2da520311729.png"><img alt="../../_images/c8c936bf15d30c3fbdbd1e95ceae4ae482793d79d0c0ea511cea2da520311729.png" src="../../_images/c8c936bf15d30c3fbdbd1e95ceae4ae482793d79d0c0ea511cea2da520311729.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/2850881ac1195bdd97973936cdb971d95dc01cd513b71bf6b6278f31c2be3681.png" src="../../_images/2850881ac1195bdd97973936cdb971d95dc01cd513b71bf6b6278f31c2be3681.png" />
 </div>
 </div>
 <p>What has happened is the 1st,4th,7th etc are pointed in red, the 2nd,5th,8th etc in blue and the 3rd,6th,9th etc in #ddaa33.</p>
 <p>If we want to colour the points by some categorial variable, we can use the fact that factors are represented as integers to subset a vector of colours.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">)[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plot(iris$Sepal.Length, iris$Sepal.Width , xlab = &quot;Sepal Length (cm)&quot;, ylab = &quot;Sepal Width (cm)&quot;, col = c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;)[iris$Species])
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/653d2761ae6689d5f573e53254d7c30a8bcc676a213588ea4c7debd4695d0314.png"><img alt="../../_images/653d2761ae6689d5f573e53254d7c30a8bcc676a213588ea4c7debd4695d0314.png" src="../../_images/653d2761ae6689d5f573e53254d7c30a8bcc676a213588ea4c7debd4695d0314.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/625a7f44cdedcadfed17957b2f7d5fe0b4413cc31cff43e2c231efd59c2751cd.png" src="../../_images/625a7f44cdedcadfed17957b2f7d5fe0b4413cc31cff43e2c231efd59c2751cd.png" />
 </div>
 </div>
 <p>There are three levels in the factor <code class="docutils literal notranslate"><span class="pre">iris$Species</span></code>, which are represented internally by the numbers 1,2,3. These integers can be used to index a vector of at
 least three as shown below, and create a new vector, where each level is replaced by the same colour.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+iris$Species[1:10]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li><li>setosa</li></ol>
-
-<details>
-	<summary style=display:list-item;cursor:pointer>
-		<strong>Levels</strong>:
-	</summary>
-	<style>
-	.list-inline {list-style: none; margin:0; padding: 0}
-	.list-inline>li {display: inline-block}
-	.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-	</style>
-	<ol class=list-inline><li>'setosa'</li><li>'versicolor'</li><li>'virginica'</li></ol>
-</details></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa
+Levels: setosa versicolor virginica
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+as.numeric(iris$Species[1:10])
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [1] 1 1 1 1 1 1 1 1 1 1
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">)[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;)[iris$Species[1:10]]
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li><li>'red'</li></ol>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [1] &quot;red&quot; &quot;red&quot; &quot;red&quot; &quot;red&quot; &quot;red&quot; &quot;red&quot; &quot;red&quot; &quot;red&quot; &quot;red&quot; &quot;red&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Depending on the data we are attempting to visualize, the type of plot we may want to use will vary. R will automatically try and plot the most  appropriate plot for the data provided. Next, we will use a “~” to provide a formula denoting what we want to plot.  As <code class="docutils literal notranslate"><span class="pre">iris$Species</span></code> is a factor, R defaults to a boxplot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Species&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+plot(iris$Sepal.Length ~ iris$Species, ylab = &quot;Sepal Length (cm)&quot;, xlab = &quot;Species&quot;, col =  c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png"><img alt="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png" src="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/02b3790fb63012cab17ad36328760a40d7dfec281399ad5ffc53896647ae34e4.png" src="../../_images/02b3790fb63012cab17ad36328760a40d7dfec281399ad5ffc53896647ae34e4.png" />
 </div>
 </div>
 <p>Note here, we only need to provide a vector of three colours, as there are only three boxes in the figure.</p>
@@ -850,26 +851,28 @@ the appearance of the plot.</p>
 <p>For example we can recreate the same boxplot as follows</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Species&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">     </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+boxplot(iris$Sepal.Length ~ iris$Species, ylab = &quot;Sepal Length (cm)&quot;, xlab = &quot;Species&quot;, 
+     col =  c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png"><img alt="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png" src="../../_images/e9a1469228a66dc6e2a751580226de316e1b57773ca72cd2602e25a25f5eb708.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/02b3790fb63012cab17ad36328760a40d7dfec281399ad5ffc53896647ae34e4.png" src="../../_images/02b3790fb63012cab17ad36328760a40d7dfec281399ad5ffc53896647ae34e4.png" />
 </div>
 </div>
 <p>Histograms are plotted using the function <code class="docutils literal notranslate"><span class="pre">hist()</span></code>, which allows us to plot the frequency distribution of a vector.
 You can use standard plotting arguments such as col, but also used the argument breaks to adjust the amount of bins.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting &quot;Sepal.Length&quot; with increased bins</span>
-<span class="nf">hist</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Plotting &quot;Sepal.Length&quot; with increased bins
+hist(iris$Sepal.Length, breaks = 16)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/19b73293a1bd67e97d9c849f2b8194d711d5009af220cc838708a1d646489d16.png"><img alt="../../_images/19b73293a1bd67e97d9c849f2b8194d711d5009af220cc838708a1d646489d16.png" src="../../_images/19b73293a1bd67e97d9c849f2b8194d711d5009af220cc838708a1d646489d16.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/4872e9e2ed7150e5e02e00ef758a9bfa0a8b989ff1216b9c70fd190d93d4cfd1.png" src="../../_images/4872e9e2ed7150e5e02e00ef758a9bfa0a8b989ff1216b9c70fd190d93d4cfd1.png" />
 </div>
 </div>
 <p>Below you can see a table containing a lot of basic plotting arguments. Also, for colour selection, making colour themes and looking for colour blind options, you can use <a class="reference external" href="https://www.colorhexa.com/">https://www.colorhexa.com/</a> which will give you R friendly colour codes.</p>
@@ -986,41 +989,44 @@ can use functions such as points(), lines() or abline().</p>
 such as col, lty, pch, cex etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot &quot;Sepal.Length&quot; on a, then add &quot;Sepal.Width&quot; data as points and &quot;Petal.Length&quot; as lines</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">),</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Size (cm)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sample&quot;</span><span class="p">)</span>
-<span class="nf">points</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">)</span>
-<span class="nf">lines</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Plot &quot;Sepal.Length&quot; on a, then add &quot;Sepal.Width&quot; data as points and &quot;Petal.Length&quot; as lines
+plot(iris$Sepal.Length, ylim = c(0, 8), ylab = &quot;Size (cm)&quot;, xlab = &quot;Sample&quot;)
+points(iris$Sepal.Width, col = &quot;red&quot;, pch = 19, cex = 0.8)
+lines(iris$Petal.Length, lty = 2, col = &quot;blue&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/3ee50d4f43c23edf554a22ea81b7e73f171ba06b38ea8bbaa32cda91f04aaa20.png"><img alt="../../_images/3ee50d4f43c23edf554a22ea81b7e73f171ba06b38ea8bbaa32cda91f04aaa20.png" src="../../_images/3ee50d4f43c23edf554a22ea81b7e73f171ba06b38ea8bbaa32cda91f04aaa20.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/a656a607522bf0da048200c18af4af3406376a2c24b21628e9c85ee5f0e234dd.png" src="../../_images/a656a607522bf0da048200c18af4af3406376a2c24b21628e9c85ee5f0e234dd.png" />
 </div>
 </div>
 <p>using <code class="docutils literal notranslate"><span class="pre">abline()</span></code>, you can add horizontal lines (<code class="docutils literal notranslate"><span class="pre">h=</span></code>), vertical lines (<code class="docutils literal notranslate"><span class="pre">v=</span></code>), or diagonal lines(x, y). You can also specify the parameters of the straight line i.e the intercept (<code class="docutils literal notranslate"><span class="pre">a=</span></code>) and slope coefficient (<code class="docutils literal notranslate"><span class="pre">b=</span></code>). It can also be wrapped around a linear regression (<code class="docutils literal notranslate"><span class="pre">lm()</span></code>) to add a line of best fit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adding a horizontal line at 6 and a vertical line at 60</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span>
-<span class="nf">abline</span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
-<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Adding a horizontal line at 6 and a vertical line at 60
+plot(iris$Sepal.Length)
+abline(h = 6, col = &quot;red&quot;)
+abline(v = 60, col = &quot;blue&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/d1f29ea3b5b6fed6cceec64c83f21503fc330e0ad7abecd4c715f25186877e17.png"><img alt="../../_images/d1f29ea3b5b6fed6cceec64c83f21503fc330e0ad7abecd4c715f25186877e17.png" src="../../_images/d1f29ea3b5b6fed6cceec64c83f21503fc330e0ad7abecd4c715f25186877e17.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/373c57ba029f113acdfcfbee59cbe2fe95b8a1166cd25438cb32bf3e0cc6b7dd.png" src="../../_images/373c57ba029f113acdfcfbee59cbe2fe95b8a1166cd25438cb32bf3e0cc6b7dd.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting &quot;Sepal.Length&quot; against &quot;Petal.Length&quot; and adding a line of best fit</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Length</span><span class="p">)</span>
-<span class="nf">abline</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Length</span><span class="p">),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;green&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Plotting &quot;Sepal.Length&quot; against &quot;Petal.Length&quot; and adding a line of best fit
+plot(iris$Sepal.Length ~ iris$Petal.Length)
+abline(lm(iris$Sepal.Length ~ iris$Petal.Length), lty = 3, col = &quot;green&quot;, lwd = 3)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/204441c476086cd53b66c52ff1bf847ecc3c7506f983a100b948e9d9914923ea.png"><img alt="../../_images/204441c476086cd53b66c52ff1bf847ecc3c7506f983a100b948e9d9914923ea.png" src="../../_images/204441c476086cd53b66c52ff1bf847ecc3c7506f983a100b948e9d9914923ea.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/4426cfe6c3e1c976ab54ca7f4375bee94ac164ac140ec6acf5b23d75f56a37d0.png" src="../../_images/4426cfe6c3e1c976ab54ca7f4375bee94ac164ac140ec6acf5b23d75f56a37d0.png" />
 </div>
 </div>
 </section>
@@ -1033,16 +1039,17 @@ define position, either by using x, y coordinates or by a word such as “toplef
 and background.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting &quot;Sepal.Length&quot; and colouring and using different points by &quot;Species&quot;, then adding a legend</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">)[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">],</span><span class="w"> </span>
-<span class="w">     </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">])</span>
-<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topleft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Setosa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Versicolor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Virginica&quot;</span><span class="p">),</span><span class="w"> </span>
-<span class="w">       </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#ddaa33&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Plotting &quot;Sepal.Length&quot; and colouring and using different points by &quot;Species&quot;, then adding a legend
+plot(iris$Sepal.Length, col = c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;)[iris$Species], 
+     pch = c(1, 2, 3)[iris$Species])
+legend(&quot;topleft&quot;, legend = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;), 
+       pch = c(1,2,3), col = c(&quot;red&quot;, &quot;blue&quot;, &quot;#ddaa33&quot;))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/96846488035ea5058dca00891ffae6e7a5b6850645afc39643f9416efdec1bb1.png"><img alt="../../_images/96846488035ea5058dca00891ffae6e7a5b6850645afc39643f9416efdec1bb1.png" src="../../_images/96846488035ea5058dca00891ffae6e7a5b6850645afc39643f9416efdec1bb1.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/901e6a84403bb9154ee43a58c9e7034049439a574b5d869cb0f48b99b4a59351.png" src="../../_images/901e6a84403bb9154ee43a58c9e7034049439a574b5d869cb0f48b99b4a59351.png" />
 </div>
 </div>
 <p>We can add additional text to a plot by using <code class="docutils literal notranslate"><span class="pre">text()</span></code> or <code class="docutils literal notranslate"><span class="pre">mtext()</span></code> for putting text in the margin. To use
@@ -1053,15 +1060,16 @@ the text (<code class="docutils literal notranslate"><span class="pre">text</spa
 the text will go (side =) with 1 = bottom, 2 = left, 3 = top, 4 = right, the margin line to put the text on (line = ).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adding text to a plot</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span>
-<span class="nf">text</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
-<span class="nf">mtext</span><span class="p">(</span><span class="s">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Adding text to a plot
+plot(iris$Sepal.Length)
+text(20, 6, &quot;text&quot;, cex = 0.7, col = &quot;blue&quot;, font = 2)
+mtext(&quot;text&quot;, side = 4, line = 1, col = &quot;red&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/9a41b6a5bbff7a1f0a43a85eb9e15665044957f8ee53acf7aa90e87e8bcbafc5.png"><img alt="../../_images/9a41b6a5bbff7a1f0a43a85eb9e15665044957f8ee53acf7aa90e87e8bcbafc5.png" src="../../_images/9a41b6a5bbff7a1f0a43a85eb9e15665044957f8ee53acf7aa90e87e8bcbafc5.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/b1626be699c851a47bec1238b9c013833ea90cc1b9ef6d2a037815b5403a0027.png" src="../../_images/b1626be699c851a47bec1238b9c013833ea90cc1b9ef6d2a037815b5403a0027.png" />
 </div>
 </div>
 <p>There are times when we may want to add additional axes or move and adjust the axes of a plot. For this, we use
@@ -1074,15 +1082,16 @@ and if tick marks should be drawn <code class="docutils literal notranslate"><sp
 and type of line <code class="docutils literal notranslate"><span class="pre">(lty</span> <span class="pre">=)</span></code>. You need to use <code class="docutils literal notranslate"><span class="pre">axis()</span></code> for each axis you want to add.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting &quot;Sepal.Length&quot; without axes and adding them with adjustment</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">axes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
-<span class="nf">axis</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
-<span class="nf">axis</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Plotting &quot;Sepal.Length&quot; without axes and adding them with adjustment
+plot(iris$Sepal.Length, axes = F, ylab=&quot;Sepal Length (cm)&quot;)
+axis(1)
+axis(2, pos = 50, at = 1:8, lwd = 2, col = &quot;blue&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/2402513018998d74459e92982cf1abcf1ab407b2cef4e94177ec60a865c8926b.png"><img alt="../../_images/2402513018998d74459e92982cf1abcf1ab407b2cef4e94177ec60a865c8926b.png" src="../../_images/2402513018998d74459e92982cf1abcf1ab407b2cef4e94177ec60a865c8926b.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/3e59330b8284c54025561b0751777b526b82112aff01892c95e2f789649e62d4.png" src="../../_images/3e59330b8284c54025561b0751777b526b82112aff01892c95e2f789649e62d4.png" />
 </div>
 </div>
 <p>If you want to enclose the plot in a box (i.e. add in the extra axes as straight lines) you can use the function <code class="docutils literal notranslate"><span class="pre">box()</span></code>.</p>
@@ -1109,13 +1118,14 @@ axis (las = 2), and always vertical (las = 3). It can also be used within the <c
 functions to change the orientation of specific elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">mgp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">las</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+par(mar = c(4, 4, 2, 1), mgp = c(2, 0.5, 0), las = 1)
+plot(iris$Sepal.Length, ylab=&quot;Sepal Length (cm)&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/453879334e3ffec72596fa6964eaebd4f84ef6b6bd98ce0bbae0e22a4277fe19.png"><img alt="../../_images/453879334e3ffec72596fa6964eaebd4f84ef6b6bd98ce0bbae0e22a4277fe19.png" src="../../_images/453879334e3ffec72596fa6964eaebd4f84ef6b6bd98ce0bbae0e22a4277fe19.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/8038b96b54eac1656193647496c92d7d36d126724997cebc41f2706e02fc558a.png" src="../../_images/8038b96b54eac1656193647496c92d7d36d126724997cebc41f2706e02fc558a.png" />
 </div>
 </div>
 </section>
@@ -1126,15 +1136,16 @@ functions to change the orientation of specific elements.</p>
 with a specified number of rows and columns. Using <code class="docutils literal notranslate"><span class="pre">mfcol</span></code> draws by columns and <code class="docutils literal notranslate"><span class="pre">mfrow</span></code> draws by rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
-<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+par(mar = c(4, 4, 2, 1))
+par(mfrow = c(1, 2))
+plot(iris$Sepal.Length, ylab=&quot;Sepal Length (cm)&quot;)
+plot(iris$Sepal.Width, ylab=&quot;Sepal Width (cm)&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/16e869a0c8d213fde851b189814ca898aba7ece1f4fd408a25f70926ee925799.png"><img alt="../../_images/16e869a0c8d213fde851b189814ca898aba7ece1f4fd408a25f70926ee925799.png" src="../../_images/16e869a0c8d213fde851b189814ca898aba7ece1f4fd408a25f70926ee925799.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/fc36f5fb6f2c920eb42d03daf3e4c2e057bb5ae86e7fedf0e32c7c1d1052f7e8.png" src="../../_images/fc36f5fb6f2c920eb42d03daf3e4c2e057bb5ae86e7fedf0e32c7c1d1052f7e8.png" />
 </div>
 </div>
 <p>Alternatively we can use the function <code class="docutils literal notranslate"><span class="pre">layout()</span></code> which allows for complicated ways of combining plots. Again you should think
@@ -1147,34 +1158,34 @@ where we provide the elements as a vector, the number of rows (or columns or bot
 will add the numbers to the matrix by row, if FALSE, it will add by column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+matrix(c(1, 1, 2, 3), nrow = 2, ncol = 2, byrow = TRUE)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table class="dataframe">
-<caption>A matrix: 2 × 2 of type dbl</caption>
-<tbody>
-	<tr><td>1</td><td>1</td></tr>
-	<tr><td>2</td><td>3</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     [,1] [,2]
+[1,]    1    1
+[2,]    2    3
+</pre></div>
+</div>
+</div>
 </div>
 <p>If we provide the this matrix to the <code class="docutils literal notranslate"><span class="pre">layout()</span></code> function, we are telling it to put the first plot to the positions
 occupied with the value 1, the second plot where the value 2 is located, and the third plot where the value 3 is located.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
-<span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Width</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Width (cm)&quot;</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Petal Length (cm)&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+par(mar = c(4, 4, 2, 1))
+layout(matrix(c(1, 1, 2, 3), 2, 2, byrow = TRUE))
+plot(iris$Sepal.Length, ylab = &quot;Sepal Length (cm)&quot;)
+plot(iris$Sepal.Width, ylab = &quot;Sepal Width (cm)&quot;)
+plot(iris$Petal.Length, ylab = &quot;Petal Length (cm)&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/4d114ac6b6a743407a4ceb96df1f2cdbc806e0383f767680a548bb2219c05f75.png"><img alt="../../_images/4d114ac6b6a743407a4ceb96df1f2cdbc806e0383f767680a548bb2219c05f75.png" src="../../_images/4d114ac6b6a743407a4ceb96df1f2cdbc806e0383f767680a548bb2219c05f75.png" style="width: 420px; height: 420px;" /></a>
+<img alt="../../_images/b38c3bcf1e919033bbd6b317b250c838e12cfbf6e8e95cfd219ff34918946e9d.png" src="../../_images/b38c3bcf1e919033bbd6b317b250c838e12cfbf6e8e95cfd219ff34918946e9d.png" />
 </div>
 </div>
 </section>
@@ -1191,15 +1202,20 @@ will only save one image (although this could be a multi panel plot), and the la
 is called. <code class="docutils literal notranslate"><span class="pre">pdf()</span></code> on the other hand will save multiple images as multiple pages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Saving a plot as a jpeg file</span>
-<span class="nf">jpeg</span><span class="p">(</span><span class="s">&quot;images/exampleplot.jpg&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span><span class="p">,</span><span class="w"> </span><span class="n">units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">200</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
-<span class="nf">dev.off</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# Saving a plot as a jpeg file
+jpeg(&quot;images/exampleplot.jpg&quot;, width = 300, height = 300, units = &quot;mm&quot;, bg = &quot;white&quot;, res = 200)
+plot(iris$Sepal.Length, ylab = &quot;Sepal Length (cm)&quot;)
+dev.off()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><strong>pdf:</strong> 2</div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quartz_off_screen 
+                2 
+</pre></div>
+</div>
+</div>
 </div>
 <section id="activity">
 <h2>Activity:<a class="headerlink" href="#activity" title="Link to this heading">#</a></h2>
@@ -1234,6 +1250,1032 @@ is called. <code class="docutils literal notranslate"><span class="pre">pdf()</s
 </li>
 </ol>
 </section>
+<section id="summary-quiz">
+<h2>Summary Quiz<a class="headerlink" href="#summary-quiz" title="Link to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="YgBrtASxiDnw" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"
+               data-maxwidth="600"
+               style="border-radius: 10px; text-align: left"> <style>
+#YgBrtASxiDnw {
+   --jq-multiple-choice-bg: #6f78ffff;
+   --jq-mc-button-bg: #fafafa;
+   --jq-mc-button-border: #e0e0e0e0;
+   --jq-mc-button-inset-shadow: #555555;
+   --jq-many-choice-bg: #f75c03ff;
+   --jq-numeric-bg: #392061ff;
+   --jq-numeric-input-bg: #c0c0c0;
+   --jq-numeric-input-label: #101010;
+   --jq-numeric-input-shadow: #999999;
+   --jq-incorrect-color: #c80202;
+   --jq-correct-color: #009113;
+   --jq-text-color: #fafafa;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+    border-radius: inherit;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    border-radius: inherit;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: var(--jq-numeric-input-bg);
+    color: var(--jq-text-color);
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: var(--jq-numeric-input-bg);
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem var(--jq-numeric-input-shadow);
+}
+
+.MCButton {
+    background: var(--jq-mc-button-bg);
+    border: 1px solid var(--jq-mc-button-border);
+    border-radius: inherit;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--jq-multiple-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--jq-many-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--jq-numeric-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: var(--jq-numeric-input-label);
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--jq-incorrect-color);
+}
+
+.correct {
+    color: var(--jq-correct-color);
+}
+
+.correctButton {
+    /*
+    background: var(--jq-correct-color);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--jq-incorrect-color);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--jq-correct-color);
+    }
+}
+</style></div><script type="application/javascript">var questionsYgBrtASxiDnw=[
+    {
+        "question": "Which arguement is used to customize the x-axis label in an R plot?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "xlab",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "ylab",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "main",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "xaxis",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "How can you change the color of the points in a plot to red?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "plot(x, y, color = \"red\")",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "plot(x, y, col = \"red\")",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "plot(x, y, colour = \"red\")",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "plot(x, y, pointcolor = \"red\")",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    },
+    {
+        "question": "What happens if you provide a vector of colors shorter than the number of points in a plot?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "R return an error",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "Only the first few points are colored",
+                "correct": false,
+                "feedback": "Incorrect"
+            },
+            {
+                "answer": "The colors are recycled",
+                "correct": true,
+                "feedback": "Correct"
+            },
+            {
+                "answer": "The points are all black",
+                "correct": false,
+                "feedback": "Incorrect"
+            }
+        ]
+    }
+];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    if ("feedback" in answer) {
+                        fb.textContent = jaxify(answer.feedback);
+                    } else {
+                        fb.textContent = jaxify("Correct");
+                    }
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+    var max_width = mydiv.dataset.maxwidth;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        iDiv.style.maxWidth  =max_width+"px";
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+        
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        
+        if (qa.question) {
+            iDiv.append(outerqDiv);
+
+            //qDiv.textContent=qa.question;
+            qDiv.innerHTML = jaxify(qa.question);
+            outerqDiv.append(qDiv);
+        }
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if ((qa.type == "multiple_choice") || (qa.type == "many_choice") ) {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+            if ("answer_cols" in qa) {
+                //aDiv.style.gridTemplateColumns = 'auto '.repeat(qa.answer_cols);
+                aDiv.style.gridTemplateColumns = 'repeat(' + qa.answer_cols + ', 1fr)';
+            }
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+/* This is to handle asynchrony issues in loading Jupyter notebooks
+           where the quiz has been previously run. The Javascript was generally
+           being run before the div was added to the DOM. I tried to do this
+           more elegantly using Mutation Observer, but I didn't get it to work.
+
+           Someone more knowledgeable could make this better ;-) */
+
+        function try_show() {
+          if(document.getElementById("YgBrtASxiDnw")) {
+            show_questions(questionsYgBrtASxiDnw,  YgBrtASxiDnw); 
+          } else {
+             setTimeout(try_show, 200);
+          }
+        };
+    
+        {
+        // console.log(element);
+
+        //console.log("YgBrtASxiDnw");
+        // console.log(document.getElementById("YgBrtASxiDnw"));
+
+        try_show();
+        }
+        </script></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1245,16 +2287,16 @@ is called. <code class="docutils literal notranslate"><span class="pre">pdf()</s
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "r"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ir",
+            name: "python3",
             path: "./individual_modules/introduction_to_r"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ir'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1300,7 +2342,9 @@ is called. <code class="docutils literal notranslate"><span class="pre">pdf()</s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ploting in R</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">Plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguements">Arguements</a></li>
 </ul>
 </li>
@@ -1310,6 +2354,7 @@ is called. <code class="docutils literal notranslate"><span class="pre">pdf()</s
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composite-plots">Creating composite plots</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-plots">Saving and exporting plots</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity">Activity:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-quiz">Summary Quiz</a></li>
 </ul>
 </li>
 </ul>
