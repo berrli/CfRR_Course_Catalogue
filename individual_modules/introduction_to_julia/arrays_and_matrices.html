@@ -647,6 +647,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-dimensional-arrays">One-Dimensional Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#declare-and-initialise">Declare and Initialise</a></li>
@@ -658,7 +659,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-arrays">Multi-Dimensional Arrays</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulation-of-arrays">Manipulation of Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
 </ul>
 </li>
 </ul>
@@ -676,6 +676,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="arrays-and-matrices">
 <h1>Arrays and Matrices<a class="headerlink" href="#arrays-and-matrices" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand the concept of arrays and matrices in Julia</p></li>
+<li><p>Create and initialise one-dimensional and multi-dimensional arrays</p></li>
+<li><p>Utilize various array creation functions in Julia</p></li>
+<li><p>Perform basic manipulations such as indexing and slicing on arrays</p></li>
+<li><p>Implement common operations on arrays and matrices</p></li>
+</ul>
+</section>
 <section id="arrays">
 <h2>Arrays<a class="headerlink" href="#arrays" title="Link to this heading">#</a></h2>
 <p>Arrays are a fundamental data structure within Julia, used to store collection of elements.</p>
@@ -710,7 +720,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4342117304, 4341965576, 4498699024]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4470239744, 0, 4801393664]
 </pre></div>
 </div>
 </div>
@@ -766,10 +776,10 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of zeroes: [0.0, 0.0, 0.0]
 Array of ones: [1.0, 1.0, 1.0]
+Array of random values between 0 and 1: [0.9196537252107663, 0.9396046829326345, 0.4219964011195346]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of random values between 0 and 1: [0.5297045042225995, 0.536001565875444, 0.29678728246161334]
-Array of random values normally distributed: :[-0.14581134124951067, 1.9771079984830777, 0.6980627566584974]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of random values normally distributed: :[0.560272799580163, -0.9881292029689834, 1.0491240872717296]
 </pre></div>
 </div>
 </div>
@@ -801,7 +811,7 @@ Array of random values normally distributed: :[-0.14581134124951067, 1.977107998
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4518413424 0 4871388272; 0 4799127872 0; 4854830784 0 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[55 5650684256 4468325328; 55 56 4468325392; 4468325264 56 4801393664]
 </pre></div>
 </div>
 </div>
@@ -825,8 +835,8 @@ Array of random values normally distributed: :[-0.14581134124951067, 1.977107998
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of zeroes: [0.0 0.0 0.0; 0.0 0.0 0.0; 0.0 0.0 0.0]
 Array of ones: [1.0 1.0 1.0; 1.0 1.0 1.0; 1.0 1.0 1.0]
-Array of random values between 0 and 1: [0.8112523996679322 0.20708741032320266 0.307374154780943; 0.16842775669033427 0.36322329474159387 0.8891755732184011; 0.9082579339054795 0.8309562550452828 0.4184528737033427]
-Array of random values normally distributed: :[-1.7003789524658837 -1.2367404755625189 -0.32158163737387657; -0.15113151612018458 -0.022383762905201054 -1.2713093751259927; -0.07085898970057444 -1.183680743368875 0.30552590103250504]
+Array of random values between 0 and 1: [0.07830066101433919 0.9344833772775463 0.08937945685927273; 0.8064754461925594 0.4745299934293855 0.4193470346461803; 0.699221937393218 0.6884671816647095 0.7053192092262752]
+Array of random values normally distributed: :[-1.110929237885142 -0.43900204478375804 0.676167775587553; -1.8305912715589443 -0.270900146021812 -0.3363600615353199; 0.7480276078092956 -0.8721689575930736 -0.4335027809132987]
 </pre></div>
 </div>
 </div>
@@ -855,10 +865,6 @@ Array of random values normally distributed: :[-1.7003789524658837 -1.2367404755
 </div>
 </div>
 </div>
-</section>
-<section id="slicing">
-<h4>Slicing<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h4>
-<p>Slicing allows you to accessa range of elements:</p>
 </section>
 </section>
 </section>
@@ -928,6 +934,7 @@ Array of random values normally distributed: :[-1.7003789524658837 -1.2367404755
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-dimensional-arrays">One-Dimensional Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#declare-and-initialise">Declare and Initialise</a></li>
@@ -939,7 +946,6 @@ Array of random values normally distributed: :[-1.7003789524658837 -1.2367404755
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-arrays">Multi-Dimensional Arrays</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulation-of-arrays">Manipulation of Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
 </ul>
 </li>
 </ul>
