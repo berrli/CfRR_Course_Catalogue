@@ -670,13 +670,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-forked-repository">Create a Forked Repository</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-repository-button">Fork Repository Button</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-fork-form">Creating a Fork Form</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes-in-forked-repository">Make Changes in Forked Repository</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-back-to-the-main-cfrr-repository">Contribute back to the Main CfRR Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-central-repository">Clone the Central Repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-use-a-new-branch">Create and Use a New Branch</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-back-to-the-main-cfrr-branch">Contribute back to the Main CfRR Branch</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-banner">Pull Request Banner</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-form">Pull Request Form</a></li>
 </ul>
@@ -763,69 +759,49 @@ document.write(`
 </section>
 <section id="making-changes">
 <h3>Making Changes<a class="headerlink" href="#making-changes" title="Link to this heading">#</a></h3>
-<p>The final way to contribute to the CfRR program is to make changes to the content of CfRR yourself. We request that you make use of the forks of the central CfRR repository to do this. The steps you will need to follow are below, but if you are struggling with them, it might be worthwhile to refer to the <code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Version</span> <span class="pre">Control</span> <span class="pre">with</span> <span class="pre">Git</span> <span class="pre">and</span> <span class="pre">GitHub</span></code> course delivered within the CfRR program.</p>
-<section id="create-a-forked-repository">
-<h4>Create a Forked Repository<a class="headerlink" href="#create-a-forked-repository" title="Link to this heading">#</a></h4>
+<p>The final way to contribute to the CfRR program is to make changes to the content of CfRR yourself. We request that you make use of branches of the central CfRR repository to do this. The steps you will need to follow are below, but if you are struggling with them, it might be worthwhile to refer to the <code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Version</span> <span class="pre">Control</span> <span class="pre">with</span> <span class="pre">Git</span> <span class="pre">and</span> <span class="pre">GitHub</span></code> course delivered within the CfRR program.</p>
+<section id="clone-the-central-repository">
+<h4>Clone the Central Repository<a class="headerlink" href="#clone-the-central-repository" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Access Original Repository</strong>: Navigate to the CfRR repository, found here: <a class="github reference external" href="https://github.com/coding-for-reproducible-research/CfRR_Courses/tree/main">coding-for-reproducible-research/CfRR_Courses</a></p></li>
-<li><p><strong>Fork the Original Repository</strong>: Click on the <code class="docutils literal notranslate"><span class="pre">Fork</span></code> button at the top right corner of the repository page. This will create a copy of the repository under your personal GitHub account.</p></li>
-<li><p><strong>Access Fork Repository</strong>: Find the forked repository in your GitHub profile.</p></li>
-<li><p><strong>Clone Fork Repository</strong>: Click on the <code class="docutils literal notranslate"><span class="pre">Code</span></code> button, copy the URL, and run the following command within your terminal to clone the forked repository to your local machine: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/YOUR-USERNAME/REPO-NAME.git</span></code></p></li>
+<li><p><strong>Clone the Repository</strong>: Click on the <code class="docutils literal notranslate"><span class="pre">Code</span></code> button, copy the URL, and run the following command within your terminal to clone the repository to your local machine: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/coding-for-reproducible-research/CfRR_Courses.git</span></code></p></li>
 </ul>
-<section id="fork-repository-button">
-<h5>Fork Repository Button<a class="headerlink" href="#fork-repository-button" title="Link to this heading">#</a></h5>
-<figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/fork_button.png"><img alt="GitHub Fork Button" src="../_images/fork_button.png" style="width: 80%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">GitHub Fork Button</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
 </section>
-<section id="creating-a-fork-form">
-<h5>Creating a Fork Form<a class="headerlink" href="#creating-a-fork-form" title="Link to this heading">#</a></h5>
-<figure class="align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/creating_a_fork_form.png"><img alt="Creating a Fork Form" src="../_images/creating_a_fork_form.png" style="width: 80%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Creating a Fork Form</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-</section>
-<section id="make-changes-in-forked-repository">
-<h4>Make Changes in Forked Repository<a class="headerlink" href="#make-changes-in-forked-repository" title="Link to this heading">#</a></h4>
+<section id="create-and-use-a-new-branch">
+<h4>Create and Use a New Branch<a class="headerlink" href="#create-and-use-a-new-branch" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Navigate to Repository Directory</strong>: On your local machine, you will then need to navigate to the repository directory that has just been downloaded, achieved with: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">REPO-NAME</span></code></p></li>
+<li><p><strong>Navigate to Repository Directory</strong>: On your local machine, navigate to the repository directory that has just been downloaded, achieved with: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">CfRR_Courses</span></code></p></li>
 <li><p><strong>Create a New Branch</strong>: Create a new branch for the changes you want to make within the repository, achieved with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">your-branch-name</span></code></p></li>
-<li><p><strong>Make Changes</strong>: Make the necessary changes to the content, such as fixing issues, adding a new course etc.</p></li>
-<li><p><strong>Stage your changes</strong>: Add the files you have changed to the staging area; this can be done for all files within the current repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code></p></li>
-<li><p><strong>Commit your changes</strong>: Commit the changes to the branch with the following command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Description</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">changes</span> <span class="pre">you</span> <span class="pre">made</span></code></p></li>
-<li><p><strong>Push your changes</strong>: Push the changes that have been made to your forked repository on GitHub with the following command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">your-branch-name</span></code></p></li>
+<li><p><strong>Make Changes</strong>: Make the necessary changes to the content, such as fixing issues, adding a new course, etc.</p></li>
+<li><p><strong>Stage your changes</strong>: Add the files you have changed to the staging area; this can be done for the file <code class="docutils literal notranslate"><span class="pre">example.txt</span></code> with the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">example.txt</span></code></p></li>
+<li><p><strong>Commit your changes</strong>: Commit the changes to the branch with the following command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Description</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">changes</span> <span class="pre">you</span> <span class="pre">made&quot;</span></code></p></li>
+<li><p><strong>Push your changes</strong>: Push the changes that have been made to your branch on GitHub with the following command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">your-branch-name</span></code></p></li>
 </ul>
 </section>
-<section id="contribute-back-to-the-main-cfrr-repository">
-<h4>Contribute back to the Main CfRR Repository<a class="headerlink" href="#contribute-back-to-the-main-cfrr-repository" title="Link to this heading">#</a></h4>
+<section id="contribute-back-to-the-main-cfrr-branch">
+<h4>Contribute back to the Main CfRR Branch<a class="headerlink" href="#contribute-back-to-the-main-cfrr-branch" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Github Forked Repository</strong>: Navigate to the repository on GitHub where you pushed the branch.</p></li>
-<li><p><strong>Create a Pull Request</strong>: At the top of the GitHub page, you should see a prompt to create a pull request for the branch you pushed; click on <code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">and</span> <span class="pre">Pull</span> <span class="pre">Request</span></code>.</p></li>
-<li><p><strong>Complete Pull Request Form</strong> Provide both a title and a description for the pull request.</p></li>
+<li><p><strong>Github Repository</strong>: Navigate to the repository on GitHub where you pushed the branch.</p></li>
+<li><p><strong>Create a Pull Request</strong>: At the top of the GitHub page, you should see a prompt to create a pull request for the branch you pushed; click on <code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">and</span> <span class="pre">Pull</span> <span class="pre">Request</span></code>. If you dont see this, try switching from the branch you are currently on to the branch you have created.</p></li>
+<li><p><strong>Complete Pull Request Form</strong>: Provide both a title and a description for the pull request.</p></li>
 <li><p><strong>Select the base repository and branch</strong>: Ensure that the base repository is set to the original repository and the base branch is the branch you want to merge into (<code class="docutils literal notranslate"><span class="pre">main</span></code> for CfRR_Courses).</p></li>
-<li><p><strong>Submit the Pull Request</strong>: Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Pull</span> <span class="pre">Request</span></code> to submit the pull request and allow us, the central CfRR, to integrate the changes into the main materials.</p></li>
+<li><p><strong>Submit the Pull Request</strong>: Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Pull</span> <span class="pre">Request</span></code> to submit the pull request and allow us, the central CfRR team, to integrate the changes into the main materials.</p></li>
 </ul>
 <section id="pull-request-banner">
 <h5>Pull Request Banner<a class="headerlink" href="#pull-request-banner" title="Link to this heading">#</a></h5>
-<figure class="align-center" id="id5">
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/pull_request_banner.png"><img alt="Example Pull Request Banner" src="../_images/pull_request_banner.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Example Pull Request Banner</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Example Pull Request Banner</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="pull-request-form">
 <h5>Pull Request Form<a class="headerlink" href="#pull-request-form" title="Link to this heading">#</a></h5>
-<figure class="align-center" id="id6">
+<figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/pull_request_submission_form.png"><img alt="Example Pull Request Submission Form" src="../_images/pull_request_submission_form.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Example Pull Request Submission Form</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Example Pull Request Submission Form</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -911,13 +887,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-forked-repository">Create a Forked Repository</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-repository-button">Fork Repository Button</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-fork-form">Creating a Fork Form</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes-in-forked-repository">Make Changes in Forked Repository</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-back-to-the-main-cfrr-repository">Contribute back to the Main CfRR Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-central-repository">Clone the Central Repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-use-a-new-branch">Create and Use a New Branch</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-back-to-the-main-cfrr-branch">Contribute back to the Main CfRR Branch</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-banner">Pull Request Banner</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-request-form">Pull Request Form</a></li>
 </ul>
